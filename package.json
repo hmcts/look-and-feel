@@ -1,0 +1,22 @@
+{
+  "name": "@hmcts/look-and-feel",
+  "description": "One question per page apps made easy",
+  "version": "0.0.1",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.0"
+  },
+  "main": "./src/main.js",
+  "scripts": {
+    "test": "NODE_PATH=. NODE_ENV=testing mocha 'test/**/*.test.js'"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "express-nunjucks": "^2.2.3",
+    "govuk_template_jinja": "^0.22.3",
+    "nunjucks": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.4.0"
+  }
+}

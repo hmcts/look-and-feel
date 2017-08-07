@@ -1,0 +1,11 @@
+version: '2.1'
+
+services:
+  dev:
+    build:
+      context: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "9229:9229"
+      - "3000:3000"
