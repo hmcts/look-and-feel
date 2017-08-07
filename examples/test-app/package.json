@@ -1,0 +1,17 @@
+{
+  "name": "@hmcts/look-and-feel-test-app",
+  "description": "Example app using look-and-feel",
+  "version": "0.0.1",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "@hmcts/look-and-feel": "./../../"
+  },
+  "devDependencies": {}
+}
