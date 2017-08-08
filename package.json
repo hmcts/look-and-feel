@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "check-types": "^7.3.0",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
     "express": "^4.15.3",
     "express-nunjucks": "^2.2.3",

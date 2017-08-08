@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const isDev = require('./util/isDev');
 
 const scss = require('./webpack/rules/scss');
+const govukTemplate = require('./sources/govukTemplate');
 
 const assetPath = (baseUrl) => {
   return url.resolve(baseUrl, 'assets/');
@@ -11,7 +12,10 @@ const assetPath = (baseUrl) => {
 
 const webpackSettings = (settings) => {
   const defaults = {
-    plugins: [...scss.plugins],
+    plugins: [
+      ...scss.plugins,
+      ...govukTemplate.plugins
+    ],
     module: {
       rules: [
         ...scss.rules
