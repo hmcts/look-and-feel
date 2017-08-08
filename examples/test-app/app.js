@@ -5,7 +5,7 @@ const lookAndFeel = require('@hmcts/look-and-feel');
 const app = express();
 
 lookAndFeel.configure(app, {
-  baseUrl: 'http://localhost',
+  baseUrl: 'http://localhost:3000',
   express: { views: ['views'] },
   webpack: {
     entry: [

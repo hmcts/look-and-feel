@@ -1,6 +1,10 @@
 {% extends "govuk_template.html" %}
 {% from "patterns/header.njk" import header %}
 
+{% block head -%}
+  <link href="{{ asset_path }}main.css" media="screen" rel="stylesheet" />
+{% endblock %}
+
 {% block content -%}
   {{ header("Hello World!") }}
   Hello World!
