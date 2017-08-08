@@ -1,14 +1,5 @@
-const path = require('path');
-
-const patternsTemplateDir = () => {
-  return path.resolve(__dirname, '../templates');
-};
-
-const govukTemplateDir = () => {
-  // GOV.UK points to it's HTML template directly
-  // Nunjucks expects a directory so we need to step up a level
-  return path.resolve(require.resolve('govuk_template_jinja'), '../');
-};
+const govukTemplate = require('./sources/govukTemplate');
+const patterns = require('./sources/patterns');
 
 const ensureArray = (maybeArray) => {
   if (typeof maybeArray === 'string') return [maybeArray];
@@ -16,15 +7,12 @@ const ensureArray = (maybeArray) => {
 };
 
 const configureViews = (app, extraViews) => {
-  const govukViews = [
-    govukTemplateDir(),
-    patternsTemplateDir()
-  ];
   const userViews = ensureArray(extraViews);
   const existingViews = ensureArray(app.get('views'));
 
   return app.set('views', [
-    ...govukViews,
+    govukTemplate.paths.templates,
+    patterns.paths.templates,
     ...userViews,
     ...existingViews
   ]);

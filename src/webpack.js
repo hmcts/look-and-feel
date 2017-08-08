@@ -1,5 +1,4 @@
 const url = require('url');
-const path = require('path');
 const webpackDev = require('webpack-dev-middleware');
 const webpack = require('webpack');
 const isDev = require('./util/isDev');
