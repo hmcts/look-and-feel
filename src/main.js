@@ -1,5 +1,5 @@
-const nunjucks = require('express-nunjucks');
 const { configureViews } = require('./views');
+const { configureNunjucks } = require('./nunjucks');
 
 const expressDefaults = {
   views: []
@@ -7,9 +7,11 @@ const expressDefaults = {
 
 const configure = (app, {
   express = expressDefaults
+  nunjucks = {}
 } = {}) => {
   configureViews(app, express.views);
-  nunjucks(app);
+  configureNunjucks(app, nunjucks);
+
   return app;
 };
 
