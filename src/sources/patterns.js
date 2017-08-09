@@ -1,7 +1,8 @@
 const path = require('path');
 
-const templates = path.resolve(__dirname, './../../templates');
+const root = path.resolve(__dirname, './../../');
+const templates = path.resolve(root, './templates');
 
 module.exports = {
-  paths: { templates }
+  paths: { root, templates }
 };
