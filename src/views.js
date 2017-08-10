@@ -1,7 +1,7 @@
 const govukTemplate = require('./sources/govukTemplate');
 const patterns = require('./sources/patterns');
 
-const ensureArray = (maybeArray) => {
+const ensureArray = maybeArray => {
   if (typeof maybeArray === 'string') return [maybeArray];
   return maybeArray;
 };

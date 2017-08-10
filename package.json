@@ -8,16 +8,20 @@
   },
   "main": "./src/main.js",
   "scripts": {
-    "test": "NODE_PATH=. NODE_ENV=testing mocha 'test/**/*.test.js'"
+    "test": "NODE_PATH=. NODE_ENV=testing mocha 'test/**/*.test.js'",
+    "lint": "eslint ."
   },
   "dependencies": {
     "check-types": "^7.3.0",
+    "config": "^1.26.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
+    "diff-so-fancy": "^1.1.1",
     "express": "^4.15.3",
     "express-nunjucks": "^2.2.3",
     "extract-text-webpack-plugin": "^3.0.0",
     "govuk_template_jinja": "^0.22.3",
+    "js-yaml": "^3.9.1",
     "node-sass": "^4.5.3",
     "nunjucks": "^3.0.1",
     "sass-loader": "^6.0.6",
@@ -26,9 +30,10 @@
     "webpack-dev-middleware": "^1.12.0"
   },
   "devDependencies": {
+    "@hmcts/eslint-config": "^1.0.4",
     "chai": "^4.1.1",
     "chai-fs": "^1.0.0",
-    "eslint": "^4.4.0",
+    "eslint": "^4.4.1",
     "mocha": "^3.5.0"
   }
 }

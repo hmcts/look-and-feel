@@ -6,6 +6,11 @@
 {% endblock %}
 
 {% block content -%}
-  {{ header("Hello World!") }}
-  Hello World!
+  {{
+    header(
+      heading="Hello World!",
+      subheading="I'm a subheading"
+    )
+  }}
+  <p>Lorem ipsum dolor sit.</p>
 {%- endblock %}
