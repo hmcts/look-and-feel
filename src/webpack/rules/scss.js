@@ -1,7 +1,6 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const extractSass = new ExtractTextPlugin({
-  filename: '[name].css'
-});
+
+const extractSass = new ExtractTextPlugin({ filename: '[name].css' });
 
 const scssRule = {
   test: /\.scss$/,
