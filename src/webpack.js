@@ -5,6 +5,7 @@ const isDev = require('./util/isDev');
 
 const scss = require('./webpack/rules/scss');
 const govukTemplate = require('./sources/govukTemplate');
+const govukElements = require('./sources/govukElements');
 
 const assetPath = baseUrl => url.resolve(baseUrl, 'assets/');
 
@@ -14,7 +15,8 @@ const webpackSettings = settings => {
       ...scss.plugins,
       ...govukTemplate.plugins
     ],
-    module: { rules: [...scss.rules] }
+    module: { rules: [...scss.rules] },
+    resolve: { alias: Object.assign({}, govukElements.alias) }
   };
   return Object.assign({}, defaults, settings);
 };
