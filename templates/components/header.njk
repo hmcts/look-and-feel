@@ -1,0 +1,19 @@
+{#
+  Header
+    heading - (required) Main heading text
+    section - (optional) Section text displayed above the heading
+    size    - (default = 'xlarge') heading size
+
+  When size is not xlarge or large the section will not be displayed as
+  the size and lightness of the text would not be easily read.
+#}
+{% macro header(heading, section='', size='xlarge') %}
+<h1 class="heading-{{ size }}">
+{% if section != '' and (size == 'xlarge' or size == 'large') %}
+  <span class="heading-secondary">
+    {{ section }}
+  </span>
+{% endif %}
+  {{ heading }}
+</h1>
+{% endmacro %}
