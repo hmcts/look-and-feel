@@ -1,8 +1,8 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-// Walk the tree to get back to the root of the module
-const root = path.resolve(require.resolve('govuk_template_jinja'), '../../../');
+const packageJson = require.resolve('govuk_template_jinja/package.json');
+const root = path.resolve(packageJson, '..');
 
 const templates = path.resolve(root, 'views');
 const assets = path.resolve(root, 'assets');
