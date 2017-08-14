@@ -1,0 +1,16 @@
+{% extends "layouts/two_thirds.html" %}
+{% from "components/header.njk" import header %}
+{% from "components/examples.njk" import example %}
+
+{% block head -%}
+  <link href="{{ asset_path }}main.css" media="screen" rel="stylesheet" />
+{% endblock %}
+
+{% block two_thirds -%}
+  {{ header("Typography", "Components") }}
+
+  {{ header(heading="A 48px Bold heading", section="Section marker") }}
+  {{ header(heading="A 36px Bold heading", section="Section marker", size="large") }}
+  {{ header(heading="A 24px Bold heading", section="Section marker", size="medium") }}
+  {{ header(heading="A 19px Bold heading", section="Section marker", size="small") }}
+{%- endblock %}

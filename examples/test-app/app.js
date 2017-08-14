@@ -11,8 +11,8 @@ lookAndFeel.configure(app, {
   webpack: { entry: [path.resolve(__dirname, './assets/scss/main.scss')] }
 });
 
-app.get('/hello-world', (req, res) => {
-  res.render('HelloWorld');
+app.get('/typography', (req, res) => {
+  res.render('Typography');
 });
 
 app.listen(config.port);
