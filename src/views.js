@@ -1,5 +1,5 @@
 const govukTemplate = require('./sources/govukTemplate');
-const patterns = require('./sources/patterns');
+const lookAndFeel = require('./sources/lookAndFeel');
 
 const ensureArray = maybeArray => {
   if (typeof maybeArray === 'string') return [maybeArray];
@@ -12,7 +12,7 @@ const configureViews = (app, extraViews) => {
 
   return app.set('views', [
     govukTemplate.paths.templates,
-    patterns.paths.templates,
+    lookAndFeel.paths.templates,
     ...userViews,
     ...existingViews
   ]);

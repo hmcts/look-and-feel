@@ -1,17 +1,17 @@
 const { expect } = require('./../util/chai');
-const patterns = require('./../../src/sources/patterns');
+const lookAndFeel = require('./../../src/sources/lookAndFeel');
 
-describe('sources/patterns', () => {
+describe('sources/lookAndFeel', () => {
   describe('.paths', () => {
     it('.root => path to the module root', () => {
-      expect(patterns.paths.root)
+      expect(lookAndFeel.paths.root)
         .to.be.a.directory()
         .and.include.contents(['package.json']);
     });
     it('.templates => path to the templates directory', () => {
-      expect(patterns.paths.templates)
+      expect(lookAndFeel.paths.templates)
         .to.be.a.directory()
-        .and.include.contents(['patterns']);
+        .and.include.contents(['layouts', 'components']);
     });
   });
 });
