@@ -1,3 +1,10 @@
+<a name="0.1.1"></a>
+## 0.1.1 (2017-08-15)
+
+* Refresh npm api key ([578846e](https://github.com/hmcts/look-and-feel/commit/578846e))
+
+
+
 <a name="0.1.0"></a>
 # 0.1.0 (2017-08-15)
 
