@@ -13,6 +13,7 @@ const configureViews = (app, extraViews) => {
   return app.set('views', [
     govukTemplate.paths.templates,
     lookAndFeel.paths.templates,
+    lookAndFeel.backwardsCompatibility.templates,
     ...userViews,
     ...existingViews
   ]);

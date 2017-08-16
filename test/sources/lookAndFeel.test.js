@@ -11,6 +11,13 @@ describe('sources/lookAndFeel', () => {
     it('.templates => path to the templates directory', () => {
       expect(lookAndFeel.paths.templates)
         .to.be.a.directory()
+        .and.include.contents(['look-and-feel']);
+    });
+  });
+  describe('.backwardsCompatibility', () => {
+    it('.templates => path to the templates directory', () => {
+      expect(lookAndFeel.backwardsCompatibility.templates)
+        .to.be.a.directory()
         .and.include.contents(['layouts', 'components']);
     });
   });
