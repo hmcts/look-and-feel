@@ -1,3 +1,11 @@
+<a name="0.2.0"></a>
+# 0.2.0 (2017-08-16)
+
+* Add a look-and-feel namespace to template imports ([40a848c](https://github.com/hmcts/look-and-feel/commit/40a848c))
+* Add badges to Readme ([bb618c5](https://github.com/hmcts/look-and-feel/commit/bb618c5))
+
+
+
 <a name="0.1.1"></a>
 ## 0.1.1 (2017-08-15)
 
