@@ -1,0 +1,38 @@
+{#
+  textbox
+    field - (required) A field object containing name, id and value
+    label - (required) The label to apply to the field
+    hint  - (default = '') Extra hint text to place under the label
+
+  Renders a simple text box input field.
+#}
+{% macro textbox(field, label, hint=false) %}
+<div class="form-group">
+  <label class="form-label"
+         for="{{ field.id }}">
+    {{ label }}
+    {%- if hint %}
+    <span class="form-hint">
+      {{ hint }}
+    </span>
+    {%- endif %}
+  </label>
+  <input class="form-control"
+         id="{{ field.id }}"
+         name="{{ field.name }}"
+         type="text"
+         value="{{ field.value }}">
+</div>
+{% endmacro %}
+
+{#
+  formSection
+
+  Groups fields in to sections spaced with padding
+#}
+{% macro formSection() %}
+<div class="form-section">
+  {{ caller() }}
+</div>
+{% endmacro %}
+
