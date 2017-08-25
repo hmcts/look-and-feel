@@ -1,0 +1,21 @@
+{% extends "look-and-feel/layouts/two_thirds.html" %}
+{% from "look-and-feel/components/header.njk" import header %}
+
+{% block page_title %}{{ title }}{% endblock %}
+
+{% block two_thirds %}
+
+<a class="link-back" href="#" onclick="history.go(-1); return false;">Back</a>
+
+{{ header(title, size='large') }}
+
+<form action="{{ url }}" method="post" class="form">
+
+  {% block fields -%}
+  {%- endblock %}
+
+  <input class="button" type="submit" value="Continue">
+</form>
+
+{% endblock %}
+
