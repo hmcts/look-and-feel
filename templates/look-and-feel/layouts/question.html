@@ -1,9 +1,11 @@
 {% extends "look-and-feel/layouts/two_thirds.html" %}
 {% from "look-and-feel/components/header.njk" import header %}
+{% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
 
 {% block page_title %}{{ title }}{% endblock %}
 
 {% block breadcrumbs %}
+{{ phaseBanner(phase, feedbackLink) }}
 <a class="link-back" href="#" onclick="history.go(-1); return false;">Back</a>
 {% endblock %}
 
