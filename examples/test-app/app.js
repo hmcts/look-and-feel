@@ -11,6 +11,14 @@ lookAndFeel.configure(app, {
   webpack: { entry: [path.resolve(__dirname, './assets/scss/main.scss')] }
 });
 
+app.get('/', (req, res) => {
+  res.render('Start', {
+    title: 'Apply for Divorce',
+    phase: 'ALPHA',
+    feedbackLink: 'https://github.com/hmcts/look-and-feel/issues/new'
+  });
+});
+
 app.get('/typography', (req, res) => {
   res.render('Typography');
 });
