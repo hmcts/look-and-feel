@@ -4,22 +4,25 @@ const govukToolkit = require('../../sources/govukToolkit');
 
 const extractSass = new ExtractTextPlugin({ filename: '[name].css' });
 
-const sassLoader = {
-  loader: 'sass-loader',
-  options: {
-    includePaths: [
-      govukElements.paths.sass,
-      govukToolkit.paths.sass
-    ]
-  }
+const sass = assetPath => {
+  const sassLoader = {
+    loader: 'sass-loader',
+    options: {
+      includePaths: [
+        govukElements.paths.sass,
+        govukToolkit.paths.sass
+      ],
+      /* eslint-disable id-blacklist */
+      data: `$path: '${assetPath}/images/';`
+      /* eslint-enable id-blacklist */
+    }
+  };
+  const scssRule = {
+    test: /\.scss$/,
+    use: extractSass.extract(['css-loader', sassLoader])
+  };
+
+  return { rules: [scssRule], plugins: [extractSass] };
 };
 
-const scssRule = {
-  test: /\.scss$/,
-  use: extractSass.extract(['css-loader', sassLoader])
-};
-
-module.exports = {
-  rules: [scssRule],
-  plugins: [extractSass]
-};
+module.exports = sass;
