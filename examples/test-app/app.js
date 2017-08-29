@@ -15,4 +15,16 @@ app.get('/typography', (req, res) => {
   res.render('Typography');
 });
 
+app.get('/question', (req, res) => {
+  res.render('Question', {
+    url: '/localhost',
+    phase: 'ALPHA',
+    feedbackLink: 'https://github.com/hmcts/look-and-feel/issues/new',
+    fields: {
+      firstName: { id: 'firstName', name: 'firstName', value: 'Michael' },
+      lastName: { id: 'lastName', name: 'lastName', value: 'Allen' }
+    }
+  });
+});
+
 app.listen(config.port);

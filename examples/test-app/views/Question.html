@@ -1,0 +1,17 @@
+{% extends "look-and-feel/layouts/question.html" %}
+{% from "look-and-feel/components/fields.njk" import textbox %}
+
+{% set title %}
+  What is your name?
+{% endset %}
+
+{% block head -%}
+  <link href="{{ asset_path }}main.css" media="screen" rel="stylesheet" />
+{% endblock %}
+
+{% block fields %}
+
+  {{ textbox(fields.firstName, "First name(s)", hint="Include all middle names here") }}
+  {{ textbox(fields.lastName, "Last name(s)") }}
+
+{% endblock %}
