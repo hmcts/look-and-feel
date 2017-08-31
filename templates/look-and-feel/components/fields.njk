@@ -36,3 +36,52 @@
 </div>
 {% endmacro %}
 
+
+{#
+  selectionButtons
+    field         - (required) A field object containing name, id and value
+    label         - (required) The label to apply to the field
+    hint          - (default = '') Extra hint text to place under the label
+    hideQuestion  - (default = true) Hides the question in the legend (for when you have a heading on the page that is the same question)
+    options       - (default = []) Options used to populate the possible answers
+
+    options.label - (required) The label text to display for this option
+    options.value - (default = label.lowercase()) The value to be sent on post for this option
+
+  Renders multiple option radio buttons
+#}
+{% macro selectionButtons(field, question, options=[], hint=false, hideQuestion=true) %}
+    <fieldset>
+
+      <legend>
+        {% if hideQuestion %}
+          <h1 class="visually-hidden heading-medium">{{ question }}</h1>
+        {% else %}
+          <h1 class="heading-medium">{{ question }}</h1>
+        {% endif %}
+        {% if hint -%}
+          <span class="body-text form-hint" id="{{ field.id }}-hint">
+            {{ hint }}
+          </span>
+        {%- endif %}
+      </legend>
+
+      {% for option in options -%}
+        {% set option_value = option.value or option.label|lower %}
+        <div class="multiple-choice">
+          <input id="{{ field.id }}-{{ option_value }}"
+                 type="radio"
+                 name="{{ field.name }}"
+                 {% if field.value == option_value %}
+                 checked="checked"
+                 {% endif %}
+                 value="{{ option_value }}">
+          <label for="{{ field.id }}-{{ option_value }}">
+            {{ option.label }}
+          </label>
+        </div>
+      {%- endfor %}
+
+    </fieldset>
+
+{% endmacro %}
