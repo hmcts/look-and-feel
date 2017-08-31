@@ -51,7 +51,13 @@
 
   Renders multiple option radio buttons
 #}
-{% macro selectionButtons(field, question, options=[], hint=false, hideQuestion=true, inline=false) %}
+{% macro selectionButtons(field,
+                          question,
+                          options=[],
+                          hint=false,
+                          hideQuestion=true,
+                          inline=false,
+                          type='radio') %}
   <fieldset{% if inline %} class="inline"{% endif %}>
 
       <legend>
@@ -72,7 +78,7 @@
         {% set option_disabled = option.disabled or false %}
         <div class="multiple-choice">
           <input id="{{ field.id }}-{{ option_value }}"
-                 type="radio"
+                 type="{{ type }}"
                  name="{{ field.name }}"
                  {% if field.value == option_value %}
                  checked="checked"
