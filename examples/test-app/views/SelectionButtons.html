@@ -11,6 +11,15 @@
 
   {% set field = { id: 'country', name: 'country' } %}
 
+  <p>
+    To use this field you need to import it in to your template.
+  </p>
+  <div class="panel panel-border-wide">
+    {{ header('Code', size='small') }}
+    <pre><code>{% raw %}{% from "look-and-feel/components/fields.njk" import selectionButtons %}
+{% endraw %}</code></pre>
+  </div>
+
   {{ header("Multiple radio options", size="medium") }}
 
   <div class="example">
@@ -26,20 +35,43 @@
     ) }}
   </div>
 
-<div class="panel panel-border-wide">
-  {{ header('Code', size='small') }}
-  <pre>
-  <code>
-  {% raw %}{{ selectionButtons(field, "Where do you live?",
-    hint = 'Some advice about the question',
-    hideQuestion = false,
-    options = [
-      { label: "Northern Ireland", value: "northern-ireland" },
-      { label: "Scotland" },
-      { label: "England" },
-      { label: "Wales" }
-    ]
-  ) }}{% endraw %}</code></pre>
-</div>
+  <div class="panel panel-border-wide">
+    {{ header('Code', size='small') }}
+    <pre><code>{% raw %}{{ selectionButtons(field, "Where do you live?",
+  hint = 'Some advice about the question',
+  hideQuestion = false,
+  options = [
+    { label: "Northern Ireland", value: "northern-ireland" },
+    { label: "Scotland" },
+    { label: "England" },
+    { label: "Wales" }
+  ]
+) }}{% endraw %}</code></pre>
+  </div>
+
+  {{ header("Inline radio options", size="medium") }}
+
+  <div class="example">
+    {{ selectionButtons(field, "Do you have your marriage certificate?",
+      hideQuestion = false,
+      inline = true,
+      options = [
+        { label: "Yes" },
+        { label: "No" }
+      ]
+    ) }}
+  </div>
+
+  <div class="panel panel-border-wide">
+    {{ header('Code', size='small') }}
+    <pre><code>{% raw %}{{ selectionButtons(field, "Do you have your marriage certificate?",
+  hideQuestion = false,
+  inline = true,
+  options = [
+    { label: "Yes" },
+    { label: "No" }
+  ]
+) }}{% endraw %}</code></pre>
+  </div>
 {%- endblock %}
 
