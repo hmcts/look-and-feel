@@ -73,5 +73,26 @@
   ]
 ) }}{% endraw %}</code></pre>
   </div>
+
+  {{ header("Disable options", size="medium") }}
+
+  <div class="example">
+    {{ selectionButtons(field, "A question",
+      hideQuestion = true,
+      options = [
+        { label: "Isle of Man or the Channel Islands", disabled: true }
+      ]
+    ) }}
+  </div>
+
+  <div class="panel panel-border-wide">
+    {{ header('Code', size='small') }}
+    <pre><code>{% raw %}{{ selectionButtons(field, "A question",
+  hideQuestion = true,
+  options = [
+    { label: "Isle of Man or the Channel Islands", disabled: true }
+  ]
+) }}{% endraw %}</code></pre>
+  </div>
 {%- endblock %}
 

@@ -69,12 +69,16 @@
 
       {% for option in options -%}
         {% set option_value = option.value or option.label|lower %}
+        {% set option_disabled = option.disabled or false %}
         <div class="multiple-choice">
           <input id="{{ field.id }}-{{ option_value }}"
                  type="radio"
                  name="{{ field.name }}"
                  {% if field.value == option_value %}
                  checked="checked"
+                 {% endif %}
+                 {% if option_disabled %}
+                 disabled
                  {% endif %}
                  value="{{ option_value }}">
           <label for="{{ field.id }}-{{ option_value }}">
