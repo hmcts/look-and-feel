@@ -94,5 +94,30 @@
   ]
 ) }}{% endraw %}</code></pre>
   </div>
+
+  {{ header("Checkboxes", size="medium") }}
+
+  <div class="example">
+    {{ selectionButtons(field, "Which types of waste do you transport regularly?",
+      hideQuestion = false,
+      hint = 'Select all that apply',
+      type = 'checkbox',
+      options = [
+        { label: "Waste from animal carcasses", value: 'animal' },
+        { label: "Waste from mines or quarries", value: 'mines' },
+        { label: "Farm or agricultural waste", value: 'agriculture' }
+      ]
+    ) }}
+  </div>
+
+  <div class="panel panel-border-wide">
+    {{ header('Code', size='small') }}
+    <pre><code>{% raw %}{{ selectionButtons(field, "A question",
+  hideQuestion = true,
+  options = [
+    { label: "Isle of Man or the Channel Islands", disabled: true }
+  ]
+) }}{% endraw %}</code></pre>
+  </div>
 {%- endblock %}
 
