@@ -1,3 +1,22 @@
+<a name="0.2.1"></a>
+## 0.2.1 (2017-08-31)
+
+* Add a phase banner to the top of questions ([78292b6](https://github.com/hmcts/look-and-feel/commit/78292b6))
+* Add a selectionButton macro to help rendering radios ([3ca41e9](https://github.com/hmcts/look-and-feel/commit/3ca41e9))
+* Add checkboxes to selection buttons ([d2ac863](https://github.com/hmcts/look-and-feel/commit/d2ac863))
+* Add disabled radios to selectionButtons ([3fbddf8](https://github.com/hmcts/look-and-feel/commit/3fbddf8))
+* Add inline radios to selectionButtons ([c56d077](https://github.com/hmcts/look-and-feel/commit/c56d077))
+* Create a simple startpage template ([e6227b6](https://github.com/hmcts/look-and-feel/commit/e6227b6))
+* Demo page of a question template ([c96666a](https://github.com/hmcts/look-and-feel/commit/c96666a))
+* Document the selection buttons macro ([878f1d3](https://github.com/hmcts/look-and-feel/commit/878f1d3))
+* Ensure govuk toolkit images are available in the webpack output ([f436b3e](https://github.com/hmcts/look-and-feel/commit/f436b3e))
+* Move back link in to breadcrumb block ([cface74](https://github.com/hmcts/look-and-feel/commit/cface74))
+* Move breadcrumbs inside the page width ([bfc6bf8](https://github.com/hmcts/look-and-feel/commit/bfc6bf8))
+* Question layout ([ef4140f](https://github.com/hmcts/look-and-feel/commit/ef4140f))
+* Textbox field for question pages ([d0ce67f](https://github.com/hmcts/look-and-feel/commit/d0ce67f))
+
+
+
 <a name="0.2.0"></a>
 # 0.2.0 (2017-08-16)
 
