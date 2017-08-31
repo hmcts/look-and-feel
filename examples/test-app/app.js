@@ -19,6 +19,10 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/selection-buttons', (req, res) => {
+  res.render('SelectionButtons');
+});
+
 app.get('/typography', (req, res) => {
   res.render('Typography');
 });
