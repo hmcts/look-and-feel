@@ -2,7 +2,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const govukElements = require('../../sources/govukElements');
 const govukToolkit = require('../../sources/govukToolkit');
 
-const extractSass = new ExtractTextPlugin({ filename: '[name].css' });
+const extractSassIntoFiles = new ExtractTextPlugin({ filename: '[name].css' });
 
 const sass = assetPath => {
   const sassLoader = {
@@ -17,12 +17,12 @@ const sass = assetPath => {
       /* eslint-enable id-blacklist */
     }
   };
-  const scssRule = {
+  const scssLoader = {
     test: /\.scss$/,
-    use: extractSass.extract(['css-loader', sassLoader])
+    use: extractSassIntoFiles.extract(['css-loader', sassLoader])
   };
 
-  return { rules: [scssRule], plugins: [extractSass] };
+  return { scssLoader, extractSassIntoFiles };
 };
 
 module.exports = sass;
