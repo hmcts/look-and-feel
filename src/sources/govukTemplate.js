@@ -18,5 +18,5 @@ const copyGovukTemplateAssets = new CopyWebpackPlugin([
 
 module.exports = {
   paths: { root, templates, assets, images, javascripts, stylesheets },
-  plugins: [ copyGovukTemplateAssets ]
+  copyGovukTemplateAssets
 };
