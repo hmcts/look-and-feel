@@ -17,7 +17,7 @@ const webpackSettings = (_assetPath, settings) => {
     plugins: [
       _scss.extractSassIntoFiles,
       govukTemplate.copyGovukTemplateAssets,
-      ...govukToolkit.plugins
+      govukToolkit.copyGovukToolkitAssets
     ],
     module: { rules: [ _scss.scssLoader ] },
     resolve: {
