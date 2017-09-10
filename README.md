@@ -1,5 +1,7 @@
 # Look and Feel
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/hmcts/look-and-feel.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/hmcts/look-and-feel.svg?branch=master)](https://travis-ci.org/hmcts/look-and-feel)
 [![npm (scoped)](https://img.shields.io/npm/v/@hmcts/look-and-feel.svg)](https://www.npmjs.com/package/@hmcts/look-and-feel)
 [![Codacy grade](https://img.shields.io/codacy/grade/46e31ccc16cf41688c9e8dd5e4c112a9.svg)](https://www.codacy.com/app/michaeldfallen/look-and-feel)
