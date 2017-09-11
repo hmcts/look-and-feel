@@ -11,7 +11,7 @@
 
 {% block fields %}
 
-  {{ textbox(fields.firstName, "First name(s)", hint="Include all middle names here") }}
-  {{ textbox(fields.lastName, "Last name(s)") }}
+  {{ textbox(fields.get('firstName'), "First name(s)", hint="Include all middle names here") }}
+  {{ textbox(fields.get('lastName'), "Last name(s)") }}
 
 {% endblock %}
