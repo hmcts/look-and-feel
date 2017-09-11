@@ -7,7 +7,9 @@
   Renders a simple text box input field.
 #}
 {% macro textbox(field, label, hint=false) %}
-<div class="form-group">
+<div class="form-group {{ 'form-group-error' if field.error }}">
+
+  {{ errorsFor(field) }}
   <label class="form-label"
          for="{{ field.id }}">
     {{ label }}
@@ -19,7 +21,7 @@
   </label>
   <input class="form-control"
          id="{{ field.id }}"
-         name="{{ field.name }}"
+         name="{{ field.id }}"
          type="text"
          value="{{ field.value }}">
 </div>
@@ -35,7 +37,6 @@
   {{ caller() }}
 </div>
 {% endmacro %}
-
 
 {#
   selectionButtons
@@ -79,7 +80,7 @@
         <div class="multiple-choice">
           <input id="{{ field.id }}-{{ option_value }}"
                  type="{{ type }}"
-                 name="{{ field.name }}"
+                 name="{{ field.id }}"
                  {% if field.value == option_value %}
                  checked="checked"
                  {% endif %}
@@ -96,3 +97,12 @@
     </fieldset>
 
 {% endmacro %}
+
+{% macro errorsFor(field) -%}
+    {% if field.error %}
+        <span class="error-message">
+      {{ field.error | safe}}
+    </span>
+    {% endif %}
+{%- endmacro %}
+
