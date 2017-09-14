@@ -59,7 +59,11 @@
                           hideQuestion=true,
                           inline=false,
                           type='radio') %}
-  <fieldset{% if inline %} class="inline"{% endif %}>
+  <div class="form-group {{ 'form-group-error' if field.error }}">
+
+    {{ errorsFor(field) }}
+
+    <fieldset{% if inline %} class="inline"{% endif %} id="{{ field.id }}">
 
       <legend>
         {% if hideQuestion %}
@@ -95,7 +99,7 @@
       {%- endfor %}
 
     </fieldset>
-
+  </div>
 {% endmacro %}
 
 {% macro errorsFor(field) -%}
