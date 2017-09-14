@@ -8,7 +8,11 @@ const app = express();
 lookAndFeel.configure(app, {
   baseUrl: `http://localhost:${config.port}`,
   express: { views: ['views'] },
-  webpack: { entry: [path.resolve(__dirname, './assets/scss/main.scss')] }
+  webpack: {
+    entry: [
+        path.resolve(__dirname, './assets/scss/main.scss'),
+        path.resolve(__dirname, './assets/js/myCustomJS.js')
+    ] }
 });
 
 app.get('/', (req, res) => {
@@ -37,6 +41,10 @@ app.get('/question', (req, res) => {
       lastName: { id: 'lastName', name: 'lastName', value: 'Allen' }
     }
   });
+});
+
+app.get('/customjs', (req, res) => {
+    res.render('CustomJS');
 });
 
 app.listen(config.port);
