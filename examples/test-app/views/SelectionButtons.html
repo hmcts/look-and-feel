@@ -112,10 +112,14 @@
 
   <div class="panel panel-border-wide">
     {{ header('Code', size='small') }}
-    <pre><code>{% raw %}{{ selectionButtons(field, "A question",
-  hideQuestion = true,
+    <pre><code>{% raw %}{{ selectionButtons(field, "Which types of waste do you transport regularly?",
+  hideQuestion = false,
+  hint = 'Select all that apply',
+  type = 'checkbox',
   options = [
-    { label: "Isle of Man or the Channel Islands", disabled: true }
+    { label: "Waste from animal carcasses", value: 'animal' },
+    { label: "Waste from mines or quarries", value: 'mines' },
+    { label: "Farm or agricultural waste", value: 'agriculture' }
   ]
 ) }}{% endraw %}</code></pre>
   </div>

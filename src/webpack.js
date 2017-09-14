@@ -15,12 +15,17 @@ const webpackSettings = (_assetPath, settings) => {
 
   const defaults = {
     plugins: [
-      ..._scss.plugins,
-      ...govukTemplate.plugins,
-      ...govukToolkit.plugins
+      _scss.extractSassIntoFiles,
+      govukTemplate.copyGovukTemplateAssets,
+      govukToolkit.copyGovukToolkitAssets
     ],
-    module: { rules: [..._scss.rules] },
-    resolve: { alias: Object.assign({}, govukElements.alias) }
+    module: { rules: [ _scss.scssLoader ] },
+    resolve: {
+      alias: Object.assign(
+        {},
+        govukElements.alias
+      )
+    }
   };
   return Object.assign({}, defaults, settings);
 };
