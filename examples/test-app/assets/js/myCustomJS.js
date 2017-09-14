@@ -1,1 +1,0 @@
-window.alert('Custom JS');

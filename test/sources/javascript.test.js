@@ -2,9 +2,9 @@ const { expect } = require('./../util/chai');
 const { extractJSFiles,
         assetPathOnwards,
         createFromToStructure,
-        copyCustomJSToWebpack } = require('./../../src/sources/customJS');
+        copyJavaScriptToWebpack } = require('./../../src/sources/javascript');
 
-describe('sources/customJS', () => {
+describe('sources/javascript', () => {
 
     const files = [
         'app/assets/scss/main.scss',
@@ -36,7 +36,7 @@ describe('sources/customJS', () => {
     });
 
     it('should instantiate CopyWebpackPlugin and return an object containing an apply function', () => {
-        const copyWebpackPlugin = copyCustomJSToWebpack(files);
+        const copyWebpackPlugin = copyJavaScriptToWebpack(files);
         expect(copyWebpackPlugin.plugins[0]).to.be.an('object');
         expect(copyWebpackPlugin.plugins[0].apply).to.be.a('function');
     });

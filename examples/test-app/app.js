@@ -11,7 +11,7 @@ lookAndFeel.configure(app, {
   webpack: {
     entry: [
         path.resolve(__dirname, './assets/scss/main.scss'),
-        path.resolve(__dirname, './assets/js/myCustomJS.js')
+        path.resolve(__dirname, './assets/js/myJavaScript.js')
     ] }
 });
 
@@ -43,8 +43,8 @@ app.get('/question', (req, res) => {
   });
 });
 
-app.get('/customjs', (req, res) => {
-    res.render('CustomJS');
+app.get('/javascript', (req, res) => {
+    res.render('JavaScript');
 });
 
 app.listen(config.port);

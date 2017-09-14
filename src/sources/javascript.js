@@ -12,7 +12,7 @@ const createFromToStructure = (jsFiles) => {
     return jsFiles.map( file => ({ from: file, to: 'javascripts' }) );
 };
 
-const copyCustomJSToWebpack = (files) => {
+const copyJavaScriptToWebpack = (files) => {
     const jsFiles = extractJSFiles(files);
     const jsFilesAssetPath = assetPathOnwards(jsFiles);
     const fromToStructure = createFromToStructure(jsFilesAssetPath);
@@ -23,5 +23,5 @@ module.exports = {
     extractJSFiles,
     assetPathOnwards,
     createFromToStructure,
-    copyCustomJSToWebpack,
+    copyJavaScriptToWebpack,
 };
