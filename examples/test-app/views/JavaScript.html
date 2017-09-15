@@ -1,0 +1,11 @@
+{% extends "look-and-feel/layouts/two_thirds.html" %}
+{% from "look-and-feel/components/header.njk" import header %}
+
+{% block head -%}
+  <link href="{{ asset_path }}main.css" media="screen" rel="stylesheet" />
+  <script src="{{ asset_path }}/javascripts/myJavaScript.js"></script>
+{% endblock %}
+
+{% block two_thirds -%}
+  {{ header("My JavaScript") }}
+{%- endblock %}
