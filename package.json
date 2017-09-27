@@ -13,7 +13,7 @@
     "express-nunjucks": "^2.2.3",
     "extract-text-webpack-plugin": "^3.0.0",
     "govuk-elements-sass": "^3.1.1",
-    "govuk_template_jinja": "^0.22.3",
+    "govuk_template_jinja": "^0.23.0",
     "js-yaml": "^3.9.1",
     "node-sass": "^4.5.3",
     "nunjucks": "^3.0.1",
