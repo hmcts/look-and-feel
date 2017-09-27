@@ -1,3 +1,19 @@
+<a name="0.3.0"></a>
+# 0.3.0 (2017-09-27)
+
+* Add custom JS files to webpack. ([40ce416](https://github.com/hmcts/look-and-feel/commit/40ce416))
+* add errors to multi options ([8e00477](https://github.com/hmcts/look-and-feel/commit/8e00477))
+* bump version ([b5df624](https://github.com/hmcts/look-and-feel/commit/b5df624))
+* change input ref to use id ([8cdbdfd](https://github.com/hmcts/look-and-feel/commit/8cdbdfd))
+* Fix linting errors ([bb64a30](https://github.com/hmcts/look-and-feel/commit/bb64a30))
+* PR refinements. ([174725b](https://github.com/hmcts/look-and-feel/commit/174725b))
+* update access to fields ([4478d74](https://github.com/hmcts/look-and-feel/commit/4478d74))
+* validation errors ([a00f618](https://github.com/hmcts/look-and-feel/commit/a00f618))
+* fix(package): update govuk_template_jinja to version 0.23.0 ([0aed0f1](https://github.com/hmcts/look-and-feel/commit/0aed0f1))
+* docs(readme): add Greenkeeper badge (#7) ([36bdf08](https://github.com/hmcts/look-and-feel/commit/36bdf08))
+
+
+
 <a name="0.2.1"></a>
 ## 0.2.1 (2017-08-31)
 
