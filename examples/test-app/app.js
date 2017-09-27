@@ -10,9 +10,10 @@ lookAndFeel.configure(app, {
   express: { views: ['views'] },
   webpack: {
     entry: [
-        path.resolve(__dirname, './assets/scss/main.scss'),
-        path.resolve(__dirname, './assets/js/myJavaScript.js')
-    ] }
+      path.resolve(__dirname, './assets/scss/main.scss'),
+      path.resolve(__dirname, './assets/js/myJavaScript.js')
+    ]
+  }
 });
 
 app.get('/', (req, res) => {
@@ -44,7 +45,7 @@ app.get('/question', (req, res) => {
 });
 
 app.get('/javascript', (req, res) => {
-    res.render('JavaScript');
+  res.render('JavaScript');
 });
 
 app.listen(config.port);
