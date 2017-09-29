@@ -1,3 +1,10 @@
+<a name="1.0.0-0"></a>
+# 1.0.0-0 (2017-09-29)
+
+* Update error rendering to satisfy changes in one-per-page ([f59f94c](https://github.com/hmcts/look-and-feel/commit/f59f94c))
+
+
+
 <a name="0.3.0"></a>
 # 0.3.0 (2017-09-27)
 
