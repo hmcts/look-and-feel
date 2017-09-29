@@ -15,14 +15,14 @@
 
 <form action="{{ url }}" method="post" class="form">
 
-  {%- if invalidFields and invalidFields.length !== 0 -%}
+  {%- if form.validated and not form.valid -%}
     <div class="error-summary" role="group" aria-labelledby="error-summary-heading" tabindex="-1">
       <h1 class="heading-medium error-summary-heading" id="error-summary-heading">
         There was a problem
       </h1>
       <ul class="error-summary-list">
-        {%- for field in invalidFields -%}
-          <li><a href="#{{field.id}}">{{field.error}}</a></li>
+        {%- for error in form.errors -%}
+          <li><a href="#{{error.id}}">{{error.message}}</a></li>
         {%- endfor -%}
       </ul>
     </div>
