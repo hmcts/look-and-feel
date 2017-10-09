@@ -1,3 +1,10 @@
+<a name="1.0.0-3"></a>
+# 1.0.0-3 (2017-10-09)
+
+* Switch top errors box to use fields instead of form ([5710df6](https://github.com/hmcts/look-and-feel/commit/5710df6))
+
+
+
 <a name="1.0.0-2"></a>
 # 1.0.0-2 (2017-10-09)
 
