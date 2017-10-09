@@ -1,3 +1,10 @@
+<a name="0.4.0"></a>
+# 0.4.0 (2017-10-09)
+
+* Add an additional block to the question layout under the form element ([697d176](https://github.com/hmcts/look-and-feel/commit/697d176))
+
+
+
 <a name="0.3.0"></a>
 # 0.3.0 (2017-09-27)
 
