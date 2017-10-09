@@ -1,3 +1,11 @@
+<a name="1.0.0-2"></a>
+# 1.0.0-2 (2017-10-09)
+
+* Release 1.0.0-0 ([747738f](https://github.com/hmcts/look-and-feel/commit/747738f))
+* Update error rendering to satisfy changes in one-per-page ([44b2eaf](https://github.com/hmcts/look-and-feel/commit/44b2eaf))
+
+
+
 <a name="1.0.0-1"></a>
 # 1.0.0-1 (2017-10-09)
 
