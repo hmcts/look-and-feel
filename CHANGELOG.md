@@ -1,3 +1,14 @@
+<a name="1.0.0"></a>
+# 1.0.0 (2017-10-12)
+
+* Release 1.0.0-0 ([77bfd21](https://github.com/hmcts/look-and-feel/commit/77bfd21))
+* Release 1.0.0-2 ([7b1043a](https://github.com/hmcts/look-and-feel/commit/7b1043a))
+* Release 1.0.0-3 ([e6b1061](https://github.com/hmcts/look-and-feel/commit/e6b1061))
+* Switch top errors box to use fields instead of form ([e1fafa1](https://github.com/hmcts/look-and-feel/commit/e1fafa1))
+* Update error rendering to satisfy changes in one-per-page ([775192f](https://github.com/hmcts/look-and-feel/commit/775192f))
+
+
+
 <a name="1.0.0-3"></a>
 # 1.0.0-3 (2017-10-09)
 
