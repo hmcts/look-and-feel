@@ -1,3 +1,10 @@
+<a name="1.0.2"></a>
+## 1.0.2 (2017-10-13)
+
+* Handle array fields correctly in selectionButtons ([49fbd7a](https://github.com/hmcts/look-and-feel/commit/49fbd7a))
+
+
+
 <a name="1.0.1"></a>
 ## 1.0.1 (2017-10-13)
 
