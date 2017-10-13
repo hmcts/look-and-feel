@@ -1,3 +1,11 @@
+<a name="1.0.1"></a>
+## 1.0.1 (2017-10-13)
+
+* Prevent outputting of undefined field values ([4ff622f](https://github.com/hmcts/look-and-feel/commit/4ff622f))
+* Use different if check ([6f109cb](https://github.com/hmcts/look-and-feel/commit/6f109cb))
+
+
+
 <a name="1.0.0"></a>
 # 1.0.0 (2017-10-12)
 

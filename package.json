@@ -1,7 +1,7 @@
 {
   "name": "@hmcts/look-and-feel",
   "description": "One question per page apps made easy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./src/main.js",
   "dependencies": {
     "check-types": "^7.3.0",
