@@ -22,8 +22,30 @@ const webpackSettings = (_assetPath, settings) => {
       ...govukTemplate.plugins,
       ...govukToolkit.plugins
     ],
-    module: { rules: [..._scss.rules] },
-    resolve: { alias: Object.assign({}, govukElements.alias) }
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: [
+            {
+              loader: 'babel-loader',
+              options: { presets: ['env'] }
+            }
+          ]
+        },
+        ...govukToolkit.rules,
+        ..._scss.rules
+      ]
+    },
+    resolve: {
+      alias: Object.assign(
+        {},
+        govukElements.alias,
+        govukToolkit.alias
+      )
+    },
+    devtool: 'source-map'
   };
   return Object.assign({}, defaults, settings);
 };

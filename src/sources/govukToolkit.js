@@ -12,7 +12,21 @@ const copyGovukToolkitAssets = new CopyWebpackPlugin([
   { from: javascripts, to: 'javascripts' }
 ]);
 
+const alias = { govuk: path.resolve(javascripts, 'govuk') };
+
+const rules = [
+  {
+    test: path.resolve(javascripts, 'govuk/show-hide-content.js'),
+    use: [
+      'imports-loader?window.jQuery=jquery',
+      'exports-loader?window.GOVUK.ShowHideContent'
+    ]
+  }
+];
+
 module.exports = {
   paths: { root, sass },
-  plugins: [ copyGovukToolkitAssets ]
+  plugins: [ copyGovukToolkitAssets ],
+  alias,
+  rules
 };

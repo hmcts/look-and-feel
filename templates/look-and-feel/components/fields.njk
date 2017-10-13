@@ -40,15 +40,16 @@
 
 {#
   selectionButtons
-    field         - (required) A field object containing name, id and value
-    label         - (required) The label to apply to the field
-    hint          - (default = '') Extra hint text to place under the label
-    hideQuestion  - (default = true) Hides the question in the legend (for when you have a heading on the page that is the same question)
-    inline        - (default = false) Renders the options inline
-    options       - (default = []) Options used to populate the possible answers
+    field          - (required) A field object containing name, id and value
+    label          - (required) The label to apply to the field
+    hint           - (default = '') Extra hint text to place under the label
+    hideQuestion   - (default = true) Hides the question in the legend (for when you have a heading on the page that is the same question)
+    inline         - (default = false) Renders the options inline
+    options        - (default = []) Options used to populate the possible answers
 
-    options.label - (required) The label text to display for this option
-    options.value - (default = label.lowercase()) The value to be sent on post for this option
+    options.label  - (required) The label text to display for this option
+    options.value  - (default = label.lowercase()) The value to be sent on post for this option
+    options.target - (default = '') Id of the panel to expand if selected
 
   Renders multiple option radio buttons
 #}
@@ -80,7 +81,10 @@
       {% for option in options -%}
         {% set option_value = option.value or option.label|lower %}
         {% set option_disabled = option.disabled or false %}
-        <div class="multiple-choice">
+        <div class="multiple-choice"
+          {% if option.target -%}
+          data-target="{{ option.target }}"
+          {%- endif %}>
           <input id="{{ field.id }}-{{ option_value }}"
                  type="{{ type }}"
                  name="{{ field.id }}"
