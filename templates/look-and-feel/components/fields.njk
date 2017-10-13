@@ -84,6 +84,9 @@
           <input id="{{ field.id }}-{{ option_value }}"
                  type="{{ type }}"
                  name="{{ field.id }}"
+                 {% if isArray(field.value) and option_value in field.value %}
+                 checked="checked"
+                 {% endif %}
                  {% if field.value == option_value %}
                  checked="checked"
                  {% endif %}
