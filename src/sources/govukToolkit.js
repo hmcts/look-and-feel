@@ -20,6 +20,12 @@ const rules = [
       'imports-loader?window.jQuery=jquery',
       'exports-loader?window.GOVUK.ShowHideContent'
     ]
+  }, {
+    test: path.resolve(javascripts, 'govuk/stop-scrolling-at-footer.js'),
+    use: [
+      'imports-loader?window.jQuery=jquery',
+      'exports-loader?window.GOVUK.stopScrollingAtFooter'
+    ]
   }
 ];
 
