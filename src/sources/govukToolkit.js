@@ -26,6 +26,10 @@ const govukModule = (file, expose, imports = ['window.jQuery=jquery']) => {
 };
 
 const rules = [
+  govukModule(
+    'govuk/shim-links-with-button-role.js',
+    'shimLinksWithButtonRole'
+  ),
   govukModule('govuk/show-hide-content.js', 'ShowHideContent'),
   govukModule('govuk/stop-scrolling-at-footer.js', 'stopScrollingAtFooter'),
   govukModule(
