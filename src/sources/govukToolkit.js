@@ -15,26 +15,37 @@ const alias = { govuk: path.resolve(javascripts, 'govuk') };
 
 const govukModule = (file, expose, imports = ['window.jQuery=jquery']) => {
   const importsArr = Array.isArray(imports) ? imports : [imports];
+  const exposeArr = Array.isArray(expose) ? expose : [expose];
 
   return {
     test: path.resolve(javascripts, file),
     use: [
       `imports-loader?${importsArr.join(',')}`,
-      `exports-loader?window.GOVUK.${expose}`
+      `exports-loader?${exposeArr.join(',')}`
     ]
   };
 };
 
 const rules = [
+  govukModule('govuk/primary-links', [
+    'PrimaryList=window.GOVUK.PrimaryList',
+    'window.GOVUK.primaryLinks'
+  ]),
   govukModule(
     'govuk/shim-links-with-button-role.js',
-    'shimLinksWithButtonRole'
+    'window.GOVUK.shimLinksWithButtonRole'
   ),
-  govukModule('govuk/show-hide-content.js', 'ShowHideContent'),
-  govukModule('govuk/stop-scrolling-at-footer.js', 'stopScrollingAtFooter'),
+  govukModule(
+    'govuk/show-hide-content.js',
+    'window.GOVUK.ShowHideContent'
+  ),
+  govukModule(
+    'govuk/stop-scrolling-at-footer.js',
+    'window.GOVUK.stopScrollingAtFooter'
+  ),
   govukModule(
     'govuk/stick-at-top-when-scrolling.js',
-    'stickAtTopWhenScrolling', [
+    'window.GOVUK.stickAtTopWhenScrolling', [
       'window.jQuery=jquery',
       'window.GOVUK.stopScrollingAtFooter=govuk/stop-scrolling-at-footer'
     ]
