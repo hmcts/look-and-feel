@@ -7,10 +7,9 @@ const sass = path.resolve(root, 'stylesheets');
 const images = path.resolve(root, 'images');
 const javascripts = path.resolve(root, 'javascripts');
 
-const copyGovukToolkitAssets = new CopyWebpackPlugin([
-  { from: images, to: 'images' },
-  { from: javascripts, to: 'javascripts' }
-]);
+const copyGovukToolkitAssets = new CopyWebpackPlugin(
+  [{ from: images, to: 'images' }]
+);
 
 const alias = { govuk: path.resolve(javascripts, 'govuk') };
 
