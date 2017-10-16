@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const isDev = require('./util/isDev');
 
 const scss = require('./webpack/rules/scss');
+const browserSupport = require('./webpack/rules/browserSupport');
 const { copyJavaScriptToWebpack } = require('./sources/javascript');
 const govukTemplate = require('./sources/govukTemplate');
 const govukElements = require('./sources/govukElements');
@@ -24,16 +25,7 @@ const webpackSettings = (_assetPath, settings) => {
     ],
     module: {
       rules: [
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          use: [
-            {
-              loader: 'babel-loader',
-              options: { presets: ['env'] }
-            }
-          ]
-        },
+        ...browserSupport,
         ...govukToolkit.rules,
         ..._scss.rules
       ]
