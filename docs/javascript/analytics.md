@@ -24,7 +24,7 @@ $(document).ready(() => {
   // Otherwise explicitly set the domain as www.gov.uk (and not gov.uk).
   const cookieDomain = (document.domain === 'www.gov.uk') ? '.www.gov.uk' : document.domain;
 
-  const analytics = new Analytics({
+  window.GOVUK.analytics = new Analytics({
     universalId: 'UA-XXXXXXXX-X'
   });
 
@@ -36,6 +36,9 @@ $(document).ready(() => {
   // analyticsPlugins.printIntent();
 
   // Track initial pageview
-  analytics.trackPageview();
+  window.GOVUK.analytics.trackPageview();
 });
 ```
+
+Other analytics plugins expect an instance of `Analytics` attached to
+`window.GOVUK`.
