@@ -36,6 +36,10 @@ const rules = [
     ]
   ),
   govukModule(
+    'govuk/analytics/download-link-tracker.js',
+    'window.GOVUK.analyticsPlugins.downloadLinkTracker'
+  ),
+  govukModule(
     'govuk/analytics/govuk-tracker.js',
     'window.GOVUK.GOVUKTracker'
   ),
