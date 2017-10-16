@@ -28,6 +28,22 @@ const govukModule = (file, expose, imports = ['window.jQuery=jquery']) => {
 
 const rules = [
   govukModule(
+    'govuk/analytics/analytics.js',
+    'window.GOVUK.Analytics', [
+      'window.jQuery=jquery',
+      'window.GOVUK.GOVUKTracker=govuk/analytics/govuk-tracker.js',
+      'window.GOVUK.GoogleAnalyticsUniversalTracker=govuk/analytics/google-analytics-universal-tracker.js'
+    ]
+  ),
+  govukModule(
+    'govuk/analytics/govuk-tracker.js',
+    'window.GOVUK.GOVUKTracker'
+  ),
+  govukModule(
+    'govuk/analytics/google-analytics-universal-tracker.js',
+    'window.GOVUK.GoogleAnalyticsUniversalTracker'
+  ),
+  govukModule(
     'govuk/details.polyfill.js',
     'window.GOVUK.details'
   ),

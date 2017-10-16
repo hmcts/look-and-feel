@@ -1604,9 +1604,9 @@ govuk_frontend_toolkit@^6.0.2:
   version "6.0.4"
   resolved "https://registry.yarnpkg.com/govuk_frontend_toolkit/-/govuk_frontend_toolkit-6.0.4.tgz#fc4b741b16d27ec1a3cd1c4f3830972d333c7044"
 
-govuk_template_jinja@^0.22.3:
-  version "0.22.3"
-  resolved "https://registry.yarnpkg.com/govuk_template_jinja/-/govuk_template_jinja-0.22.3.tgz#d704cb2b7ce92682a8174be7d746668d4afad9d6"
+govuk_template_jinja@^0.23.0:
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/govuk_template_jinja/-/govuk_template_jinja-0.23.0.tgz#9315ac403d1d85b01a62b7044cb95d8ec3e303a4"
 
 graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   version "4.1.11"
@@ -1739,6 +1739,13 @@ ieee754@^1.1.4:
 ignore@^3.3.3:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.3.3.tgz#432352e57accd87ab3110e82d3fea0e47812156d"
+
+"imports-loader@github:webpack-contrib/imports-loader#abea1c24f84b1343f9a277e33c8d89c83c013274":
+  version "0.7.1"
+  resolved "https://codeload.github.com/webpack-contrib/imports-loader/tar.gz/abea1c24f84b1343f9a277e33c8d89c83c013274"
+  dependencies:
+    loader-utils "^1.0.2"
+    source-map "^0.5.6"
 
 imurmurhash@^0.1.4:
   version "0.1.4"
