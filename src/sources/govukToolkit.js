@@ -27,6 +27,10 @@ const govukModule = (file, expose, imports = ['window.jQuery=jquery']) => {
 };
 
 const rules = [
+  govukModule('govuk/modules.js', [
+    'window.GOVUK.Modules',
+    'start=window.GOVUK.modules.start'
+  ]),
   govukModule('govuk/primary-links', [
     'PrimaryList=window.GOVUK.PrimaryList',
     'window.GOVUK.primaryLinks'
