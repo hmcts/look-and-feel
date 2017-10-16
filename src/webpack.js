@@ -5,7 +5,6 @@ const isDev = require('./util/isDev');
 
 const scss = require('./webpack/rules/scss');
 const browserSupport = require('./webpack/rules/browserSupport');
-const { copyJavaScriptToWebpack } = require('./sources/javascript');
 const govukTemplate = require('./sources/govukTemplate');
 const govukElements = require('./sources/govukElements');
 const govukToolkit = require('./sources/govukToolkit');
@@ -14,12 +13,10 @@ const assetPath = baseUrl => url.resolve(baseUrl, 'assets/');
 
 const webpackSettings = (_assetPath, settings) => {
   const _scss = scss(_assetPath);
-  const _copyJavaScriptToWebpack = copyJavaScriptToWebpack(settings.entry);
 
   const defaults = {
     plugins: [
       ..._scss.plugins,
-      ..._copyJavaScriptToWebpack.plugins,
       ...govukTemplate.plugins,
       ...govukToolkit.plugins
     ],
