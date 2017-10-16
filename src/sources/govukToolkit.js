@@ -27,6 +27,10 @@ const govukModule = (file, expose, imports = ['window.jQuery=jquery']) => {
 };
 
 const rules = [
+  govukModule(
+    'govuk/details.polyfill.js',
+    'window.GOVUK.details'
+  ),
   govukModule('govuk/modules.js', [
     'window.GOVUK.Modules',
     'start=window.GOVUK.modules.start'
