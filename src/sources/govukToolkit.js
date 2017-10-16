@@ -40,6 +40,10 @@ const rules = [
     'window.GOVUK.analyticsPlugins.downloadLinkTracker'
   ),
   govukModule(
+    'govuk/analytics/error-tracking.js',
+    'window.GOVUK.analyticsPlugins.error'
+  ),
+  govukModule(
     'govuk/analytics/govuk-tracker.js',
     'window.GOVUK.GOVUKTracker'
   ),
