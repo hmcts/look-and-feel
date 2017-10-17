@@ -60,6 +60,10 @@ const rules = [
     'window.GOVUK.analyticsPlugins.mailtoLinkTracker'
   ),
   govukModule(
+    'govuk/analytics/print-intent.js',
+    'window.GOVUK.analyticsPlugins.printIntent'
+  ),
+  govukModule(
     'govuk/details.polyfill.js',
     'window.GOVUK.details'
   ),
