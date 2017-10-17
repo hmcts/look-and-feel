@@ -25,7 +25,8 @@ $(document).ready(() => {
   const cookieDomain = (document.domain === 'www.gov.uk') ? '.www.gov.uk' : document.domain;
 
   window.GOVUK.analytics = new Analytics({
-    universalId: 'UA-XXXXXXXX-X'
+    universalId: 'UA-XXXXXXXX-X',
+    cookieDomain
   });
 
   // Set custom dimensions before tracking pageviews

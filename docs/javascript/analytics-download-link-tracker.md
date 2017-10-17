@@ -3,6 +3,9 @@
 Tracks download links being clicked. Expects [analytics](../analytics.md) to be
 set up first.
 
+Expects an instance of `govuk/analytics/analytics` bound to
+`window.GOVUK.analytics`.
+
 Source: [govuk_frontend_toolkit/javascripts/govuk/analytics/download-link-tracker.js](https://github.com/alphagov/govuk_frontend_toolkit/blob/master/javascripts/govuk/analytics/download-link-tracker.js)
 
 ## Usage
