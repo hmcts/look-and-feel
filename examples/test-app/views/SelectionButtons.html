@@ -1,9 +1,11 @@
 {% extends "look-and-feel/layouts/two_thirds.html" %}
 {% from "look-and-feel/components/header.njk" import header %}
-{% from "look-and-feel/components/fields.njk" import selectionButtons %}
+{% from "look-and-feel/components/fields.njk" import selectionButtons, textbox %}
 
 {% block head -%}
   <link href="{{ asset_path }}main.css" media="screen" rel="stylesheet" />
+  <script src="{{ asset_path }}selection-buttons.js" type="text/javascript">
+  </script>
 {% endblock %}
 
 {% block two_thirds -%}
@@ -119,5 +121,40 @@
   ]
 ) }}{% endraw %}</code></pre>
   </div>
+
+
+  {{ header("Conditionally revealing content", size="medium") }}
+
+  <div class="example">
+
+    {% set field = { id: 'hwf', name: 'hwf' } %}
+    {{ selectionButtons(field, "Do have a Help with Fees reference number?",
+      hideQuestion = false,
+      inline = true,
+      options = [
+        { label: "Yes", target: "hwf-ref-number" },
+        { label: "No" }
+      ]
+    ) }}
+    <div class="panel panel-border-wide js-hidden" id="hwf-ref-number">
+      {{ textbox(field, "Enter your reference number") }}
+    </div>
+  </div>
+
+  <div class="panel panel-border-wide">
+    {{ header('Code', size='small') }}
+    <pre><code>{% raw %}{{ selectionButtons(field, "Do have a Help with Fees reference number?",
+  hideQuestion = false,
+  inline = true,
+  options = [
+    { label: "Yes", target: "hwf-ref-number" },
+    { label: "No" }
+  ]
+) }}
+&lt;div class="panel panel-border-wide js-hidden" id="hwf-ref-number"&gt;
+  {{ textbox(field, "Enter your reference number") }}
+&lt;/div&gt;{% endraw %}</code></pre>
+  </div>
+
 {%- endblock %}
 
