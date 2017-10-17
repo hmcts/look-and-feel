@@ -43,3 +43,14 @@ $(document).ready(() => {
 
 Other analytics plugins expect an instance of `Analytics` attached to
 `window.GOVUK`.
+
+## Plugins
+
+The frontend toolkit provides a number of analytics plugins that help with
+tracking common events.
+
+- [Download link tracking](./analytics-download-link-tracker.md)
+- [Error tracking](./analytics-error-tracking.md)
+- [External link tracking](./analytics-external-link-tracker.md)
+- [Mailto link tracking](./analytics-mailto-link-tracker.md)
+- [Printing tracking](./analytics-print-intent.md)
