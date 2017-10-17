@@ -56,6 +56,10 @@ const rules = [
     'window.GOVUK.GoogleAnalyticsUniversalTracker'
   ),
   govukModule(
+    'govuk/analytics/mailto-link-tracker.js',
+    'window.GOVUK.analyticsPlugins.mailtoLinkTracker'
+  ),
+  govukModule(
     'govuk/details.polyfill.js',
     'window.GOVUK.details'
   ),
