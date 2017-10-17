@@ -20,6 +20,7 @@ const webpackSettings = (_assetPath, settings) => {
       ...govukTemplate.plugins,
       ...govukToolkit.plugins
     ],
+    output: { filename: '[name].js' },
     module: {
       rules: [
         ...browserSupport,
