@@ -1,3 +1,35 @@
+<a name="1.1.0"></a>
+# 1.1.0 (2017-10-18)
+
+* Add new select macro ([e9f6f78](https://github.com/hmcts/look-and-feel/commit/e9f6f78))
+* Crosslink analytics docs ([91c02f5](https://github.com/hmcts/look-and-feel/commit/91c02f5))
+* Demo using the new govuk import ([589c9f1](https://github.com/hmcts/look-and-feel/commit/589c9f1))
+* Document select field ([1307855](https://github.com/hmcts/look-and-feel/commit/1307855))
+* Ensure separate bundles for separate entries are output ([286a9ad](https://github.com/hmcts/look-and-feel/commit/286a9ad))
+* Expose analytics ([84f1f6f](https://github.com/hmcts/look-and-feel/commit/84f1f6f))
+* Expose download-link-tracker ([eec5db6](https://github.com/hmcts/look-and-feel/commit/eec5db6))
+* Expose error tracking ([1b96fc8](https://github.com/hmcts/look-and-feel/commit/1b96fc8))
+* Expose external link tracker ([57d23ee](https://github.com/hmcts/look-and-feel/commit/57d23ee))
+* Expose mailto link tracker ([34eb106](https://github.com/hmcts/look-and-feel/commit/34eb106))
+* Expose modules ([4325b58](https://github.com/hmcts/look-and-feel/commit/4325b58))
+* Expose primaryLinks ([c0e691b](https://github.com/hmcts/look-and-feel/commit/c0e691b))
+* Expose print intent ([7ab8740](https://github.com/hmcts/look-and-feel/commit/7ab8740))
+* Expose shimLinksWithButtonRole ([2145576](https://github.com/hmcts/look-and-feel/commit/2145576))
+* Expose show-hide-content.js from govuk_frontend_toolkit ([58c7e6f](https://github.com/hmcts/look-and-feel/commit/58c7e6f))
+* Expose stickAtTopWhenScrolling ([5082539](https://github.com/hmcts/look-and-feel/commit/5082539))
+* Expose stopScrollingAtFooter ([7b216f7](https://github.com/hmcts/look-and-feel/commit/7b216f7))
+* Expose the details polyfill ([e09da95](https://github.com/hmcts/look-and-feel/commit/e09da95))
+* Fix linting errors ([a0c4d49](https://github.com/hmcts/look-and-feel/commit/a0c4d49))
+* Include jquery as a dependency of govuk_frontend_toolkit ([ef3fc47](https://github.com/hmcts/look-and-feel/commit/ef3fc47))
+* Merge webpack settings with users webpack settings ([06a2c63](https://github.com/hmcts/look-and-feel/commit/06a2c63))
+* Move babel in to a module to describe why we are using it ([e5172c3](https://github.com/hmcts/look-and-feel/commit/e5172c3))
+* Remove unnecessary js copy plugin ([67c42f4](https://github.com/hmcts/look-and-feel/commit/67c42f4))
+* Use babel to es6ify/polyfill browser scripts ([ad0066c](https://github.com/hmcts/look-and-feel/commit/ad0066c))
+* chore(package): update mocha to version 4.0.1 ([e92acad](https://github.com/hmcts/look-and-feel/commit/e92acad)), closes [#20](https://github.com/hmcts/look-and-feel/issues/20)
+* fix(package): update style-loader to version 0.19.0 ([47b8953](https://github.com/hmcts/look-and-feel/commit/47b8953))
+
+
+
 <a name="1.0.2"></a>
 ## 1.0.2 (2017-10-13)
 
