@@ -108,6 +108,54 @@
   </div>
 {% endmacro %}
 
+{% macro select(field,
+                label,
+                hint='',
+                hideLabel=false,
+                options=[]) %}
+
+<div class="form-group {{ errorClass(field) }}">
+
+  <label class="form-label {{ "visually-hidden" if hideLabel }}"
+         for="{{ field.id }}">
+    {{ label }}
+    {%- if hint %}
+    <span class="form-hint">
+      {{ hint }}
+    </span>
+    {%- endif %}
+  </label>
+
+  {{ errorsFor(field) }}
+
+  <select id="{{ field.id }}"
+          name="{{ field.id }}"
+          class="form-control">
+    {# Default option so no option is preselected #}
+    <option disabled selected value style="display: none"></option>
+
+    {% for option in options -%}
+      {% set option_value = option.value or option.label|lower %}
+      {% set option_disabled = option.disabled or false %}
+
+      <option
+          {% if field.value == option_value %}
+          selected
+          {% endif %}
+          {% if option_disabled %}
+          disabled
+          {% endif %}
+          {% if option_value %}
+          value="{{ option_value }}"
+          {% endif %}>{{ option.label }}</option>
+    {%- endfor %}
+
+  </select>
+
+</div>
+{% endmacro %}
+
+
 {% macro errorsFor(field) -%}
   {% if field.errors %}
   {% for error in field.errors -%}
