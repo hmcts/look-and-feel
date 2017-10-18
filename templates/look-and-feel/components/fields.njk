@@ -108,6 +108,20 @@
   </div>
 {% endmacro %}
 
+{#
+  select
+    field            - (required) A field object containing name, id and value
+    label            - (required) The label to apply to the field
+    hint             - (default = '') Extra hint text to place under the label
+    hideLabel        - (default = false) Hides the selects label (for when a this element is the only field on the page)
+    options          - (default = []) Options used to populate the possible answers
+
+    options.label    - (required) The label text to display for this option
+    options.value    - (default = label.lowercase()) The value to be sent on post for this option
+    options.disabled - (default = false) Prevent the option from being selected
+
+  Renders a select box with multiple options
+#}
 {% macro select(field,
                 label,
                 hint='',
@@ -132,7 +146,11 @@
           name="{{ field.id }}"
           class="form-control">
     {# Default option so no option is preselected #}
-    <option disabled selected value style="display: none"></option>
+    <option disabled
+            {% if not field.value %}
+            selected
+            {% endif %}
+            value style="display: none"></option>
 
     {% for option in options -%}
       {% set option_value = option.value or option.label|lower %}
