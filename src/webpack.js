@@ -1,4 +1,5 @@
 const url = require('url');
+const deepmerge = require('deepmerge');
 const webpackDev = require('webpack-dev-middleware');
 const webpack = require('webpack');
 const isDev = require('./util/isDev');
@@ -11,8 +12,15 @@ const govukToolkit = require('./sources/govukToolkit');
 
 const assetPath = baseUrl => url.resolve(baseUrl, 'assets/');
 
+const isDefined = (obj) => typeof obj !== 'undefined';
+
 const webpackSettings = (_assetPath, settings) => {
   const _scss = scss(_assetPath);
+  const userModules = isDefined(settings.module) ? settings.module : {};
+  const userRules = isDefined(userModules.rules) ? userModule.rules : [];
+  const userResolve = isDefined(settings.resolve) ? settings.resolve : {};
+  const userAliases = isDefined(userResolve.alias) ? userResolve.alias : {};
+  const userPlugins = isDefined(settings.plugins) ? settings.plugins : [];
 
   const defaults = {
     plugins: [
@@ -37,7 +45,19 @@ const webpackSettings = (_assetPath, settings) => {
     },
     devtool: 'source-map'
   };
-  return Object.assign({}, defaults, settings);
+  const manualMerged = {
+    plugins: [...defaults.plugins, ...userPlugins],
+    module: Object.assign({}, defaults.module, settings.module, {
+      rules: [
+        ...defaults.module.rules,
+        ...userRules
+      ]
+    }),
+    resolve: {
+      alias: Object.assign({}, defaults.resolve.alias, userAliases)
+    }
+  };
+  return Object.assign({}, defaults, settings, manualMerged);
 };
 
 const setupDevMiddleware = (app, _assetPath, settings) => {

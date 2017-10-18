@@ -6,5 +6,10 @@
   "extends": "@hmcts",
   "parserOptions": {
     "sourceType": "module"
+  },
+  "rules": {
+    "object-curly-newline": ["error", {
+      "consistent": true
+    }]
   }
 }
