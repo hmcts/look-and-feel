@@ -32,7 +32,7 @@ const rules = [
     'window.GOVUK.Analytics', [
       'window.jQuery=jquery',
       'window.GOVUK.GOVUKTracker=govuk/analytics/govuk-tracker.js',
-      'window.GOVUK.GoogleAnalyticsUniversalTracker=govuk/analytics/google-analytics-universal-tracker.js'
+      'window.GOVUK.GoogleAnalyticsUniversalTracker=govuk/analytics/google-analytics-universal-tracker.js' // eslint-disable-line max-len
     ]
   ),
   govukModule(

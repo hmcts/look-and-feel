@@ -1,5 +1,4 @@
 const url = require('url');
-const deepmerge = require('deepmerge');
 const webpackDev = require('webpack-dev-middleware');
 const webpack = require('webpack');
 const isDev = require('./util/isDev');
@@ -12,15 +11,21 @@ const govukToolkit = require('./sources/govukToolkit');
 
 const assetPath = baseUrl => url.resolve(baseUrl, 'assets/');
 
-const isDefined = (obj) => typeof obj !== 'undefined';
+const isDefined = obj => typeof obj !== 'undefined';
+const defaultIfUndefined = (obj, _default) => {
+  if (isDefined(obj)) {
+    return obj;
+  }
+  return _default;
+};
 
 const webpackSettings = (_assetPath, settings) => {
   const _scss = scss(_assetPath);
-  const userModules = isDefined(settings.module) ? settings.module : {};
-  const userRules = isDefined(userModules.rules) ? userModule.rules : [];
-  const userResolve = isDefined(settings.resolve) ? settings.resolve : {};
-  const userAliases = isDefined(userResolve.alias) ? userResolve.alias : {};
-  const userPlugins = isDefined(settings.plugins) ? settings.plugins : [];
+  const userModules = defaultIfUndefined(settings.module, {});
+  const userRules = defaultIfUndefined(userModules.rules, []);
+  const userResolve = defaultIfUndefined(settings.resolve, {});
+  const userAliases = defaultIfUndefined(userResolve.alias, {});
+  const userPlugins = defaultIfUndefined(settings.plugins, []);
 
   const defaults = {
     plugins: [
