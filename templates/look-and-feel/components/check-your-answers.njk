@@ -1,0 +1,19 @@
+{% macro answer(question, answer, url) %}
+<div>
+  <dt class="cya-question">
+    {{ question }}
+  </dt>
+  <dd class="cya-answer">
+    {% if caller %}
+      {{ caller() }}
+    {% else %}
+      {{ answer }}
+    {% endif %}
+  </dd>
+  <dd class="cya-change">
+    <a href="{{ url }}">
+      Change<span class="visually-hidden"> {{ question }}</span>
+    </a>
+  </dd>
+</div>
+{% endmacro %}
