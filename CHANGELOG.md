@@ -1,3 +1,10 @@
+<a name="1.1.1"></a>
+## 1.1.1 (2017-11-02)
+
+* Fix typo in the class for the one third column in two-thirds.html ([560c439](https://github.com/hmcts/look-and-feel/commit/560c439))
+
+
+
 <a name="1.1.0"></a>
 # 1.1.0 (2017-10-18)
 
