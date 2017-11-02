@@ -13,7 +13,7 @@
 
 {{ header(title, size='large') }}
 
-<form action="{{ url }}" method="post" class="form">
+<form action="{{ path if path else url }}" method="post" class="form">
 
   {%- if fields.validated and not fields.valid -%}
     <div class="error-summary" role="group" aria-labelledby="error-summary-heading" tabindex="-1">
