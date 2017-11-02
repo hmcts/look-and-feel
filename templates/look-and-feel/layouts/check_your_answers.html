@@ -1,6 +1,7 @@
 {% extends "look-and-feel/layouts/two_thirds.html" %}
 {% from "look-and-feel/components/header.njk" import header %}
 {% from "look-and-feel/components/check-your-answers.njk" import answer %}
+{% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
 
 {% block page_title %}{{ title | default('Check your answers') }}{% endblock %}
 
@@ -21,7 +22,7 @@
 {% for section in _sections %}
 
   {% if section.atLeast1Completed %}
-    {% if section.title %}
+  {% if section.title and _sections|length > 1 %}
     {{ header(section.title, size='medium') }}
     {% endif %}
 
