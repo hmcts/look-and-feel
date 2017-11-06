@@ -32,7 +32,7 @@
   "devDependencies": {
     "@hmcts/eslint-config": "^1.0.4",
     "chai": "^4.1.1",
-    "chai-fs": "^1.0.0",
+    "chai-fs": "^2.0.0",
     "eslint": "^4.4.1",
     "mocha": "^4.0.1"
   },
