@@ -3,7 +3,7 @@
 
 
 "@hmcts/look-and-feel@./../../":
-  version "1.0.2"
+  version "1.1.1"
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -12,6 +12,7 @@
     config "^1.26.1"
     copy-webpack-plugin "^4.0.1"
     css-loader "^0.28.4"
+    deepmerge "^2.0.0"
     diff-so-fancy "^1.1.1"
     exports-loader "^0.6.4"
     express "^4.15.3"
@@ -25,7 +26,7 @@
     node-sass "^4.5.3"
     nunjucks "^3.0.1"
     sass-loader "^6.0.6"
-    style-loader "^0.18.2"
+    style-loader "^0.19.0"
     webpack "^3.4.1"
     webpack-dev-middleware "^1.12.0"
 
@@ -1331,6 +1332,10 @@ decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2:
 deep-extend@~0.4.0:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.4.2.tgz#48b699c27e334bf89f10892be432f6e4c7d34a7f"
+
+deepmerge@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-2.0.1.tgz#25c1c24f110fb914f80001b925264dd77f3f4312"
 
 defined@^1.0.0:
   version "1.0.0"
@@ -3990,9 +3995,9 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-style-loader@^0.18.2:
-  version "0.18.2"
-  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.18.2.tgz#cc31459afbcd6d80b7220ee54b291a9fd66ff5eb"
+style-loader@^0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.19.0.tgz#7258e788f0fee6a42d710eaf7d6c2412a4c50759"
   dependencies:
     loader-utils "^1.0.2"
     schema-utils "^0.3.0"

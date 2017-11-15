@@ -13,6 +13,7 @@ const nunjucksDefaults = {
 };
 
 const configureNunjucks = (app, settings) => {
+  app.locals.asset_path = app.get('assetPath');
   nunjucks(app, Object.assign({}, nunjucksDefaults, settings));
   return app;
 };
