@@ -1,15 +1,9 @@
-const url = require('url');
-const webpackDev = require('webpack-dev-middleware');
 const webpack = require('webpack');
-const isDev = require('./util/isDev');
-
 const scss = require('./webpack/rules/scss');
 const browserSupport = require('./webpack/rules/browserSupport');
 const govukTemplate = require('./sources/govukTemplate');
 const govukElements = require('./sources/govukElements');
 const govukToolkit = require('./sources/govukToolkit');
-
-const assetPath = baseUrl => url.resolve(baseUrl, 'assets/');
 
 const isDefined = obj => typeof obj !== 'undefined';
 const defaultIfUndefined = (obj, _default) => {
@@ -19,8 +13,8 @@ const defaultIfUndefined = (obj, _default) => {
   return _default;
 };
 
-const webpackSettings = (_assetPath, settings) => {
-  const _scss = scss(_assetPath);
+const webpackSettings = (assetPath, settings) => {
+  const _scss = scss(assetPath);
   const userModules = defaultIfUndefined(settings.module, {});
   const userRules = defaultIfUndefined(userModules.rules, []);
   const userResolve = defaultIfUndefined(settings.resolve, {});
@@ -65,17 +59,13 @@ const webpackSettings = (_assetPath, settings) => {
   return Object.assign({}, defaults, settings, manualMerged);
 };
 
-const setupDevMiddleware = (app, _assetPath, settings) => {
-  const _webpack = webpack(webpackSettings(_assetPath, settings));
-  app.use(webpackDev(_webpack, { publicPath: '/assets/' }));
-};
-
 const configureWebpack = (app, baseUrl, settings) => {
-  app.locals.asset_path = assetPath(baseUrl);
+  const assetPath = app.get('assetPath');
+  const _webpackSettings = webpackSettings(assetPath, settings);
+  const _webpack = webpack(_webpackSettings);
 
-  if (isDev()) {
-    setupDevMiddleware(app, assetPath(baseUrl), settings);
-  }
+  app.set('webpackSettings', _webpackSettings);
+  app.set('webpack', _webpack);
 
   return app;
 };
