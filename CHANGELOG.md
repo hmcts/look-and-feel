@@ -1,3 +1,10 @@
+<a name="1.2.0"></a>
+# 1.2.0 (2017-11-15)
+
+* Allow usage of webpack dev middleware outside of development ([e7451f2](https://github.com/hmcts/look-and-feel/commit/e7451f2))
+
+
+
 <a name="1.1.1"></a>
 ## 1.1.1 (2017-11-02)
 
