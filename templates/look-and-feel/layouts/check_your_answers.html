@@ -28,10 +28,12 @@
 
     <dl class="govuk-check-your-answers cya-questions-short">
       {% for part in section.completedAnswers %}
-        {% if part.html %}
-          {{ part.html | safe }}
-        {% else %}
-          {{ answer(part.question, part.answer, part.url) }}
+        {% if not part.hide %}
+          {% if part.html %}
+            {{ part.html | safe }}
+          {% else %}
+            {{ answer(part.question, part.answer, part.url) }}
+          {% endif %}
         {% endif %}
       {% endfor %}
     </dl>
