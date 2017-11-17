@@ -2,6 +2,7 @@
 {% from "look-and-feel/components/header.njk" import header %}
 {% from "look-and-feel/components/check-your-answers.njk" import answer %}
 {% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
+{% from "look-and-feel/components/fields.njk" import hiddenInput %}
 
 {% block page_title %}{{ title | default('Check your answers') }}{% endblock %}
 
@@ -15,35 +16,51 @@
 
 {{ header(title | default('Check your answers')) }}
 
-{% if noCompletedQuestions %}
-<p>You have not completed any questions yet.</p>
-{% endif %}
+  {% for section in _sections %}
 
-{% for section in _sections %}
+    {% if section.atLeast1Completed %}
+      {% if section.title and _sections|length > 1 %}
+        {{ header(section.title, size='medium') }}
+      {% endif %}
 
-  {% if section.atLeast1Completed %}
-  {% if section.title and _sections|length > 1 %}
-    {{ header(section.title, size='medium') }}
-    {% endif %}
-
-    <dl class="govuk-check-your-answers cya-questions-short">
-      {% for part in section.completedAnswers %}
-        {% if not part.hide %}
-          {% if part.html %}
-            {{ part.html | safe }}
-          {% else %}
-            {{ answer(part.question, part.answer, part.url) }}
+      <dl class="govuk-check-your-answers cya-questions-short">
+        {% for part in section.completedAnswers %}
+          {% if not part.hide %}
+            {% if part.html %}
+              {{ part.html | safe }}
+            {% else %}
+              {{ answer(part.question, part.answer, part.url) }}
+            {% endif %}
           {% endif %}
-        {% endif %}
-      {% endfor %}
-    </dl>
+        {% endfor %}
+      </dl>
+    {% endif %}
+  {% endfor %}
+
+  {% if incomplete %}
+    {% block continue_application %}
+      {{ header('Your application is incomplete', size='medium') }}
+      <p>There are still some questions to answer.</p>
+      <a href="{{ continueUrl }}" class="button">Continue your application</a>
+    {% endblock %}
   {% endif %}
 
-{% endfor %}
+  {% if complete %}
+    {% block statement_of_truth_content %}
+      {{ header('Now send your application', size='medium') }}
+      <p>
+        By submitting this notification you are confirming that, to the best of
+        your knowledge, the details you are providing are correct.
+      </p>
+    {% endblock %}
+    <form action="{{ path if path else url }}" method="post" class="form">
 
-{% if incomplete %}
-  <a href="{{ continueUrl }}" class="button">Continue your application</a>
-{% endif %}
+      {% block statement_of_truth_fields %}
+        {{ hiddenInput(fields.statementOfTruth, value=true) }}
+      {%- endblock %}
 
+      <input class="button" type="submit" value="Continue">
+    </form>
+  {% endif %}
 
 {% endblock %}
