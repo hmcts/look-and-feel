@@ -4,6 +4,7 @@
 
 <main id="content" role="main" tabindex="-1">
   {% block breadcrumbs %}{% endblock %}
+  {% block full_width %}
   <div class="grid-row">
     <div class="column-two-thirds">
       {% block two_thirds -%}{%- endblock %}
@@ -12,6 +13,7 @@
       {% block one_third -%}{%- endblock %}
     </div>
   </div>
+  {% endblock %}
 </main>
 
 {%- endblock %}

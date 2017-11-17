@@ -27,6 +27,13 @@
 </div>
 {% endmacro %}
 
+{% macro hiddenInput(field, value) %}
+<input type="hidden"
+       name="{{ field.name }}"
+       id="{{ field.id }}"
+       {% if field.value or value %}value="{{ value | default(field.value) }}"{% endif %}>
+{% endmacro %}
+
 {#
   formSection
 
