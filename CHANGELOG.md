@@ -1,3 +1,18 @@
+<a name="1.3.0"></a>
+# 1.3.0 (2017-11-23)
+
+* Add check your answers layout ([fde4b9b](https://github.com/hmcts/look-and-feel/commit/fde4b9b))
+* Add macro for check your answers blocks ([6471778](https://github.com/hmcts/look-and-feel/commit/6471778))
+* Add sass for check your answers ([25656b9](https://github.com/hmcts/look-and-feel/commit/25656b9))
+* Add statement of truth to check your answers template ([6dea0c4](https://github.com/hmcts/look-and-feel/commit/6dea0c4))
+* Handle questions presenting a path or a url ([6e577fd](https://github.com/hmcts/look-and-feel/commit/6e577fd))
+* Make webpack less noisy ([cf8588c](https://github.com/hmcts/look-and-feel/commit/cf8588c))
+* Only display answers that shouldn't be hidden ([47a99cd](https://github.com/hmcts/look-and-feel/commit/47a99cd))
+* Only show titles if there's more than 1 section ([224b3ee](https://github.com/hmcts/look-and-feel/commit/224b3ee))
+* Update dependencies ([60a4408](https://github.com/hmcts/look-and-feel/commit/60a4408))
+
+
+
 <a name="1.2.0"></a>
 # 1.2.0 (2017-11-15)
 
