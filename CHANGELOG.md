@@ -1,3 +1,12 @@
+<a name="1.4.0"></a>
+# 1.4.0 (2017-11-29)
+
+* Add a macro for propositional navigation ([040ea68](https://github.com/hmcts/look-and-feel/commit/040ea68))
+* Allow users to add globals without overriding ours ([486233d](https://github.com/hmcts/look-and-feel/commit/486233d))
+* Handle boolFields in selection buttons ([3c75c2f](https://github.com/hmcts/look-and-feel/commit/3c75c2f))
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2017-11-23)
 
