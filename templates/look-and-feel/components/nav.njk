@@ -1,0 +1,31 @@
+{#
+  propositionalNavigation
+    serviceName   - (required) the service name to display
+    link          - (default = []) links to display under the service name
+    options.label - (required) the label to display for the link
+    options.href  - (required) the url the link should point to
+
+  renders a propositional navigation including a service name and optional
+  links to parts of the service.
+#}
+
+{% macro propositionalNavigation(serviceName, links) %}
+  <div class="header-proposition">
+    <div class="content">
+      <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
+      <nav id="proposition-menu">
+        <a href="/" id="proposition-name">
+          {{ serviceName | default('No serviceName given') }}
+        </a>
+
+        {% if isArray(links) %}
+          <ul id="proposition-links">
+            {% for link in links %}
+              <li><a href="{{ link.href }}">{{ link.label }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </nav>
+    </div>
+  </div>
+{% endmacro %}
