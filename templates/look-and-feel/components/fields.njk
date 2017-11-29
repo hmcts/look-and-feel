@@ -98,6 +98,9 @@
                  {% if isArray(field.value) and option_value in field.value %}
                  checked="checked"
                  {% endif %}
+                 {% if isBoolean(field.value) and field.value == parseBool(option_value) %}
+                 checked="checked"
+                 {% endif %}
                  {% if field.value == option_value %}
                  checked="checked"
                  {% endif %}
