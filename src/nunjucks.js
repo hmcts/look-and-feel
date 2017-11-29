@@ -29,7 +29,9 @@ const nunjucksDefaults = {
 
 const configureNunjucks = (app, settings) => {
   app.locals.asset_path = app.get('assetPath');
-  nunjucks(app, Object.assign({}, nunjucksDefaults, settings));
+
+  const globals = Object.assign({}, nunjucksDefaults.globals, settings.globals);
+  nunjucks(app, Object.assign({}, nunjucksDefaults, settings, { globals }));
   return app;
 };
 
