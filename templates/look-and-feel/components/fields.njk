@@ -3,10 +3,11 @@
     field - (required) A field object containing name, id and value
     label - (required) The label to apply to the field
     hint  - (default = '') Extra hint text to place under the label
+    class - (default = '') Additional classes to add to the text input
 
   Renders a simple text box input field.
 #}
-{% macro textbox(field, label, hint=false) %}
+{% macro textbox(field, label, hint=false, class='') %}
 <div class="form-group {{ errorClass(field) }}">
 
   <label class="form-label"
@@ -19,7 +20,7 @@
     {%- endif %}
   </label>
   {{ errorsFor(field) }}
-  <input class="form-control"
+  <input class="form-control {{ class }}"
          id="{{ field.id }}"
          name="{{ field.id }}"
          type="text"
