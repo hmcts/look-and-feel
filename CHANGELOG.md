@@ -1,3 +1,11 @@
+<a name="1.5.0"></a>
+# 1.5.0 (2017-12-13)
+
+* Add a date component ([a2d4d41](https://github.com/hmcts/look-and-feel/commit/a2d4d41))
+* chore(package): update chai-fs to version 2.0.0 ([122421a](https://github.com/hmcts/look-and-feel/commit/122421a))
+
+
+
 <a name="1.4.0"></a>
 # 1.4.0 (2017-11-29)
 
