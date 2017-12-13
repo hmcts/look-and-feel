@@ -4,13 +4,26 @@
     feedbackLink - (default = '#') Link to feedback form
 
   Renders a phase banner. If phase is "LIVE" the banner will not be rendered.
+
+  If called the call block will replace the banner content:
+  ```
+  {% call phaseBanner('ALPHA') %}
+  This service is in Alpha.
+  {% endcall %}
+  ```
 #}
 {% macro phaseBanner(phase='ALPHA', feedbackLink='#') %}
 {% if phase != 'LIVE' %}
 <div class="phase-banner">
   <p>
     <strong class="phase-tag">{{ phase }}</strong>
-    <span>This is a new service – your <a href="{{ feedbackLink }}">feedback</a> will help us to improve it.</span>
+    <span>
+    {% if caller %}
+      {{ caller() }}
+    {% else %}
+      This is a new service – your <a href="{{ feedbackLink }}">feedback</a> will help us to improve it.
+    {% endif %}
+    </span>
   </p>
 </div>
 {% endif %}
