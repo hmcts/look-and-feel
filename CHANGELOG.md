@@ -1,3 +1,10 @@
+<a name="1.6.0"></a>
+# 1.6.0 (2017-12-18)
+
+* Allow explicitly setting html in phase banner ([8e4b658](https://github.com/hmcts/look-and-feel/commit/8e4b658))
+
+
+
 <a name="1.5.0"></a>
 # 1.5.0 (2017-12-13)
 
