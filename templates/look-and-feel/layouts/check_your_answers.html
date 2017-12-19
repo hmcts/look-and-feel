@@ -4,6 +4,11 @@
 {% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
 {% from "look-and-feel/components/fields.njk" import hiddenInput %}
 
+{% set pageContent = {
+    submit: pageContent.submit | default('Continue')
+  }
+%}
+
 {% block page_title %}{{ title | default('Check your answers') }}{% endblock %}
 
 {% block breadcrumbs %}
@@ -56,10 +61,10 @@
     <form action="{{ path if path else url }}" method="post" class="form">
 
       {% block statement_of_truth_fields %}
-        {{ hiddenInput(fields.statementOfTruth, value=true) }}
+      {{ hiddenInput(fields.statementOfTruth, value=true) }}
       {%- endblock %}
 
-      <input class="button" type="submit" value="Continue">
+      <input class="button" type="submit" value="{{ pageContent.submit }}">
     </form>
   {% endif %}
 
