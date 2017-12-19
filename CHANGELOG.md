@@ -1,3 +1,10 @@
+<a name="1.7.0"></a>
+# 1.7.0 (2017-12-19)
+
+* Allow services to override content on Check your answers (#44) ([5d92a78](https://github.com/hmcts/look-and-feel/commit/5d92a78))
+
+
+
 <a name="1.6.0"></a>
 # 1.6.0 (2017-12-18)
 
