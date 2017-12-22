@@ -20,7 +20,10 @@
       @include media(desktop) {
         display: table-cell;
         border-bottom: 1px solid $border-colour;
-        padding: em(12, 19) em(20, 19) em(9, 19) 0; // copied from Elements' td padding
+        // copied from Elements' td padding
+        padding-top: em(12, 19);
+        padding-right: em(20, 19);
+        padding-bottom: em(9, 19);
         margin: 0;
       }
     }
