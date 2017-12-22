@@ -1,3 +1,15 @@
+<a name="1.8.0-1"></a>
+# 1.8.0-1 (2017-12-22)
+
+* Add add-another layout ([b9bbe16](https://github.com/hmcts/look-and-feel/commit/b9bbe16))
+* adding error page template ([b95f039](https://github.com/hmcts/look-and-feel/commit/b95f039))
+* Allow specifying of a specific url for questions to post to ([bdc9370](https://github.com/hmcts/look-and-feel/commit/bdc9370))
+* Handle array answers correctly, render them in an unstyled list ([1f25ac6](https://github.com/hmcts/look-and-feel/commit/1f25ac6))
+* Remove explicit left padding, messes with field-group-error ([c73d858](https://github.com/hmcts/look-and-feel/commit/c73d858))
+* Rename list item to item, makes more sense from a users perspective ([c005e72](https://github.com/hmcts/look-and-feel/commit/c005e72))
+
+
+
 <a name="1.7.0"></a>
 # 1.7.0 (2017-12-19)
 
