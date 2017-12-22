@@ -20,9 +20,9 @@
     {{ header(pageContent.itemsListLabel | default(defaultContent.itemsListLabel), size='medium') }}
 
     <dl class="add-another-list">
-      {% for fieldName, field in fields.items.fields %}
-        {% call addAnotherItem(field, deleteUrl(loop.index0), editUrl(loop.index0)) %}
-          {% block item %}{{ field.value }}{% endblock %}
+      {% for fieldName, item in fields.items.fields %}
+        {% call addAnotherItem(item, deleteUrl(loop.index0), editUrl(loop.index0)) %}
+          {% block item %}{{ item.value }}{% endblock %}
         {% endcall %}
       {% else %}
         {% call addAnotherItem() %}
