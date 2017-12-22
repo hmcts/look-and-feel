@@ -1,0 +1,83 @@
+{% extends "look-and-feel/layouts/question.html" %}
+{% from "look-and-feel/components/fields.njk" import formSection, errorClass, errorsFor %}
+{% from "look-and-feel/components/header.njk" import header %}
+
+{% set defaultContent = {
+  addAnotherLink: 'Add another item',
+  itemLabel: 'item',
+  noItemsMessage: 'No items added yet',
+  itemsListLabel: 'Items',
+  editItemLabel: 'Add another item'
+}
+%}
+
+{% block fields %}
+
+{% if isListMode %}
+
+  {% block listItems %}
+  {% call formSection() %}
+    {{ header(pageContent.itemsListLabel | default(defaultContent.itemsListLabel), size='medium') }}
+
+    <dl class="add-another-list">
+      {% for fieldName, field in fields.items.fields %}
+        {% call addAnotherItem(field, deleteUrl(loop.index0), editUrl(loop.index0)) %}
+          {% block item %}{{ field.value }}{% endblock %}
+        {% endcall %}
+      {% else %}
+        {% call addAnotherItem() %}
+          {% block noItems %}
+            {{ pageContent.noItemsMessage | default(defaultContent.noItemsMessage) }}
+          {% endblock %}
+        {% endcall %}
+      {% endfor %}
+    </dl>
+  {% endcall %}
+
+  {% call formSection() %}
+    <a href="{{ addAnotherUrl }}">
+      {{ pageContent.addAnotherLink | default(defaultContent.addAnotherLink) }}
+    </a>
+  {% endcall %}
+
+  {% endblock %}
+
+{% endif %}
+
+{% if isEditMode %}
+  {% block editItem %}
+    <p>This is a placeholder block.</p>
+    <p>Replace it with form controls to edit the item, e.g.</p>
+    <pre>
+    {% raw %}
+    {% block editItem %}
+      {{ textbox(this.fields.item, 'Item label') }}
+    {% endblock %}
+    {% endraw %}
+    </pre>
+  {% endblock %}
+{% endif %}
+
+{% endblock %}
+
+
+{# Macro specific to this layout #}
+{% macro addAnotherItem(field, deleteUrl, editUrl) %}
+<div>
+  <dd class="add-another-list-item {{ errorClass(field) }}">
+      {{ errorsFor(field) }}
+      {{ caller() }}
+  </dd>
+  {% if deleteUrl or editUrl %}
+  <dd class="add-another-list-controls">
+    {% if editUrl %}
+      <a href="{{ editUrl }}" class="add-another-edit-link">Edit<span class="visually-hidden">{{ pageContent.itemLabel | default(defaultContent.itemLabel) }}</span></a>
+    {% endif %}
+    {% if deleteUrl %}
+      <a href="{{ deleteUrl }}">Delete<span class="visually-hidden">{{ pageContent.itemLabel | default(defaultContent.itemLabel) }}</span></a>
+    {% endif %}
+  </dd>
+  {% endif %}
+</div>
+{% endmacro %}
+

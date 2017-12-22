@@ -1,0 +1,18 @@
+@import 'look-and-feel/check-your-answers';
+
+.add-another-edit-link {
+  padding-right: 1em;
+}
+
+.add-another-list {
+  @extend .govuk-check-your-answers;
+  @extend .cya-questions-short
+}
+
+.add-another-list-item {
+  @extend .cya-answer;
+}
+
+.add-another-list-controls {
+  @extend .cya-change;
+}
