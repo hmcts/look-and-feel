@@ -1,3 +1,12 @@
+<a name="1.8.0-2"></a>
+# 1.8.0-2 (2018-01-12)
+
+* Add ids to add another and check your answers ([454d70c](https://github.com/hmcts/look-and-feel/commit/454d70c))
+* Fix spacing between items in the list on add another on mobiles ([c450aa8](https://github.com/hmcts/look-and-feel/commit/c450aa8))
+* Render error summary on cya (in case a developer overrides the statement of truth) ([cb0980c](https://github.com/hmcts/look-and-feel/commit/cb0980c))
+
+
+
 <a name="1.8.0-1"></a>
 # 1.8.0-1 (2017-12-22)
 
