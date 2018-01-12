@@ -1,3 +1,10 @@
+<a name="1.8.0-3"></a>
+# 1.8.0-3 (2018-01-12)
+
+* Ensure cya items with the same question from different steps do not have the same id ([b4c5277](https://github.com/hmcts/look-and-feel/commit/b4c5277))
+
+
+
 <a name="1.8.0-2"></a>
 # 1.8.0-2 (2018-01-12)
 
