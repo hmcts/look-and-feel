@@ -40,7 +40,7 @@
             {% if part.html %}
               {{ part.html | safe }}
             {% else %}
-              {{ answer(part.question, part.answer, part.url) }}
+              {{ answer(part.question, part.answer, part.url, part.id) }}
             {% endif %}
           {% endif %}
         {% endfor %}
