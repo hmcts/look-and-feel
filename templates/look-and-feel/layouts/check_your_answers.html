@@ -3,6 +3,7 @@
 {% from "look-and-feel/components/check-your-answers.njk" import answer %}
 {% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
 {% from "look-and-feel/components/fields.njk" import hiddenInput %}
+{% from "look-and-feel/components/errors.njk" import errorSummary %}
 
 {% set defaultContent = {
   title: 'Check your answers',
@@ -23,6 +24,8 @@
 {% block two_thirds %}
 
 {{ header(pageContent.title | default(defaultContent.title)) }}
+
+  {{ errorSummary(fields) }}
 
   {% for section in _sections %}
 
