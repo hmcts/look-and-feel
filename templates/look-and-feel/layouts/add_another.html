@@ -63,7 +63,7 @@
 
 {# Macro specific to this layout #}
 {% macro addAnotherItem(field, deleteUrl, editUrl) %}
-<div>
+<div {% if field %} id="add-another-list-{{ safeId(field.id) }}" {% endif %}>
   <dd class="add-another-list-item {{ errorClass(field) }}">
       {{ errorsFor(field) }}
       {{ caller() }}
