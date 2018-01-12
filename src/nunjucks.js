@@ -24,8 +24,10 @@ const nunjucksDefaults = {
     isBoolean(value) {
       return typeof value === 'boolean';
     },
-    safeId(id) {
-      return id.toString()
+    safeId(...strings) {
+      return strings
+        .map(str => str.toString())
+        .join('-')
         .toLowerCase()
         // replace foo[1] to foo-1
         .replace(/\[(\d{1,})\]/, '-$1')

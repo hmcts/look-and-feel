@@ -1,5 +1,5 @@
-{% macro answer(question, answer, url) %}
-<div id="cya-{{ safeId(question) }}">
+{% macro answer(question, answer, url, id) %}
+<div id="cya-{{ safeId(id, question) }}">
   <dt class="cya-question">
     {{ question }}
   </dt>
