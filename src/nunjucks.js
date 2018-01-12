@@ -23,6 +23,15 @@ const nunjucksDefaults = {
     },
     isBoolean(value) {
       return typeof value === 'boolean';
+    },
+    safeId(id) {
+      return id.toString()
+        .toLowerCase()
+        // replace foo[1] to foo-1
+        .replace(/\[(\d{1,})\]/, '-$1')
+        .replace(/[^A-Za-z0-9\s_-]/g, '')
+        // replace 'foo bar' to 'foo-bar'
+        .replace(/\s/g, '-');
     }
   }
 };
