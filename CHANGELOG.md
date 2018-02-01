@@ -1,3 +1,22 @@
+<a name="1.9.0"></a>
+# 1.9.0 (2018-02-01)
+
+* Add add-another layout ([80ef747](https://github.com/hmcts/look-and-feel/commit/80ef747))
+* Add ids to add another and check your answers ([45cb2ad](https://github.com/hmcts/look-and-feel/commit/45cb2ad))
+* adding error page template ([b95f039](https://github.com/hmcts/look-and-feel/commit/b95f039))
+* Allow specifying of a specific url for questions to post to ([6d1ca31](https://github.com/hmcts/look-and-feel/commit/6d1ca31))
+* Ensure cya items with the same question from different steps do not have the same id ([3d187eb](https://github.com/hmcts/look-and-feel/commit/3d187eb))
+* Fix spacing between items in the list on add another on mobiles ([3248b8e](https://github.com/hmcts/look-and-feel/commit/3248b8e))
+* Handle array answers correctly, render them in an unstyled list ([2c31acd](https://github.com/hmcts/look-and-feel/commit/2c31acd))
+* Release 1.8.0-1 ([61fe076](https://github.com/hmcts/look-and-feel/commit/61fe076))
+* Release 1.8.0-2 ([220bb3f](https://github.com/hmcts/look-and-feel/commit/220bb3f))
+* Release 1.8.0-3 ([2e03c17](https://github.com/hmcts/look-and-feel/commit/2e03c17))
+* Remove explicit left padding, messes with field-group-error ([7f90888](https://github.com/hmcts/look-and-feel/commit/7f90888))
+* Rename list item to item, makes more sense from a users perspective ([292ba18](https://github.com/hmcts/look-and-feel/commit/292ba18))
+* Render error summary on cya (in case a developer overrides the statement of truth) ([5b4c1e3](https://github.com/hmcts/look-and-feel/commit/5b4c1e3))
+
+
+
 <a name="1.8.0-3"></a>
 # 1.8.0-3 (2018-01-12)
 
