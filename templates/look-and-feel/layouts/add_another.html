@@ -35,7 +35,7 @@
   {% endcall %}
 
   {% call formSection() %}
-    <a href="{{ addAnotherUrl }}">
+    <a href="{{ addAnotherUrl }}" class="add-another-add-link">
       {{ pageContent.addAnotherLink | default(defaultContent.addAnotherLink) }}
     </a>
   {% endcall %}
@@ -74,7 +74,7 @@
       <a href="{{ editUrl }}" class="add-another-edit-link">Edit<span class="visually-hidden">{{ pageContent.itemLabel | default(defaultContent.itemLabel) }}</span></a>
     {% endif %}
     {% if deleteUrl %}
-      <a href="{{ deleteUrl }}">Delete<span class="visually-hidden">{{ pageContent.itemLabel | default(defaultContent.itemLabel) }}</span></a>
+      <a href="{{ deleteUrl }}" class="add-another-delete-link">Delete<span class="visually-hidden">{{ pageContent.itemLabel | default(defaultContent.itemLabel) }}</span></a>
     {% endif %}
   </dd>
   {% endif %}
