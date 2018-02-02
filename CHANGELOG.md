@@ -1,3 +1,10 @@
+<a name="1.9.1"></a>
+## 1.9.1 (2018-02-02)
+
+* Add add-another-delete-link class to the addAnother delete link. Add add-another-add-link class to t ([ec67622](https://github.com/hmcts/look-and-feel/commit/ec67622))
+
+
+
 <a name="1.9.0"></a>
 # 1.9.0 (2018-02-01)
 
