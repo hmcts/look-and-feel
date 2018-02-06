@@ -1,3 +1,11 @@
+<a name="1.10.0"></a>
+# 1.10.0 (2018-02-06)
+
+* Allow selectionButtons macro to be called ([eab60ce](https://github.com/hmcts/look-and-feel/commit/eab60ce))
+* Update to latest packages ([d7b04f8](https://github.com/hmcts/look-and-feel/commit/d7b04f8))
+
+
+
 <a name="1.9.1"></a>
 ## 1.9.1 (2018-02-02)
 
