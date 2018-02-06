@@ -46,6 +46,49 @@
 {% endmacro %}
 
 {#
+  selectionButton
+    field          - (required) A field object containing name, id and value
+    option         - (required) Options used to populate the possible answers
+
+    options.label  - (required) The label text to display for this option
+    options.value  - (default = label.lowercase()) The value to be sent on post for this option
+    options.target - (default = '') Id of the panel to expand if selected
+    type           - (default = 'radio') The type of the input, either radio or checkbox
+
+  Renders multiple option radio buttons
+#}
+{% macro selectionButton(field,
+                         option={},
+                         type='radio') %}
+  {% set option_value = option.value or option.label|lower %}
+  {% set option_disabled = option.disabled or false %}
+  <div class="multiple-choice"
+    {% if option.target -%}
+    data-target="{{ option.target }}"
+    {%- endif %}>
+    <input id="{{ field.id }}-{{ option_value }}"
+           type="{{ type }}"
+           name="{{ field.id }}"
+           {% if isArray(field.value) and option_value in field.value %}
+           checked="checked"
+           {% endif %}
+           {% if isBoolean(field.value) and field.value == parseBool(option_value) %}
+           checked="checked"
+           {% endif %}
+           {% if field.value == option_value %}
+           checked="checked"
+           {% endif %}
+           {% if option_disabled %}
+           disabled
+           {% endif %}
+           value="{{ option_value }}">
+    <label for="{{ field.id }}-{{ option_value }}">
+      {{ option.label }}
+    </label>
+  </div>
+{% endmacro %}
+
+{#
   selectionButtons
     field          - (required) A field object containing name, id and value
     label          - (required) The label to apply to the field
@@ -85,34 +128,13 @@
         {{ errorsFor(field) }}
       </legend>
 
-      {% for option in options -%}
-        {% set option_value = option.value or option.label|lower %}
-        {% set option_disabled = option.disabled or false %}
-        <div class="multiple-choice"
-          {% if option.target -%}
-          data-target="{{ option.target }}"
-          {%- endif %}>
-          <input id="{{ field.id }}-{{ option_value }}"
-                 type="{{ type }}"
-                 name="{{ field.id }}"
-                 {% if isArray(field.value) and option_value in field.value %}
-                 checked="checked"
-                 {% endif %}
-                 {% if isBoolean(field.value) and field.value == parseBool(option_value) %}
-                 checked="checked"
-                 {% endif %}
-                 {% if field.value == option_value %}
-                 checked="checked"
-                 {% endif %}
-                 {% if option_disabled %}
-                 disabled
-                 {% endif %}
-                 value="{{ option_value }}">
-          <label for="{{ field.id }}-{{ option_value }}">
-            {{ option.label }}
-          </label>
-        </div>
-      {%- endfor %}
+      {% if caller %}
+        {{ caller() }}
+      {% else %}
+        {% for option in options -%}
+          {{ selectionButton(field, option, type) }}
+        {%- endfor %}
+      {% endif %}
 
     </fieldset>
   </div>

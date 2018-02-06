@@ -1,6 +1,6 @@
 {% extends "look-and-feel/layouts/two_thirds.html" %}
 {% from "look-and-feel/components/header.njk" import header %}
-{% from "look-and-feel/components/fields.njk" import selectionButtons, textbox %}
+{% from "look-and-feel/components/fields.njk" import selectionButtons, selectionButton, textbox %}
 
 {% block head -%}
   <link href="{{ asset_path }}main.css" media="screen" rel="stylesheet" />
@@ -18,7 +18,7 @@
   </p>
   <div class="panel panel-border-wide">
     {{ header('Code', size='small') }}
-    <pre><code>{% raw %}{% from "look-and-feel/components/fields.njk" import selectionButtons %}
+    <pre><code>{% raw %}{% from "look-and-feel/components/fields.njk" import selectionButtons, selectionButton %}
 {% endraw %}</code></pre>
   </div>
 
@@ -155,6 +155,55 @@
   {{ textbox(field, "Enter your reference number") }}
 &lt;/div&gt;{% endraw %}</code></pre>
   </div>
+
+
+  {{ header("Nesting revealing content", size="medium") }}
+
+  <div class="example">
+    {% set field = { id: 'contact', name: 'contact' } %}
+    {% set detailField = { id: 'contactDetail', name: 'contactDetail' } %}
+
+    {% call selectionButtons(field, "How do you want to be contacted?", hideQuestion = false) %}
+      {{ selectionButton(field, { label: "Email", target: "email-address" }) }}
+      <div class="panel panel-border-wide js-hidden" id="email-address">
+        {{ textbox(detailField, "Email address") }}
+      </div>
+
+      {{ selectionButton(field, { label: "Phone", target: "phone-number" }) }}
+      <div class="panel panel-border-wide js-hidden" id="phone-number">
+        {{ textbox(detailField, "Phone number") }}
+      </div>
+
+      {{ selectionButton(field, { label: "Text message", target: "mobile-number" }) }}
+      <div class="panel panel-border-wide js-hidden" id="mobile-number">
+        {{ textbox(detailField, "Mobile phone number") }}
+      </div>
+    {% endcall %}
+  </div>
+
+  <div class="panel panel-border-wide">
+    {{ header('Code', size='small') }}
+    <pre><code>{% raw %}{% call selectionButtons(field,
+                         "How do you want to be contacted?",
+                         hideQuestion = false) %}
+  {{ selectionButton(field, { label: "Email", target: "email-address" }) }}
+  &lt;div class="panel panel-border-wide js-hidden" id="email-address"&gt;
+    {{ textbox(detailField, "Email address") }}
+  &lt;/div&gt;
+
+  {{ selectionButton(field, { label: "Phone", target: "phone-number" }) }}
+  &lt;div class="panel panel-border-wide js-hidden" id="phone-number"&gt;
+    {{ textbox(detailField, "Phone number") }}
+  &lt;/div&gt;
+
+  {{ selectionButton(field, { label: "Text message", target: "mobile-number" }) }}
+  &lt;div class="panel panel-border-wide js-hidden" id="mobile-number"&gt;
+    {{ textbox(detailField, "Mobile phone number") }}
+  &lt;/div&gt;
+{% endcall %}{% endraw %}</code></pre>
+  </div>
+
+
 
 {%- endblock %}
 
