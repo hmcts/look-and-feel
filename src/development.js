@@ -1,5 +1,6 @@
 const isDev = require('./util/isDev');
 const webpackDev = require('webpack-dev-middleware');
+const log = require('./util/logging')('look-and-feel.development');
 
 const setupDevMiddleware = (app, settings) => {
   const _webpack = app.get('webpack');
@@ -16,7 +17,11 @@ const configureDevelopment = (app, {
   useWebpackDevMiddleware = false,
   webpackDevMiddleware
 } = {}) => {
-  if (isDev() || useWebpackDevMiddleware) {
+  if (useWebpackDevMiddleware && !isDev()) {
+    log.warn('useWebpackDevMiddleware is deprecated');
+  }
+  if (isDev()) {
+    log.debug('Using webpack dev middleware to serve assets');
     setupDevMiddleware(app, webpackDevMiddleware);
   }
 };
