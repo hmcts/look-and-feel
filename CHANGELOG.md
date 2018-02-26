@@ -1,3 +1,13 @@
+<a name="1.11.0"></a>
+# 1.11.0 (2018-02-26)
+
+* Configure webpack for production ([1923410](https://github.com/hmcts/look-and-feel/commit/1923410))
+* Deprecate using webpack dev in production ([e3ffb8e](https://github.com/hmcts/look-and-feel/commit/e3ffb8e))
+* Shim over @hmcts/nodejs-logging if present ([b56867c](https://github.com/hmcts/look-and-feel/commit/b56867c))
+* Update dependencies ([580e38d](https://github.com/hmcts/look-and-feel/commit/580e38d))
+
+
+
 <a name="1.10.0"></a>
 # 1.10.0 (2018-02-06)
 
