@@ -2,6 +2,7 @@ const { configureViews } = require('./views');
 const { configureNunjucks } = require('./nunjucks');
 const { configureWebpack } = require('./webpack');
 const { configureDevelopment } = require('./development');
+const { configureProduction } = require('./production');
 const { assigned } = require('check-types');
 const url = require('url');
 
@@ -22,6 +23,7 @@ const configure = (app, {
   configureNunjucks(app, nunjucks);
   configureWebpack(app, baseUrl, webpack);
   configureDevelopment(app, development);
+  configureProduction(app);
 
   return app;
 };

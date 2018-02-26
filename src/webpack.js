@@ -4,6 +4,7 @@ const browserSupport = require('./webpack/rules/browserSupport');
 const govukTemplate = require('./sources/govukTemplate');
 const govukElements = require('./sources/govukElements');
 const govukToolkit = require('./sources/govukToolkit');
+const path = require('path');
 
 const isDefined = obj => typeof obj !== 'undefined';
 const defaultIfUndefined = (obj, _default) => {
@@ -20,6 +21,7 @@ const webpackSettings = (assetPath, settings) => {
   const userResolve = defaultIfUndefined(settings.resolve, {});
   const userAliases = defaultIfUndefined(userResolve.alias, {});
   const userPlugins = defaultIfUndefined(settings.plugins, []);
+  const userOutput = defaultIfUndefined(settings.output, {});
 
   const defaults = {
     plugins: [
@@ -27,7 +29,10 @@ const webpackSettings = (assetPath, settings) => {
       ...govukTemplate.plugins,
       ...govukToolkit.plugins
     ],
-    output: { filename: '[name].js' },
+    output: {
+      path: path.resolve('./dist'),
+      filename: '[name].js'
+    },
     module: {
       rules: [
         ...browserSupport,
@@ -46,6 +51,7 @@ const webpackSettings = (assetPath, settings) => {
   };
   const manualMerged = {
     plugins: [...defaults.plugins, ...userPlugins],
+    output: Object.assign({}, defaults.output, userOutput),
     module: Object.assign({}, defaults.module, settings.module, {
       rules: [
         ...defaults.module.rules,
