@@ -1,3 +1,12 @@
+<a name="1.12.0"></a>
+# 1.12.0 (2018-02-27)
+
+* Clean up usage of logging ([5616c1a](https://github.com/hmcts/look-and-feel/commit/5616c1a))
+* Move the error summary above the header for the check your answers page and question page ([7c71ad3](https://github.com/hmcts/look-and-feel/commit/7c71ad3))
+* remove unused package-lock.json ([9c0e21b](https://github.com/hmcts/look-and-feel/commit/9c0e21b))
+
+
+
 <a name="1.11.0"></a>
 # 1.11.0 (2018-02-26)
 
