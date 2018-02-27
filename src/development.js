@@ -1,6 +1,6 @@
 const isDev = require('./util/isDev');
 const webpackDev = require('webpack-dev-middleware');
-const log = require('./util/logging')('look-and-feel.development');
+const log = require('./util/logging')('development');
 
 const setupDevMiddleware = (app, settings) => {
   const _webpack = app.get('webpack');

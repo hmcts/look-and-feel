@@ -3,13 +3,15 @@ const debug = require('debug');
 
 // eslint-disable-next-line no-console
 const log = (prefix, ...args) => console.log(prefix, ':', ...args);
+const app = 'look-and-feel';
 
 module.exports = prefix => {
+  const scope = `${app}.${prefix}`;
   try {
     // eslint-disable-next-line global-require
-    const logger = require('@hmcts/nodejs-logging').getLogger(prefix);
+    const logger = require('@hmcts/nodejs-logging').getLogger(scope);
 
-    debug('look-and-feel.logging')('Using @hmcts/nodejs-logging for logging');
+    debug(`${app}.logging`)('Using @hmcts/nodejs-logging for logging');
     return {
       info(...args) {
         return logger.info(...args);
@@ -19,22 +21,23 @@ module.exports = prefix => {
       },
       error(...args) {
         return logger.error(...args);
-      }
+      },
+      debug: debug(scope)
     };
   } catch (moduleMissing) {
-    debug('look-and-feel.logging')('@hmcts/nodejs-loging not found');
-    debug('look-and-feel.logging')('Using console.log for logging');
+    debug(`${app}.logging`)('@hmcts/nodejs-loging not found');
+    debug(`${app}.logging`)('Using console.log for logging');
     return {
       info(...args) {
-        return log(colors.green(prefix), ...args);
+        return log(colors.green(scope), ...args);
       },
       warn(...args) {
-        return log(colors.yellow(prefix), ...args);
+        return log(colors.yellow(scope), ...args);
       },
       error(...args) {
-        return log(colors.red(prefix), ...args);
+        return log(colors.red(scope), ...args);
       },
-      debug: debug(prefix)
+      debug: debug(scope)
     };
   }
 };
