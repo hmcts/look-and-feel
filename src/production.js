@@ -1,4 +1,4 @@
-const log = require('./util/logging')('look-and-feel.production');
+const log = require('./util/logging')('production');
 const isDev = require('./util/isDev');
 const serveStatic = require('serve-static');
 const path = require('path');
