@@ -23,9 +23,9 @@
 
 {% block two_thirds %}
 
-{{ header(pageContent.title | default(defaultContent.title)) }}
+{{ errorSummary(fields) }}
 
-  {{ errorSummary(fields) }}
+{{ header(pageContent.title | default(defaultContent.title)) }}
 
   {% for section in _sections %}
 

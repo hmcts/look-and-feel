@@ -12,11 +12,11 @@
 
 {% block two_thirds %}
 
+{{ errorSummary(fields) }}
+
 {{ header(title, size='large') }}
 
 <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
-
-  {{ errorSummary(fields) }}
 
   {% block fields -%}
   {%- endblock %}
