@@ -1,0 +1,39 @@
+.l-i18n-language-switch {
+  float: right;
+  @include core-16;
+
+  margin-top: $gutter-half;
+  margin-bottom: $gutter-half;
+
+  li {
+    @include inline-block;
+    color: $black;
+
+    a {
+      text-decoration: none;
+      border-bottom: 1px solid $black;
+
+      &:link,
+      &:visited,
+      &:hover,
+      a#{&}:focus,
+      &:active {
+        color: $black;
+      }
+    }
+
+    &:after {
+      margin-right: $gutter-half / 2;
+      margin-left: $gutter-half / 2;
+      border-left: 1px solid $black;
+      content: '';
+    }
+
+    &:last-child:after {
+      border-left: none;
+      margin-right: 0;
+      margin-left: 0;
+      content: '';
+    }
+  }
+}

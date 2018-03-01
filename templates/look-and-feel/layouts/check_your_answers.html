@@ -4,6 +4,7 @@
 {% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
 {% from "look-and-feel/components/fields.njk" import hiddenInput %}
 {% from "look-and-feel/components/errors.njk" import errorSummary %}
+{% from "look-and-feel/components/i18n.njk" import languageSwitch %}
 
 {% set defaultContent = {
   title: 'Check your answers',
@@ -19,6 +20,7 @@
 {% block breadcrumbs %}
 {{ phaseBanner(phase, feedbackLink) }}
 <a class="link-back" href="#" onclick="history.go(-1); return false;">Back</a>
+{{ languageSwitch(i18n.currentLanguage, i18n.availableLanguages) }}
 {% endblock %}
 
 {% block two_thirds %}
