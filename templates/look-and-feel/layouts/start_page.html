@@ -1,9 +1,11 @@
 {% extends "look-and-feel/layouts/two_thirds.html" %}
 {% from "look-and-feel/components/header.njk" import header %}
 {% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
+{% from "look-and-feel/components/i18n.njk" import languageSwitch %}
 
 {% block breadcrumbs %}
 {{ phaseBanner(phase, feedbackLink) }}
+{{ languageSwitch(currentLang, availableLangs) }}
 {% endblock %}
 
 
