@@ -15,6 +15,7 @@ const configureProduction = app => {
       if (stats) {
         const time = stats.endTime - stats.startTime;
         log.info(`Webpack build complete in ${time}ms. Hash ${stats.hash}`);
+        log.debug(stats);
       }
     });
     const staticSettings = {
