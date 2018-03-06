@@ -1,3 +1,11 @@
+<a name="1.13.0"></a>
+# 1.13.0 (2018-03-06)
+
+* Add a language switcher macro ([ebb29d2](https://github.com/hmcts/look-and-feel/commit/ebb29d2))
+* Debug out the webpack stats in prod, useful for debugging prod issues ([02297ec](https://github.com/hmcts/look-and-feel/commit/02297ec))
+
+
+
 <a name="1.12.0"></a>
 # 1.12.0 (2018-02-27)
 
