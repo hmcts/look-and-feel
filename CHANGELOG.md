@@ -1,3 +1,10 @@
+<a name="1.13.1-0"></a>
+## 1.13.1-0 (2018-03-07)
+
+* Ensure govuk modules import the actual window ([d398f41](https://github.com/hmcts/look-and-feel/commit/d398f41))
+
+
+
 <a name="1.13.0"></a>
 # 1.13.0 (2018-03-06)
 
