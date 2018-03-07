@@ -20,7 +20,8 @@ const govukModule = (file, expose, imports = ['window.jQuery=jquery']) => {
   return {
     test: path.resolve(javascripts, file),
     use: [
-      `imports-loader?${importsArr.join(',')}`,
+      // All govuk modules attach to window and so need window imported
+      `imports-loader?${['window=window', ...importsArr].join(',')}`,
       `exports-loader?${exposeArr.join(',')}`
     ]
   };

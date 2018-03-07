@@ -33,6 +33,7 @@ const webpackSettings = (assetPath, settings) => {
       path: path.resolve('./dist'),
       filename: '[name].js'
     },
+    externals: [{ window: 'window' }],
     module: {
       rules: [
         ...browserSupport,
