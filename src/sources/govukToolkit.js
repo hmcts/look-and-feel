@@ -17,6 +17,9 @@ const govukModule = (file, expose, imports = ['window.jQuery=jquery']) => {
   const importsArr = Array.isArray(imports) ? imports : [imports];
   const exposeArr = Array.isArray(expose) ? expose : [expose];
 
+  // All govuk modules attach to window and so need window imported
+  importsArr.push('window=window');
+
   return {
     test: path.resolve(javascripts, file),
     use: [
