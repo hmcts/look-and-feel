@@ -3,13 +3,14 @@
     field - (required) A field object containing name, id and value
     label - (required) The label to apply to the field
     hint  - (default = '') Extra hint text to place under the label
+    hideLabel - (default = false) Hides the input label
 
   Renders a simple text box input field.
 #}
-{% macro textbox(field, label, hint=false) %}
+{% macro textbox(field, label, hint=false, hideLabel=false) %}
 <div class="form-group {{ errorClass(field) }}">
 
-  <label class="form-label"
+  <label class="form-label {{ "visually-hidden" if hideLabel }}"
          for="{{ field.id }}">
     {{ label }}
     {%- if hint %}
