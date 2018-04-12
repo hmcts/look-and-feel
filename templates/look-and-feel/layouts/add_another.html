@@ -18,7 +18,10 @@
 
   {% block listItems %}
   {% call formSection() %}
-    {{ header(defaultContent.itemsListLabel, size='medium') }}
+
+    {% if not defaultContent.hideItemsListLabel %}
+      {{ header(defaultContent.itemsListLabel, size='medium') }}
+    {% endif %}
 
     <dl class="add-another-list">
       {% for fieldName, item in fields.items.fields %}
