@@ -3,11 +3,12 @@
 {% from "look-and-feel/components/header.njk" import header %}
 
 {% set defaultContent = {
-  addAnotherLink: 'Add another item',
-  itemLabel: 'item',
-  noItemsMessage: 'No items added yet',
-  itemsListLabel: 'Items',
-  editItemLabel: 'Add another item'
+  addAnotherLink: pageContent.addAnotherLink if pageContent.addAnotherLink else 'Add another item',
+  itemLabel: pageContent.itemLabel if pageContent.itemLabel else 'item',
+  noItemsMessage: pageContent.noItemsMessage if pageContent.noItemsMessage else 'No items added yet',
+  itemsListLabel: pageContent.itemsListLabel if pageContent.itemsListLabel else 'Items',
+  hideItemsListLabel: pageContent.hideItemsListLabel if pageContent.hideItemsListLabel else false,
+  editItemLabel: pageContent.editItemLabel if pageContent.editItemLabel else 'Add another item'
 }
 %}
 
@@ -17,7 +18,7 @@
 
   {% block listItems %}
   {% call formSection() %}
-    {{ header(pageContent.itemsListLabel | default(defaultContent.itemsListLabel), size='medium') }}
+    {{ header(defaultContent.itemsListLabel, size='medium') }}
 
     <dl class="add-another-list">
       {% for fieldName, item in fields.items.fields %}
@@ -27,7 +28,7 @@
       {% else %}
         {% call addAnotherItem() %}
           {% block noItems %}
-            {{ pageContent.noItemsMessage | default(defaultContent.noItemsMessage) }}
+            {{ defaultContent.noItemsMessage }}
           {% endblock %}
         {% endcall %}
       {% endfor %}
@@ -36,7 +37,7 @@
 
   {% call formSection() %}
     <a href="{{ addAnotherUrl }}" class="add-another-add-link">
-      {{ pageContent.addAnotherLink | default(defaultContent.addAnotherLink) }}
+      {{ defaultContent.addAnotherLink }}
     </a>
   {% endcall %}
 
@@ -62,22 +63,21 @@
 
 
 {# Macro specific to this layout #}
-{% macro addAnotherItem(field, deleteUrl, editUrl) %}
-<div {% if field %} id="add-another-list-{{ safeId(field.id) }}" {% endif %}>
-  <dd class="add-another-list-item {{ errorClass(field) }}">
-      {{ errorsFor(field) }}
-      {{ caller() }}
+{% macro addAnotherItem(field, deleteUrl, editUrl, noItems=false) %}
+  <dt class="visually-hidden">{% if field %} {{ safeId(field.id) }} {% endif %}</dt>
+  <dd {% if field %} id="add-another-list-{{ safeId(field.id) }}" {% endif %} class="add-another-list-item {{ errorClass(field) }} {% if noItems %}noItems{% endif %}">
+    {{ errorsFor(field) }}
+    {{ caller() }}
   </dd>
   {% if deleteUrl or editUrl %}
-  <dd class="add-another-list-controls">
-    {% if editUrl %}
-      <a href="{{ editUrl }}" class="add-another-edit-link">Edit<span class="visually-hidden">{{ pageContent.itemLabel | default(defaultContent.itemLabel) }}</span></a>
-    {% endif %}
-    {% if deleteUrl %}
-      <a href="{{ deleteUrl }}" class="add-another-delete-link">Delete<span class="visually-hidden">{{ pageContent.itemLabel | default(defaultContent.itemLabel) }}</span></a>
-    {% endif %}
-  </dd>
+    <dd class="add-another-list-controls">
+      {% if editUrl %}
+        <a href="{{ editUrl }}" class="add-another-edit-link">Edit<span class="visually-hidden">{{ defaultContent.itemLabel }}</span></a>
+      {% endif %}
+      {% if deleteUrl %}
+        <a href="{{ deleteUrl }}" class="add-another-delete-link">Delete<span class="visually-hidden">{{ defaultContent.itemLabel }}</span></a>
+      {% endif %}
+    </dd>
   {% endif %}
-</div>
 {% endmacro %}
 
