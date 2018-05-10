@@ -12,7 +12,7 @@
     "config": "^1.26.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
-    "deepmerge": "^2.0.0",
+    "deepmerge": "2.0.1",
     "diff-so-fancy": "^1.1.1",
     "exports-loader": "^0.7.0",
     "express": "^4.15.3",
