@@ -71,6 +71,10 @@
 
       <input class="button" type="submit" value="{{ pageContent.sendApplication | default(defaultContent.sendApplication) }}">
     </form>
+
   {% endif %}
+
+  {% block after_form -%}
+  {%- endblock %}
 
 {% endblock %}
