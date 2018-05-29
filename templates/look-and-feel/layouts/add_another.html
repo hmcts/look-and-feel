@@ -29,7 +29,7 @@
           {% block item %}{{ item.value }}{% endblock %}
         {% endcall %}
       {% else %}
-        {% call addAnotherItem() %}
+        {% call addAnotherItem(noItems=true) %}
           {% block noItems %}
             {{ defaultContent.noItemsMessage }}
           {% endblock %}
