@@ -5,6 +5,12 @@
     display: table;
   }
 
+  @include media(desktop) {
+    &:first-child > * {
+      padding-top: 0;
+    }
+  }
+
   > * {
     position: relative;
     border-bottom: 1px solid $border-colour;
@@ -25,12 +31,6 @@
         padding-right: em(20, 19);
         padding-bottom: em(9, 19);
         margin: 0;
-      }
-    }
-
-    @include media(desktop) {
-      &:first-child > * {
-        padding-top: 0;
       }
     }
   }
