@@ -36,7 +36,6 @@
         {{ header(section.title, size='medium') }}
       {% endif %}
 
-      <dl class="govuk-check-your-answers cya-questions-short">
         {% for part in section.completedAnswers %}
           {% if not part.hide %}
             {% if part.html %}
@@ -46,7 +45,7 @@
             {% endif %}
           {% endif %}
         {% endfor %}
-      </dl>
+
     {% endif %}
   {% endfor %}
 
