@@ -18,7 +18,7 @@
 
 {{ header(title, size='large') }}
 
-<form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+<form enctype="{{ enc_type | default('application/x-www-form-urlencoded') }}" action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
 
   {% block fields -%}
   {%- endblock %}
