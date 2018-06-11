@@ -264,6 +264,31 @@
 
 {% endmacro %}
 
+{#
+  textarea
+    field - (required) A field object containing name, id and value
+    label - (required) The label to apply to the field
+    hint  - (default = '') Extra hint text to place under the label
+    hideLabel - (default = false) Hides the input label
+    placeholder - (default = '') Adds placeholder text within the field
+
+  Renders a textarea field.
+#}
+{% macro textarea(field, label, hint="", hideLabel=false, placeholder="") %}
+
+    <div class="form-group {{ errorClass(field) }}">
+        <label id="{{ field.id }}-label" class="form-label {{ 'visually-hidden' if hideLabel }}" for="{{ field.id }}">{{ label | safe }}</label>
+
+        {% if hint %}
+            <span class="form-hint">{{ hint | safe }}</span>
+        {% endif %}
+
+        {{ errorsFor(field) }}
+        <textarea placeholder="{{ placeholder }}" aria-labelledby="{{ field.id }}-label" class="form-control" id="{{ field.id }}" name="{{ field.id }}" rows="7">{{ field.value | default('') }}</textarea>
+    </div>
+
+{% endmacro %}
+
 
 {% macro errorsFor(field) -%}
   {% if field.errors %}
