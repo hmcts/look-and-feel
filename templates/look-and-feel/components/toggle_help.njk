@@ -11,7 +11,7 @@
 {% macro toggleHelp(link, text, id, openByDefault = false) %}
 
     <details role="group">
-        <summary role="button" aria-controls="{{ id }}" aria-expanded="{{ openByDefault.toString() }}">
+        <summary role="button" aria-expanded="{{ openByDefault.toString() }}">
             <span class="summary">{{ link }}</span></summary>
         <div class="panel panel-border-narrow" id="{{ id }}-0" aria-hidden="{{ not openByDefault.toString() }}">
             <p>
