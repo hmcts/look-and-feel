@@ -1,17 +1,13 @@
 sudo: required
-
 services:
-  - docker
-
+- docker
 script:
-  - make build test
-
+- make build test
 deploy:
   provider: npm
-  email: jenkins-reform@HMCTS.NET
+  email: jenkins-reform@hmcts.net
   api_key:
-    secure: "tWfWIn07jmvDTrhz+0exqu8awaN9UJNF69MmSI4Qi7ODnIUsfgJSDZN1F6dpPw6UX3gR3sgirq0HgdL6EyF9jmxT8BQEQE+odKWpg3EXhVLitYdtNzoL9KfmJ+fuik0r0Ej8hMp0kYPbuKDsr+RaMSh1VpE39XpxSYk6vyWfmgz3vtbjEMLzEJTazsNbCW2Wv9jquY/2Td7qKYWkWHPR88Le77+Zwko2ykxUUHSwuEO6clKEJhhK0UL8mjAhA9uw6VkmqsOiwNab9PEWNEL/y/z2Z02IWBkDI513tABxZuWDjgwPPCCWZi1MZLNCN935eLJ64cm9ghl73NDIpqAdzAJjYVftAPSWSE1sbrEpCiW+xE7MieQQSjCnFt6LhXNy1NQ4MJkNG6xgDQNZdK6LFk4DMd8uN0bFgWJxFjhJd1FRJLOEBjmeMps7Tqs1q8J5oHT1IwhcD+ibenDkfVptFLcOaaCOrwDqaaju1VjH5URN1Lsx49Yw6B9bAvPG7qxIZPLLt2jfIpDuGArhPSe3fJwo12KoNbEgeiztmzVlWlduA0IXN7rzcfvAljZGJ9HE6t7TasyCGBS9QQtfSo2kLmF7WnutW2TxfwfHkeWPWVMqjP/stRTFuZ+R/a3h26uxT0LHq+i8GxSXyLjfY9Q/qeR8Kx53PYwdtL7FJSzBYbc="
-
+    secure: KnNCo8n1GmLZxDBMKsVCnTbC8QyVL0Fe/9GWUHYPGK+ibuzcQdqA+NLEADmJmogRCX01VdyMhvMpv6IBBXshzRkTT20eklSLWxoIxo4ch1mWo1GjEvFHSwYK9SZc2ZIB4tuKjRZPuLUWPHxAVqizh5rZ+pk/8p9g8NOlzl7KJhep8YrkqWiW9QmxQfRQcE9dxG6etmm3Aks72wz+K5SCzHEK/VMNFUCE7i96/z4HbxzkYqL57M66GdNhjCbRP8Fcp/+BvEky7rSOuU+A1uZW59N6GIz/j28wNTexQpoLHKSVjpB2zdr/paWtIwWZDdXEa1F+urA2Aq+IKNJFrJKPcQ5HUrLTXGd6k1esDefItvvkgja4tYQ7tXL+KmaEnj0nlS5WvYGcWkLvLsBM986oSdsAyALhJEBNYf9ZqARNPIBLFAh4Bx9RiWiamkdmJQHVgkbV+D7o0eJMCoGRxgQS4/YV7SPicmixdl9n+f01SfOD7SzIGL0n2dRi/c7QJnCUrxdC6mQj4ACmwIBkNFagE85y7Lf4o6gadlSk51YKP1ed7VK8OK7siQVmA3v0yuw/J7WWTOzKy07s93o84mHBBSxAZwvPnALV3GfZkPkK7+aqAyJ2R1/6WcNFoatHM58bkvnCxDt6Br36qYeeG3hlZ0CN8+d0EPi/uuH4ik/LI30=
   on:
     tags: true
     repo: hmcts/look-and-feel
