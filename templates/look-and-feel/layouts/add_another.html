@@ -25,7 +25,7 @@
 
     <dl class="add-another-list">
       {% for fieldName, item in fields.items.fields %}
-        {% call addAnotherItem(item, deleteUrl(loop.index0), editUrl(loop.index0)) %}
+        {% call addAnotherItem(item, deleteUrl(loop.index0), editUrl(loop.index0), loop.index) %}
           {% block item %}{{ item.value }}{% endblock %}
         {% endcall %}
       {% else %}
@@ -39,7 +39,7 @@
   {% endcall %}
 
   {% call formSection() %}
-    <a href="{{ addAnotherUrl }}" class="add-another-add-link">
+    <a href="{{ addAnotherUrl }}" class="add-another-add-link" role="button">
       {{ defaultContent.addAnotherLink }}
     </a>
   {% endcall %}
@@ -66,7 +66,7 @@
 
 
 {# Macro specific to this layout #}
-{% macro addAnotherItem(field, deleteUrl, editUrl, noItems=false) %}
+{% macro addAnotherItem(field, deleteUrl, editUrl, itemNumber, noItems=false) %}
   <dt class="visually-hidden">{% if field %} {{ safeId(field.id) }} {% endif %}</dt>
   <dd {% if field %} id="add-another-list-{{ safeId(field.id) }}" {% endif %} class="add-another-list-item {{ errorClass(field) }} {% if noItems %}noItems{% endif %}">
     {{ errorsFor(field) }}
@@ -75,10 +75,10 @@
   {% if deleteUrl or editUrl %}
     <dd class="add-another-list-controls">
       {% if editUrl %}
-        <a href="{{ editUrl }}" class="add-another-edit-link">Edit<span class="visually-hidden">{{ defaultContent.itemLabel }}</span></a>
+        <a href="{{ editUrl }}" class="add-another-edit-link">Edit<span class="visually-hidden">{{ defaultContent.itemLabel }} {{ itemNumber }}</span></a>
       {% endif %}
       {% if deleteUrl %}
-        <a href="{{ deleteUrl }}" class="add-another-delete-link">Delete<span class="visually-hidden">{{ defaultContent.itemLabel }}</span></a>
+        <a href="{{ deleteUrl }}" class="add-another-delete-link">Delete<span class="visually-hidden">{{ defaultContent.itemLabel }} {{ itemNumber }}</span></a>
       {% endif %}
     </dd>
   {% endif %}
