@@ -308,18 +308,19 @@
 
 {#
   fileupload
-    id - (default = 'file-upload') The id of the upload field
+    field - (required) A field object containing name, id and value
     label - (default = 'upload-file') The label to apply to the field
     acceptFileTypes  - (default = '') Restrict input to a specific list of file extensions
 
   Renders a file upload control
 #}
-{% macro fileupload(id="file-upload", label="Upload file", acceptFileTypes="") %}
+{% macro fileupload(field, label="Upload file", acceptFileTypes="") %}
 
-    <div class="form-group {{ errorClass(id) }}">
+    <div class="form-group {{ errorClass(field) }}">
 
-        <label for="{{ id }}">{{ label }}</label>
-        <input name="{{ id }}" id="{{ id }}" type="file" accept="{{ acceptFileTypes }}"  />
+        <label for="{{ field.id }}">{{ label }}</label>
+        {{ errorsFor(field) }}
+        <input name="{{ field.name }}" id="{{ field.id }}" type="file" accept="{{ acceptFileTypes }}"  />
 
     </div>
 
