@@ -117,9 +117,9 @@
 
       <legend>
         {% if hideQuestion %}
-          <h1 class="visually-hidden heading-medium">{{ question }}</h1>
+          <h2 class="visually-hidden heading-medium">{{ question }}</h1>
         {% else %}
-          <h1 class="heading-medium">{{ question }}</h1>
+          <h2 class="heading-medium">{{ question }}</h1>
         {% endif %}
         {% if hint -%}
         <span class="body-text form-hint" id="{{ field.id }}-hint">
