@@ -110,8 +110,9 @@
                           hint=false,
                           hideQuestion=true,
                           inline=false,
-                          type='radio') %}
-  <div class="form-group {{ errorClass(field) }}">
+                          type='radio',
+                          class='') %}
+  <div class="form-group {{ errorClass(field) }} {{ class }}">
 
     <fieldset{% if inline %} class="inline"{% endif %} id="{{ field.id }}">
 
