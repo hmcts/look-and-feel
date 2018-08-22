@@ -23,7 +23,7 @@
   {% block fields -%}
   {%- endblock %}
 
-  {% if csrf %}
+  {% if csurfCsrfToken %}
     <input type="hidden" name="_csrf" value="{{csurfCsrfToken}}">
   {% endif %}
 
