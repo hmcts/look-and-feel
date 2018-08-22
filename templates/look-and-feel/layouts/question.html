@@ -24,7 +24,7 @@
   {%- endblock %}
 
   {% if csrf %}
-    <input type="hidden" name="_csrf" value="{{csrf}}">
+    <input type="hidden" name="_csrf" value="{{csurfCsrfToken}}">
   {% endif %}
 
   <input class="button" type="submit" value="Continue">
