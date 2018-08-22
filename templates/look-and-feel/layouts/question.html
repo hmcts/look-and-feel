@@ -23,6 +23,10 @@
   {% block fields -%}
   {%- endblock %}
 
+  {% if csrf %}
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+  {% endif %}
+
   <input class="button" type="submit" value="Continue">
 </form>
 
