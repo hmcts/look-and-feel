@@ -5,7 +5,7 @@
   "main": "./src/main.js",
   "dependencies": {
     "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
+    "babel-loader": "^8.0.0",
     "babel-preset-env": "^1.6.0",
     "check-types": "^7.3.0",
     "colors": "^1.1.2",
