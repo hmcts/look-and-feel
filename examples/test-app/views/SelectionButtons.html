@@ -204,6 +204,42 @@
   </div>
 
 
+  {% set field = { id: 'response', name: 'response' } %}
+
+  {{ header("Choice description", size="medium") }}
+
+  <div class="example">
+    <div class="choice-description-sample">
+        {{ selectionButtons(field, "How do you want to respond?",
+            options = [
+                { label: "I will let the divorce proceed", value: "proceed", description: "Choose this option if you don't want to try to prevent the divorce" },
+                { label: "I disagree with the application for divorce", value: "disagree", description: "Choose this option if you want to try to prevent the divorce" }
+            ],
+            type='radio'
+        ) }}
+    </div>
+  </div>
+
+  <div class="panel panel-border-wide">
+    {{ header('Code', size='small') }}
+    <pre><code>
+{% raw %}{{ selectionButtons(field, "How do you want to respond?",
+  options = [
+      {
+        label: "I will let the divorce proceed",
+        value: "proceed",
+        description: "Choose this option if you don't want to try to prevent the divorce"
+      },
+      {
+        label: "I disagree with the application for divorce",
+        value: "disagree",
+        description: "Choose this option if you want to try to prevent the divorce"
+      }
+  ],
+  type='radio'
+)}}{% endraw %}
+    </code></pre>
+  </div>
 
 {%- endblock %}
 
