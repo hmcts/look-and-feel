@@ -1,3 +1,8 @@
+<a name="1.19.2"></a>
+## 1.19.2 (2018-09-14)
+
+* Added support for description in selectionButtons ([6a4d5cd](https://github.com/hmcts/look-and-feel/commit/6a4d5cd))
+
 <a name="1.13.1"></a>
 ## 1.13.1 (2018-03-07)
 

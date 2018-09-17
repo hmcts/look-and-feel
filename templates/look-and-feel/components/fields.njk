@@ -48,13 +48,15 @@
 
 {#
   selectionButton
-    field          - (required) A field object containing name, id and value
-    option         - (required) Options used to populate the possible answers
+    field                - (required) A field object containing name, id and value
+    option               - (required) Options used to populate the possible answers
 
-    options.label  - (required) The label text to display for this option
-    options.value  - (default = label.lowercase()) The value to be sent on post for this option
-    options.target - (default = '') Id of the panel to expand if selected
-    type           - (default = 'radio') The type of the input, either radio or checkbox
+    options.label        - (required) The label text to display for this option
+    options.description  - (default = '') Additional information displayed below the label
+    options.value        - (default = label.lowercase()) The value to be sent on post for this option
+    options.disabled     - (default = false) If the option should be initially disabled
+    options.target       - (default = '') Id of the panel to expand if selected
+    type                 - (default = 'radio') The type of the input, either radio or checkbox
 
   Renders multiple option radio buttons
 #}
@@ -63,6 +65,7 @@
                          type='radio') %}
   {% set option_value = option.value or option.label|lower %}
   {% set option_disabled = option.disabled or false %}
+  {% set option_description = option.description or false %}
   <div class="multiple-choice"
     {% if option.target -%}
     data-target="{{ option.target }}"
@@ -85,6 +88,11 @@
            value="{{ option_value }}">
     <label for="{{ field.id }}-{{ option_value }}">
       {{ option.label }}
+      {% if option_description %}
+          <span class="choice-description">
+            {{ option.description }}
+          </span>
+      {% endif %}
     </label>
   </div>
 {% endmacro %}

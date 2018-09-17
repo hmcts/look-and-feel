@@ -81,4 +81,15 @@
     }
   }
 
+  .choice-description-sample {
+    .multiple-choice {
+      label {
+        font-weight: bold;
+      }
+      .choice-description {
+        font-weight: normal;
+        display: block;
+      }
+    }
+  }
 }
