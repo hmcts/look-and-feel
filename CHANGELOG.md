@@ -1,3 +1,8 @@
+<a name="1.19.3"></a>
+## 1.19.3 (2018-11-05)
+
+* Open feedback link on different browser tab ([7b52124](https://github.com/hmcts/look-and-feel/commit/7b52124))
+
 <a name="1.19.2"></a>
 ## 1.19.2 (2018-09-14)
 
