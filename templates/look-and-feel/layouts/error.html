@@ -12,11 +12,8 @@
 {{ languageSwitch(i18n.currentLanguage, i18n.availableLanguages) }}
 {% endblock %}
 
-
 {% block two_thirds -%}
-
     {{ header(title, size='xlarge') }}
-
     <p>
         {{message}}
     </p>
@@ -43,6 +40,12 @@
     </div>
     {% endif %}
     {% endif %}
+{% endblock %}
 
-
+{% block footer_support_links %}
+<ul>
+    <li><a href="/cookie">Cookies</a></li>
+    <li><a href="/terms-and-conditions">Terms and conditions</a></li>
+    <li><a href="/privacy-policy">Privacy Policy</a></li>
+</ul>
 {% endblock %}
