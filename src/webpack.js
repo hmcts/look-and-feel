@@ -5,6 +5,7 @@ const govukTemplate = require('./sources/govukTemplate');
 const govukElements = require('./sources/govukElements');
 const govukToolkit = require('./sources/govukToolkit');
 const path = require('path');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 const isDefined = obj => typeof obj !== 'undefined';
 const defaultIfUndefined = (obj, _default) => {
@@ -25,6 +26,7 @@ const webpackSettings = (assetPath, settings) => {
 
   const defaults = {
     plugins: [
+      new HardSourceWebpackPlugin({ info: { level: 'warn' } }),
       ..._scss.plugins,
       ...govukTemplate.plugins,
       ...govukToolkit.plugins
@@ -47,8 +49,7 @@ const webpackSettings = (assetPath, settings) => {
         govukElements.alias,
         govukToolkit.alias
       )
-    },
-    devtool: 'source-map'
+    }
   };
   const manualMerged = {
     plugins: [...defaults.plugins, ...userPlugins],
