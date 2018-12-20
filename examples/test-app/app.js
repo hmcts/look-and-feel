@@ -9,6 +9,7 @@ lookAndFeel.configure(app, {
   baseUrl: `http://localhost:${config.port}`,
   express: { views: ['views'] },
   webpack: {
+    devtool: 'source-map',
     entry: {
       main: path.resolve('./assets/scss/main.scss'),
       'selection-buttons': path.resolve('./assets/js/selection-buttons.js')
