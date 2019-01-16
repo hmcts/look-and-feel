@@ -4,6 +4,7 @@ const browserSupport = require('./webpack/rules/browserSupport');
 const govukTemplate = require('./sources/govukTemplate');
 const govukElements = require('./sources/govukElements');
 const govukToolkit = require('./sources/govukToolkit');
+const lookAndFeel = require('./sources/lookAndFeel');
 const path = require('path');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
@@ -29,7 +30,8 @@ const webpackSettings = (assetPath, settings) => {
       new HardSourceWebpackPlugin({ info: { level: 'warn' } }),
       ..._scss.plugins,
       ...govukTemplate.plugins,
-      ...govukToolkit.plugins
+      ...govukToolkit.plugins,
+      ...lookAndFeel.plugins
     ],
     output: {
       path: path.resolve('./dist'),
