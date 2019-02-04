@@ -11,8 +11,7 @@ const configureViews = (app, extraViews) => {
   const existingViews = ensureArray(app.get('views'));
 
   return app.set('views', [
-    govukFrontend.paths.templates,
-    govukFrontend.paths.components,
+    govukFrontend.paths.template,
     lookAndFeel.paths.templates,
     lookAndFeel.backwardsCompatibility.templates,
     ...userViews,
