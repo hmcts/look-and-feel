@@ -17,7 +17,7 @@
   padding-bottom: $gutter-half;
   padding-left: $gutter-half;
 
-  @include media(tablet) {
+  @include govuk-media-query($from: tablet) {
     padding-top: $gutter*1.5;
     padding-right: $gutter;
     padding-bottom: $gutter;

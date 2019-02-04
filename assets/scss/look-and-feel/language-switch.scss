@@ -1,31 +1,30 @@
 .l-i18n-language-switch {
   float: right;
-  @include core-16;
+  @include govuk-font(16);
 
-  margin-top: $gutter-half;
-  margin-bottom: $gutter-half;
+  margin-top: $govuk-gutter-half;
+  margin-bottom: $govuk-gutter-half;
 
   li {
-    @include inline-block;
-    color: $black;
+    color: map-get($govuk-colours, 'black');
 
     a {
       text-decoration: none;
-      border-bottom: 1px solid $black;
+      border-bottom: 1px solid map-get($govuk-colours, 'black');
 
       &:link,
       &:visited,
       &:hover,
       a#{&}:focus,
       &:active {
-        color: $black;
+        color: map-get($govuk-colours, 'black');
       }
     }
 
     &:after {
-      margin-right: $gutter-half / 2;
-      margin-left: $gutter-half / 2;
-      border-left: 1px solid $black;
+      margin-right: $govuk-gutter-half / 2;
+      margin-left: $govuk-gutter-half / 2;
+      border-left: 1px solid map-get($govuk-colours, 'black');
       content: '';
     }
 
