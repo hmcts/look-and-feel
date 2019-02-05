@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const scss = require('./webpack/rules/scss');
 const browserSupport = require('./webpack/rules/browserSupport');
-const govukFrontend = require('./sources/govukFrontend');
 const lookAndFeel = require('./sources/lookAndFeel');
 const path = require('path');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
@@ -18,8 +17,6 @@ const webpackSettings = (assetPath, settings) => {
   const _scss = scss(assetPath);
   const userModules = defaultIfUndefined(settings.module, {});
   const userRules = defaultIfUndefined(userModules.rules, []);
-  const userResolve = defaultIfUndefined(settings.resolve, {});
-  const userAliases = defaultIfUndefined(userResolve.alias, {});
   const userPlugins = defaultIfUndefined(settings.plugins, []);
   const userOutput = defaultIfUndefined(settings.output, {});
 
@@ -39,12 +36,6 @@ const webpackSettings = (assetPath, settings) => {
         ...browserSupport,
         ..._scss.rules
       ]
-    },
-    resolve: {
-      alias: Object.assign(
-        {},
-        govukFrontend.alias
-      )
     }
   };
   const manualMerged = {
@@ -55,10 +46,7 @@ const webpackSettings = (assetPath, settings) => {
         ...defaults.module.rules,
         ...userRules
       ]
-    }),
-    resolve: {
-      alias: Object.assign({}, defaults.resolve.alias, userAliases)
-    }
+    })
   };
   return Object.assign({}, defaults, settings, manualMerged);
 };
