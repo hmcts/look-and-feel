@@ -7,7 +7,6 @@ const falsies = ['false', 'False', 'FALSE', '0', 'no', 'No', 'NO', 'n', 'N'];
 const nunjucksDefaults = {
   watch: isDev(),
   noCache: isDev(),
-  throwOnUndefined: true,
   globals: {
     isArray(value) {
       return Array.isArray(value);

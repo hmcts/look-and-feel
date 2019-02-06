@@ -12,6 +12,7 @@ const configureViews = (app, extraViews) => {
 
   return app.set('views', [
     govukFrontend.paths.template,
+    govukFrontend.paths.components,
     lookAndFeel.paths.templates,
     lookAndFeel.backwardsCompatibility.templates,
     ...userViews,
