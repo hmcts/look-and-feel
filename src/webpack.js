@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const scss = require('./webpack/rules/scss');
 const browserSupport = require('./webpack/rules/browserSupport');
+const govukFrontend = require('./sources/govukFrontend');
 const lookAndFeel = require('./sources/lookAndFeel');
 const path = require('path');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
@@ -23,6 +24,7 @@ const webpackSettings = (assetPath, settings) => {
   const defaults = {
     plugins: [
       new HardSourceWebpackPlugin({ info: { level: 'warn' } }),
+      ...govukFrontend.plugins,
       ..._scss.plugins,
       ...lookAndFeel.plugins
     ],
