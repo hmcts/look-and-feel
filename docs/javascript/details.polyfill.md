@@ -26,7 +26,7 @@ $(document).ready(() => {
   <summary><span class="summary">A summary of the content</span></summary>
 
   <div class="panel panel-border-narrow">
-    <p>
+    <p class="govuk-body">
       Details that will be displayed if the user clicks the summary link.
     </p>
   </div>

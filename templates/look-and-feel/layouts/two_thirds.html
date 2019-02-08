@@ -1,14 +1,15 @@
 {% extends "template.njk" %}
 {% set htmlClasses = '' %}
-{% set bodyClasses = '' %}
-{% set mainClasses = '' %}
+{% set bodyClasses = 'app-body-class' %}
+{% set mainClasses = 'app-main-class' %}
 {% set assetPath = '/assets' %}
 
 
-{% block content -%}
+{% block beforeContent -%}
+    {% block breadcrumbs %}{% endblock %}
+{%- endblock %}
 
-<main id="content" role="main" tabindex="-1">
-  {% block breadcrumbs %}{% endblock %}
+{% block content -%}
   {% block full_width %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">

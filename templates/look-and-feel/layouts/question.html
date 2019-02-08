@@ -16,7 +16,7 @@
 
 {{ errorSummary(fields) }}
 
-{{ header(title, size='large', fieldsValidated=fields.validated, fieldsValid=fields.valid) }}
+{{ header(title, size='l', fieldsValidated=fields.validated, fieldsValid=fields.valid) }}
 
 <form enctype="{{ enc_type | default('application/x-www-form-urlencoded') }}" action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
 

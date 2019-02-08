@@ -33,7 +33,7 @@
 
     {% if section.atLeast1Completed %}
       {% if section.title and _sections|length > 1 %}
-        {{ header(section.title, size='medium') }}
+        {{ header(section.title, size='m') }}
       {% endif %}
 
         {% for part in section.completedAnswers %}
@@ -51,16 +51,16 @@
 
   {% if incomplete %}
     {% block continue_application %}
-      {{ header(pageContent.incompleteHeader | default(defaultContent.incompleteHeader), size='medium') }}
-      <p>{{ pageContent.incompleteMessage | default(defaultContent.incompleteMessage) }}</p>
+      {{ header(pageContent.incompleteHeader | default(defaultContent.incompleteHeader), size='m') }}
+      <p class="govuk-body">{{ pageContent.incompleteMessage | default(defaultContent.incompleteMessage) }}</p>
       <a href="{{ continueUrl }}" class="button">{{ pageContent.continue | default(defaultContent.continue) }}</a>
     {% endblock %}
   {% endif %}
 
   {% if complete %}
     {% block statement_of_truth_content %}
-      {{ header('Now send your application', size='medium') }}
-      <p>{{ pageContent.statementOfTruth | default(defaultContent.statementOfTruth) }}</p>
+      {{ header('Now send your application', size='m') }}
+      <p class="govuk-body">{{ pageContent.statementOfTruth | default(defaultContent.statementOfTruth) }}</p>
     {% endblock %}
     <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
 
