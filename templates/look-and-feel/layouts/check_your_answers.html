@@ -62,7 +62,14 @@
       {{ header('Now send your application', size='medium') }}
       <p>{{ pageContent.statementOfTruth | default(defaultContent.statementOfTruth) }}</p>
     {% endblock %}
-    <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+    <form
+      action="{{ postUrl | default(path if path else url) }}"
+      method="post"
+      class="form"
+      {% if config.autocomplete %}
+        autocomplete="{{config.autocomplete}}"
+      {% endif %}
+    >
 
       {% block statement_of_truth_fields %}
         {{ hiddenInput(fields.statementOfTruth, value=true) }}
