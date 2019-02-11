@@ -7,6 +7,9 @@
 
   Renders a simple text box input field.
 #}
+{% from "radios/macro.njk" import govukRadios %}
+{% from "checkboxes/macro.njk" import govukCheckboxes %}
+
 {% macro textbox(field, label, hint=false, hideLabel=false) %}
 <div class="govuk-form-group {{ errorClass(field) }}">
 
@@ -119,34 +122,62 @@
                           hideQuestion=true,
                           inline=false,
                           type='radio') %}
-  <div class="govuk-form-group {{ errorClass(field) }}">
-
-    <fieldset{% if inline %} class="inline"{% endif %} id="{{ field.id }}">
-
-      <legend>
-        {% if hideQuestion %}
-          <h2 class="govuk-visually-hidden govuk-heading-m">{{ question }}</h2>
-        {% else %}
-          <h2 class="govuk-heading-m">{{ question }}</h2>
+    {% set items = [] %}
+    {% for option in options %}
+        {% set optionHint = null %}
+        {% if option.description %}
+            {% set optionHint = { text: option.description } %}
         {% endif %}
-        {% if hint -%}
-        <span class="govuk-body govuk-hint" id="{{ field.id }}-hint">
-            {{ hint }}
-          </span>
-        {%- endif %}
-        {{ errorsFor(field) }}
-      </legend>
+        {% set items = (items.push({text: option.label, value: option.value, hint: optionHint }), items) %}
+    {% endfor %}
 
-      {% if caller %}
-        {{ caller() }}
-      {% else %}
-        {% for option in options -%}
-          {{ selectionButton(field, option, type) }}
-        {%- endfor %}
-      {% endif %}
+    {% if not hint %}
+        {% set hint = null %}
+    {% else %}
+        {% set hint = { text: hint } %}
+    {% endif %}
 
-    </fieldset>
-  </div>
+    {% if hideQuestion %}
+        {% set questionText = null %}
+    {% else %}
+        {% set questionText = question %}
+    {% endif %}
+
+    {%- if fields.validated and not fields.valid -%}
+        {% set questionText = question %}
+    {% endif %}
+
+    {% if field.errors %}
+        {% set errorMessage = { html: errorsFor(field).val } %}
+    {% endif %}
+
+    {% if type == 'radio' %}
+        {{ govukRadios({
+            name: field.id,
+            fieldset: {
+                legend: {
+                    text: questionText,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: hint,
+            errorMessage: errorMessage,
+            items: items
+        }) }}
+    {% elif type == 'checkbox' %}
+        {{ govukCheckboxes({
+            name: field.id,
+            fieldset: {
+                legend: {
+                    text: questionText,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: hint,
+            errorMessage: errorMessage,
+            items: items
+        }) }}
+    {% endif %}
 {% endmacro %}
 
 {#
@@ -301,7 +332,7 @@
 {% macro errorsFor(field) -%}
   {% if field.errors %}
   {% for error in field.errors -%}
-    <span class="error-message">
+    <span class="govuk-error-message">
       {{ error | safe}}
     </span>
   {%- endfor %}
