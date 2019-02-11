@@ -4,8 +4,7 @@
   {%- if fields.validated and not fields.valid -%}
     {% set errors = [] %}
     {% for error in fields.errors %}
-        {% set href = '#{{ error.id }}' %}
-        {% set errors = (errors.push({text: error.message, href: href}), navigationItems) %}
+        {% set errors = (errors.push({text: error.message, href: '#' + error.id}), errors) %}
     {% endfor %}
     {{ govukErrorSummary({
       titleText: title,
