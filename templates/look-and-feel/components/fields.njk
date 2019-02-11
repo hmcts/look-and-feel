@@ -128,7 +128,7 @@
         {% if option.description %}
             {% set optionHint = { text: option.description } %}
         {% endif %}
-        {% set items = (items.push({text: option.label, value: option.value, hint: optionHint }), items) %}
+        {% set items = (items.push({text: option.label, value: option.value, hint: optionHint, id: field.id if loop.first }), items) %}
     {% endfor %}
 
     {% if not hint %}
@@ -143,20 +143,17 @@
         {% set questionText = question %}
     {% endif %}
 
-    {%- if fields.validated and not fields.valid -%}
-        {% set questionText = question %}
-    {% endif %}
-
-    {% if field.errors %}
+    {% if field.errors | length %}
         {% set errorMessage = { html: errorsFor(field).val } %}
     {% endif %}
 
     {% if type == 'radio' %}
         {{ govukRadios({
+            idPrefix: field.id,
             name: field.id,
             fieldset: {
                 legend: {
-                    text: questionText,
+                    text: question if not hideQuestion,
                     classes: "govuk-fieldset__legend--l"
                 }
             },
@@ -166,10 +163,11 @@
         }) }}
     {% elif type == 'checkbox' %}
         {{ govukCheckboxes({
+            idPrefix: field.id,
             name: field.id,
             fieldset: {
                 legend: {
-                    text: questionText,
+                    text: question if not hideQuestion,
                     classes: "govuk-fieldset__legend--l"
                 }
             },
