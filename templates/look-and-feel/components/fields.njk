@@ -128,7 +128,10 @@
         {% if option.description %}
             {% set optionHint = { text: option.description } %}
         {% endif %}
-        {% set items = (items.push({text: option.label, value: option.value, hint: optionHint, id: field.id if loop.first }), items) %}
+        {% if option.conditional %}
+            {% set conditional = { html: option.conditional } %}
+        {% endif %}
+        {% set items = (items.push({text: option.label, value: option.value, hint: optionHint, id: field.id if loop.first, conditional: conditional }), items) %}
     {% endfor %}
 
     {% if not hint %}
@@ -321,7 +324,7 @@
         {% endif %}
 
         {{ errorsFor(field) }}
-        <textarea placeholder="{{ placeholder }}" aria-labelledby="{{ field.id }}-label" class="govuk-input--width-10" id="{{ field.id }}" name="{{ field.id }}" rows="7">{{ field.value | default('') }}</textarea>
+        <textarea placeholder="{{ placeholder }}" aria-labelledby="{{ field.id }}-label" class="govuk-textarea" id="{{ field.id }}" name="{{ field.id }}" rows="7">{{ field.value | default('') }}</textarea>
     </div>
 
 {% endmacro %}
