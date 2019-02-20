@@ -10,7 +10,7 @@
     "check-types": "^7.3.0",
     "colors": "^1.1.2",
     "config": "^1.26.1",
-    "copy-webpack-plugin": "^4.0.1",
+    "copy-webpack-plugin": "^5.0.0",
     "css-loader": "^0.28.4",
     "deepmerge": "2.0.1",
     "diff-so-fancy": "^1.1.1",
