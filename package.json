@@ -7,7 +7,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
-    "check-types": "^7.3.0",
+    "check-types": "^8.0.2",
     "colors": "^1.1.2",
     "config": "^1.26.1",
     "copy-webpack-plugin": "^4.0.1",
