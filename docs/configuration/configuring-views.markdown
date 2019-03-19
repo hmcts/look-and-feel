@@ -34,5 +34,26 @@ lookAndFeel.configure(app, {
 });
 ```
 
+## Import Styles
+
+To import styles into your project you must require them in your SASS files.
+
+You can import all look-and-feel styles
+
+```SASS
+@import 'govuk-elements';
+@import 'look-and-feel/all';
+```
+or you can import modules seperatly
+```SASS
+@import 'govuk-elements';
+@import 'look-and-feel/check-your-answers';
+@import 'look-and-feel/add-another';
+@import 'look-and-feel/language-switch';
+@import 'look-and-feel/text-reference';
+@import 'look-and-feel/progress-list';
+```
+
 [Standard express views setting]: #standard-express-views-setting
 [Explicitly set views settings]: #explicitly-set-views-settings
+[Import Styles]: #import-styles
