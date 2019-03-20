@@ -1,0 +1,25 @@
+{#
+  documentList
+    documents     - (required) An array of documents
+    content       - (required) An object of content for each document type
+
+  renders a list of downloadable documents
+#}
+
+{% macro documentList(documents, content) %}
+  {%- if documents and documents.length -%}
+    <nav role="navigation" aria-labelledby="subsection-title" class="document-download-list">
+      <ul class="font-xsmall">
+        {%- for document in documents -%}
+          <li>
+            <a href="{{ document.uri }}" target="_blank">
+              <i class="icon icon-file-download">
+                <span class="visually-hidden">Download</span>
+              </i>{{ content[document.type] }} ({{ document.fileType | upper }})
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+  {%- endif -%}
+{% endmacro %}
