@@ -239,8 +239,6 @@
            id="{{ field.day.id }}"
            type="number"
            pattern="[0-9]*"
-           min="1"
-           max="31"
            name="{{ field.day.id }}"
            {% if field.day.value %}value="{{ field.day.value }}"{% endif %}>
   </div>
@@ -251,8 +249,6 @@
            id="{{ field.month.id }}"
            type="number"
            pattern="[0-9]*"
-           min="1"
-           max="12"
            name="{{ field.month.id }}"
            {% if field.month.value %}value="{{ field.month.value }}"{% endif %}>
   </div>
@@ -263,8 +259,6 @@
            id="{{ field.year.id }}"
            type="number"
            pattern="[0-9]*"
-           min="1"
-           max="9999"
            name="{{ field.year.id }}"
            {% if field.year.value %}value="{{ field.year.value }}"{% endif %}>
   </div>
