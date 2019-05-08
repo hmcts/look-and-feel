@@ -13,15 +13,15 @@
 {% endblock %}
 
 {% block two_thirds -%}
-    {{ header(title, size='xlarge') }}
-    <p>
+    {{ header(title, size='xl') }}
+    <p class="govuk-body">
         {{message}}
     </p>
 
     {% if nextSteps %}
-    <p>
+    <p class="govuk-body">
         You can either:
-        <ul class="list list-bullet">
+        <ul class="govuk-list govuk-list--bullet">
         {% for option in nextSteps %}
             <li>{{ option | safe }}</li>
         {% endfor %}
@@ -33,8 +33,8 @@
     {% if settings.env == 'development' %}
     <div class="form-group-error">
         <label>
-            <span class="form-label-bold">Error Message</span>
-            <span class="form-hint">The error message will only display in development mode</span>
+            <span class="govuk-label--s">Error Message</span>
+            <span class="govuk-hint">The error message will only display in development mode</span>
             <span>{{ error }}</span>
         </label>
     </div>
@@ -42,10 +42,17 @@
     {% endif %}
 {% endblock %}
 
-{% block footer_support_links %}
-<ul>
-    <li><a href="/cookie">Cookies</a></li>
-    <li><a href="/terms-and-conditions">Terms and conditions</a></li>
-    <li><a href="/privacy-policy">Privacy Policy</a></li>
-</ul>
-{% endblock %}
+{% set footerLinks = [
+    {
+        href: "/cookie",
+        text: "Cookies"
+    },
+    {
+        href: "/terms-and-conditions",
+        text: "Terms and conditions"
+    },
+    {
+        href: "/privacy-policy",
+        text: "Privacy Policy"
+    }
+] %}

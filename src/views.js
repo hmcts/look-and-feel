@@ -1,4 +1,4 @@
-const govukTemplate = require('./sources/govukTemplate');
+const govukFrontend = require('./sources/govukFrontend');
 const lookAndFeel = require('./sources/lookAndFeel');
 
 const ensureArray = maybeArray => {
@@ -11,7 +11,8 @@ const configureViews = (app, extraViews) => {
   const existingViews = ensureArray(app.get('views'));
 
   return app.set('views', [
-    govukTemplate.paths.templates,
+    govukFrontend.paths.template,
+    govukFrontend.paths.components,
     lookAndFeel.paths.templates,
     lookAndFeel.backwardsCompatibility.templates,
     ...userViews,

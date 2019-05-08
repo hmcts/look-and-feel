@@ -1,9 +1,7 @@
 const webpack = require('webpack');
 const scss = require('./webpack/rules/scss');
 const browserSupport = require('./webpack/rules/browserSupport');
-const govukTemplate = require('./sources/govukTemplate');
-const govukElements = require('./sources/govukElements');
-const govukToolkit = require('./sources/govukToolkit');
+const govukFrontend = require('./sources/govukFrontend');
 const lookAndFeel = require('./sources/lookAndFeel');
 const path = require('path');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
@@ -20,17 +18,14 @@ const webpackSettings = (assetPath, settings) => {
   const _scss = scss(assetPath);
   const userModules = defaultIfUndefined(settings.module, {});
   const userRules = defaultIfUndefined(userModules.rules, []);
-  const userResolve = defaultIfUndefined(settings.resolve, {});
-  const userAliases = defaultIfUndefined(userResolve.alias, {});
   const userPlugins = defaultIfUndefined(settings.plugins, []);
   const userOutput = defaultIfUndefined(settings.output, {});
 
   const defaults = {
     plugins: [
-      new HardSourceWebpackPlugin({ info: { level: 'warn' } }),
+      // new HardSourceWebpackPlugin({ info: { level: 'warn' } }),
+      ...govukFrontend.plugins,
       ..._scss.plugins,
-      ...govukTemplate.plugins,
-      ...govukToolkit.plugins,
       ...lookAndFeel.plugins
     ],
     output: {
@@ -41,16 +36,8 @@ const webpackSettings = (assetPath, settings) => {
     module: {
       rules: [
         ...browserSupport,
-        ...govukToolkit.rules,
         ..._scss.rules
       ]
-    },
-    resolve: {
-      alias: Object.assign(
-        {},
-        govukElements.alias,
-        govukToolkit.alias
-      )
     }
   };
   const manualMerged = {
@@ -61,10 +48,7 @@ const webpackSettings = (assetPath, settings) => {
         ...defaults.module.rules,
         ...userRules
       ]
-    }),
-    resolve: {
-      alias: Object.assign({}, defaults.resolve.alias, userAliases)
-    }
+    })
   };
   return Object.assign({}, defaults, settings, manualMerged);
 };

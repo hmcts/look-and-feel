@@ -1,6 +1,5 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const govukElements = require('../../sources/govukElements');
-const govukToolkit = require('../../sources/govukToolkit');
+const govukFrontend = require('../../sources/govukFrontend');
 const lookAndFeel = require('../../sources/lookAndFeel');
 
 const extractSass = new ExtractTextPlugin({ filename: '[name].css' });
@@ -10,8 +9,7 @@ const sass = assetPath => {
     loader: 'sass-loader',
     options: {
       includePaths: [
-        govukElements.paths.sass,
-        govukToolkit.paths.sass,
+        govukFrontend.paths.sass,
         lookAndFeel.paths.sass
       ],
       /* eslint-disable id-blacklist */

@@ -20,9 +20,6 @@ describe('views', () => {
         const viewsPath = path.resolve(__dirname, '../templates');
         expect(app.get('views')).to.contain(viewsPath);
       });
-      it('adds the govuk template to app.views', () => {
-        expect(app.get('views')).to.contain.match(/govuk_template_jinja/);
-      });
     }
 
     it('maintains any views already set', () => {

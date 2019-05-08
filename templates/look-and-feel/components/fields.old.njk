@@ -7,20 +7,23 @@
 
   Renders a simple text box input field.
 #}
-{% macro textbox(field, label, hint=false, hideLabel=false) %}
-<div class="form-group {{ errorClass(field) }}">
+{% from "radios/macro.njk" import govukRadios %}
+{% from "checkboxes/macro.njk" import govukCheckboxes %}
 
-  <label class="form-label {{ "visually-hidden" if hideLabel }}"
+{% macro textbox(field, label, hint=false, hideLabel=false) %}
+<div class="govuk-form-group {{ errorClass(field) }}">
+
+  <label class="govuk-label {{ "govuk-visually-hidden" if hideLabel }}"
          for="{{ field.id }}">
     {{ label }}
     {%- if hint %}
-    <span class="form-hint">
+    <span class="govuk-hint">
       {{ hint }}
     </span>
     {%- endif %}
   </label>
   {{ errorsFor(field) }}
-  <input class="form-control"
+  <input class="govuk-input govuk-input--width-10"
          id="{{ field.id }}"
          name="{{ field.id }}"
          type="text"
@@ -41,7 +44,7 @@
   Groups fields in to sections spaced with padding
 #}
 {% macro formSection() %}
-<div class="form-section">
+<div>
   {{ caller() }}
 </div>
 {% endmacro %}
@@ -66,13 +69,7 @@
   {% set option_value = option.value or option.label|lower %}
   {% set option_disabled = option.disabled or false %}
   {% set option_description = option.description or false %}
-
-  {% set typeStyle = "govuk-radios" %}
-  {% if type == 'checkbox' -%}
-    {% set typeStyle = "govuk-checkboxes" %}
-  {%- endif %}
-
-  <div class="{{ typeStyle }}__item"
+  <div class="multiple-choice"
     {% if option.target -%}
     data-target="{{ option.target }}"
     {%- endif %}>
@@ -91,18 +88,15 @@
            {% if option_disabled %}
            disabled
            {% endif %}
-           value="{{ option_value }}"
-           class="{{ typeStyle }}__input">
-    {% if option.label -%}
-      <label for="{{ field.id }}-{{ option_value }}" class="govuk-label {{ typeStyle }}__label">
-        {{ option.label }}
-        {% if option_description %}
-            <span class="choice-description">
-              {{ option.description }}
-            </span>
-        {% endif %}
-      </label>
-    {%- endif %}
+           value="{{ option_value }}">
+    <label for="{{ field.id }}-{{ option_value }}">
+      {{ option.label }}
+      {% if option_description %}
+          <span class="choice-description">
+            {{ option.description }}
+          </span>
+      {% endif %}
+    </label>
   </div>
 {% endmacro %}
 
@@ -127,42 +121,71 @@
                           hint=false,
                           hideQuestion=true,
                           inline=false,
-                          type='radio',
-                          groupClass='') %}
+                          type='radio') %}
+    {% set items = [] %}
+    {% for option in options %}
+        {% set optionHint = null %}
+        {% if option.description %}
+            {% set optionHint = { text: option.description } %}
+        {% endif %}
+        {% if option.conditional %}
+            {% set conditional = { html: option.conditional } %}
+        {% endif %}
+        {% set items = (items.push({text: option.label, value: option.value, hint: optionHint, id: field.id if loop.first, conditional: conditional }), items) %}
+    {% endfor %}
 
-  {% set typeStyle = "govuk-radios" %}
-  {% if type == 'checkbox' -%}
-    {% set typeStyle = "govuk-checkboxes {% if inline %}govuk-checkboxes--inline{% endif %}" %}
-  {%- endif %}
+    {% if not hint %}
+        {% set hint = null %}
+    {% else %}
+        {% set hint = { text: hint } %}
+    {% endif %}
 
-  <div class="govuk-form-group {{ errorClass(field) }} {{ groupClass }}">
-    <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint" id="{{ field.id }}">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl {% if hideQuestion %}visually-hidden{% endif %}">
-          <h2 class="govuk-heading-m">{{ question }}</h1>
-      </legend>
-      {% if hint -%}
-        <span id="changed-name-hint" class="govuk-hint">
-          {{ hint }}
-        </span>
-      {%- endif %}
-      {{ errorsFor(field) }}
+    {% if hideQuestion %}
+        {% set questionText = null %}
+    {% else %}
+        {% set questionText = question %}
+    {% endif %}
 
-      {% if caller %}
-        {{ caller() }}
-      {% else %}
+    {% if field.errors | length %}
+        {% set errorMessage = { html: errorsFor(field).val } %}
+    {% endif %}
 
-        <div class="{{ typeStyle }} {% if inline %}govuk-radios--inline{% endif %}">
-          {% for option in options -%}
-            {{ selectionButton(field, option, type) }}
-          {%- endfor %}
-        </div>
-      {% endif %}
-    </fieldset>
-  </div>
+    {% if inline %}
+      {% set classes = "govuk-radios--inline" %}
+    {% endif %}
+
+    {% if type == 'radio' %}
+        {{ govukRadios({
+            idPrefix: field.id,
+            name: field.id,
+            fieldset: {
+                legend: {
+                    text: question if not hideQuestion,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: hint,
+            errorMessage: errorMessage,
+            items: items,
+            classes: "govuk-radios--inline"
+        }) }}
+    {% elif type == 'checkbox' %}
+        {{ govukCheckboxes({
+            idPrefix: field.id,
+            name: field.id,
+            fieldset: {
+                legend: {
+                    text: question if not hideQuestion,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: hint,
+            errorMessage: errorMessage,
+            items: items,
+            classes: "govuk-radios--inline"
+        }) }}
+    {% endif %}
 {% endmacro %}
-
-
-
 
 {#
   select
@@ -184,13 +207,13 @@
                 hideLabel=false,
                 options=[]) %}
 
-<div class="form-group {{ errorClass(field) }}">
+<div class="govuk-form-group {{ errorClass(field) }}">
 
-  <label class="form-label {{ "visually-hidden" if hideLabel }}"
+  <label class="govuk-label {{ "visually-hidden" if hideLabel }}"
          for="{{ field.id }}">
     {{ label }}
     {%- if hint %}
-    <span class="form-hint">
+    <span class="govuk-hint">
       {{ hint }}
     </span>
     {%- endif %}
@@ -200,7 +223,7 @@
 
   <select id="{{ field.id }}"
           name="{{ field.id }}"
-          class="form-control">
+          class="govuk-input--width-10">
     {# Default option so no option is preselected #}
     <option disabled
             {% if not field.value %}
@@ -230,78 +253,56 @@
 {% endmacro %}
 
 
-<div class="govuk-form-group">
-  <label class="govuk-label" for="full">
-    Full width
-  </label>
-  <input class="govuk-input govuk-!-width-full" id="full" name="full" type="text">
-</div>
-
-
-
-
-
 {% macro date(field, question, hint='', hideQuestion=false, labels={}) %}
-<div class="govuk-form-group {{ errorClass(field) }}{{ errorClass(field.day) }}{{ errorClass(field.month) }}{{ errorClass(field.year) }}">
-  <fieldset
-    id="{{ field.id }}"
-    role="group"
-    class="govuk-fieldset">
+<fieldset
+  id="{{ field.id }}"
+  class="govuk-form-group form-date {{ errorClass(field) }}{{ errorClass(field.day) }}{{ errorClass(field.month) }}{{ errorClass(field.year) }}">
 
-    {% if not hideQuestion %}
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-        <h1 class="govuk-fieldset__heading">
-          {{ question | safe }}
-        </h1>
-      </legend>
-    {% endif %}
+  {% if not hideQuestion %}
+    <legend class="govuk-label--s">{{ question | safe }}</legend>
+  {% endif %}
 
-    {% if hint %}
-      <span class="govuk-hint">
-        {{ hint | safe }}
-      </span>
-    {% endif %}
+  {% if hint %}
+    <span class="govuk-hint">{{ hint | safe }}</span>
+  {% endif %}
 
-    {{ errorsFor(field) }}
-    {{ errorsFor(field.day) }}
-    {{ errorsFor(field.month) }}
-    {{ errorsFor(field.year) }}
+  {{ errorsFor(field) }}
+  {{ errorsFor(field.day) }}
+  {{ errorsFor(field.month) }}
+  {{ errorsFor(field.year) }}
 
-    <div class="govuk-date-input">
+  <div class="govuk-form-group form-group-day">
+    <label for="{{ field.day.id }}">{{ labels.day | default('Day') }}</label>
+    <input class="govuk-input--width-10 {{ errorClass(field.day, 'control') }} {{ errorClass(field, 'control') }}"
+           id="{{ field.day.id }}"
+           type="number"
+           pattern="[0-9]*"
+           name="{{ field.day.id }}"
+           {% if field.day.value %}value="{{ field.day.value }}"{% endif %}>
+  </div>
 
-      <div class="govuk-date-input__item">
-        <label class="govuk-label govuk-date-input__label" for="{{ field.day.id }}">{{ labels.day | default('Day') }}</label>
-        <input class="govuk-input govuk-date-input__input govuk-input--width-2 {{ errorClass(field.day, 'control') }} {{ errorClass(field, 'control') }}"
-               id="{{ field.day.id }}"
-               type="number"
-               pattern="[0-9]*"
-               name="{{ field.day.id }}"
-               {% if field.day.value %}value="{{ field.day.value }}"{% endif %}>
-      </div>
+  <div class="govuk-form-group form-group-month">
+    <label for="{{ field.month.id }}">{{ labels.month | default('Month') }}</label>
+    <input class="govuk-input--width-10 {{ errorClass(field.month, 'control') }} {{ errorClass(field, 'control') }}"
+           id="{{ field.month.id }}"
+           type="number"
+           pattern="[0-9]*"
+           name="{{ field.month.id }}"
+           {% if field.month.value %}value="{{ field.month.value }}"{% endif %}>
+  </div>
 
-      <div class="govuk-date-input__item">
-        <label class="govuk-label govuk-date-input__label" for="{{ field.month.id }}">{{ labels.month | default('Month') }}</label>
-        <input class="govuk-input govuk-date-input__input govuk-input--width-2 {{ errorClass(field.month, 'control') }} {{ errorClass(field, 'control') }}"
-               id="{{ field.month.id }}"
-               type="number"
-               pattern="[0-9]*"
-               name="{{ field.month.id }}"
-               {% if field.month.value %}value="{{ field.month.value }}"{% endif %}>
-      </div>
+  <div class="govuk-form-group form-group-year">
+    <label for="{{ field.year.id }}">{{ labels.year | default('Year') }}</label>
+    <input class="govuk-input--width-10 {{ errorClass(field.year, 'control') }} {{ errorClass(field, 'control') }}"
+           id="{{ field.year.id }}"
+           type="number"
+           pattern="[0-9]*"
+           name="{{ field.year.id }}"
+           {% if field.year.value %}value="{{ field.year.value }}"{% endif %}>
+  </div>
 
-      <div class="govuk-date-input__item">
-        <label class="govuk-label govuk-date-input__label" for="{{ field.year.id }}">{{ labels.year | default('Year') }}</label>
-        <input class="govuk-input govuk-date-input__input govuk-input--width-4 {{ errorClass(field.year, 'control') }} {{ errorClass(field, 'control') }}"
-               id="{{ field.year.id }}"
-               type="number"
-               pattern="[0-9]*"
-               name="{{ field.year.id }}"
-               {% if field.year.value %}value="{{ field.year.value }}"{% endif %}>
-      </div>
-    </div>
+</fieldset>
 
-  </fieldset>
-</div>
 {% endmacro %}
 
 {#
@@ -324,7 +325,7 @@
         {% endif %}
 
         {{ errorsFor(field) }}
-        <textarea class="govuk-textarea" placeholder="{{ placeholder }}" aria-labelledby="{{ field.id }}-label" class="form-control" id="{{ field.id }}" name="{{ field.id }}" rows="5">{{ field.value | default('') }}</textarea>
+        <textarea placeholder="{{ placeholder }}" aria-labelledby="{{ field.id }}-label" class="govuk-textarea" id="{{ field.id }}" name="{{ field.id }}" rows="7">{{ field.value | default('') }}</textarea>
     </div>
 
 {% endmacro %}
@@ -334,7 +335,7 @@
   {% if field.errors %}
   {% for error in field.errors -%}
     <span class="govuk-error-message">
-      <span class="govuk-visually-hidden">Error:</span> {{ error | safe}}
+      {{ error | safe}}
     </span>
   {%- endfor %}
   {% endif %}
@@ -342,7 +343,7 @@
 
 {% macro errorClass(field, type='group') -%}
   {% if field.errors and field.errors|length > 0 %}
-    govuk-form-group--error
+    form-{{ type }}-error
   {% endif %}
 {%- endmacro %}
 
@@ -356,7 +357,7 @@
 #}
 {% macro fileupload(field, label="Upload file", acceptFileTypes="") %}
 
-    <div class="form-group {{ errorClass(field) }}">
+    <div class="govuk-form-group {{ errorClass(field) }}">
 
         <label for="{{ field.id }}">{{ label }}</label>
         {{ errorsFor(field) }}

@@ -1,19 +1,31 @@
-{% extends "layouts/govuk_template.html" %}
+{% extends "template.njk" %}
+{% set htmlClasses = '' %}
+{% set bodyClasses = 'app-body-class' %}
+{% set mainClasses = 'app-main-class' %}
+{% set assetPath = '/assets' %}
+
+{% block beforeContent -%}
+    {% block breadcrumbs %}{% endblock %}
+{%- endblock %}
 
 {% block content -%}
-
-<main id="content" role="main" tabindex="-1">
-  {% block breadcrumbs %}{% endblock %}
   {% block full_width %}
-  <div class="grid-row">
-    <div class="column-two-thirds">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
       {% block two_thirds -%}{%- endblock %}
     </div>
-    <div class="column-one-third">
+    <div class="govuk-grid-column-one-third">
       {% block one_third -%}{%- endblock %}
     </div>
   </div>
   {% endblock %}
-</main>
-
 {%- endblock %}
+
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: footerLinks or []
+    }
+  }) }}
+{% endblock %}

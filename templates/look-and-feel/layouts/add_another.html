@@ -20,7 +20,7 @@
   {% call formSection() %}
 
     {% if not defaultContent.hideItemsListLabel %}
-      {{ header(defaultContent.itemsListLabel, size='medium') }}
+      {{ header(defaultContent.itemsListLabel, size='m') }}
     {% endif %}
 
     <dl class="add-another-list">
@@ -50,8 +50,8 @@
 
 {% if isEditMode %}
   {% block editItem %}
-    <p>This is a placeholder block.</p>
-    <p>Replace it with form controls to edit the item, e.g.</p>
+    <p class="govuk-body">This is a placeholder block.</p>
+    <p class="govuk-body">Replace it with form controls to edit the item, e.g.</p>
     <pre>
     {% raw %}
     {% block editItem %}

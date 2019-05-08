@@ -13,8 +13,8 @@
     <details role="group">
         <summary role="button" aria-expanded="{{ openByDefault.toString() }}">
             <span class="summary">{{ link }}</span></summary>
-        <div class="panel panel-border-narrow" id="{{ id }}-0" aria-hidden="{{ not openByDefault.toString() }}">
-            <p>
+        <div id="{{ id }}-0" aria-hidden="{{ not openByDefault.toString() }}">
+            <p class="govuk-body">
                 {{ text }}
             </p>
         </div>

@@ -11,13 +11,13 @@
   When the fields on a page are not valid, the header element will change to a
   h2 to comply with accessibility header rules as the error summary contains an h1 element
 #}
-{% macro header(heading, section='', size='xlarge', fieldsValidated=false, fieldsValid=true) %}
+{% macro header(heading, section='', size='xl', fieldsValidated=false, fieldsValid=true) %}
 {% if fieldsValidated and not fieldsValid %}
-    <h2 class="heading-{{ size }}">
+    <h2 class="govuk-heading-{{ size }}">
 {% else %}
-    <h1 class="heading-{{ size }}">
+    <h1 class="govuk-heading-{{ size }}">
 {% endif %}
-{% if section != '' and (size == 'xlarge' or size == 'large') %}
+{% if section != '' and (size == 'xl' or size == 'l') %}
   <span class="heading-secondary">
     {{ section }}
   </span>
