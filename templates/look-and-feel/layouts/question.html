@@ -35,7 +35,11 @@
     <input type="hidden" name="_csrf" value="{{csurfCsrfToken}}">
   {% endif %}
 
-  <input class="button" type="submit" value="Continue">
+  {% if not continueText  %}
+     {% set continueText = 'Continue' %}     
+  {% endif %}
+
+  <input class="button" type="submit" value="{{continueText}}">
 </form>
 
 {% block after_form -%}
