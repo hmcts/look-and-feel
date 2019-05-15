@@ -4,8 +4,6 @@
 {% from "look-and-feel/components/errors.njk" import errorSummary %}
 {% from "look-and-feel/components/i18n.njk" import languageSwitch %}
 
-{% block page_title %}{{ title }}{% endblock %}
-
 {% block breadcrumbs %}
 {{ phaseBanner(phase, feedbackLink) }}
 <a class="govuk-back-link" href="#" onclick="history.go(-1); return false;">Back</a>

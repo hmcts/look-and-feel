@@ -3,6 +3,18 @@
 {% set bodyClasses = 'app-body-class' %}
 {% set mainClasses = 'app-main-class' %}
 {% set assetPath = '/assets' %}
+{% from "header/macro.njk" import govukHeader %}
+
+{% block pageTitle %}{{ title }}{% endblock %}
+
+{% block header %}
+  {{ govukHeader({
+    serviceName: serviceName,
+    serviceUrl: serviceUrl or '/',
+    navigation: serviceLinks,
+    containerClasses: 'site-header'
+  }) }}
+{% endblock %}
 
 {% block beforeContent -%}
     {% block breadcrumbs %}{% endblock %}

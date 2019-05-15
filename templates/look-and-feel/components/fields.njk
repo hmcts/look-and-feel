@@ -7,25 +7,39 @@
 
   Renders a simple text box input field.
 #}
-{% macro textbox(field, label, hint=false, hideLabel=false) %}
-<div class="form-group {{ errorClass(field) }}">
 
-  <label class="form-label {{ "visually-hidden" if hideLabel }}"
-         for="{{ field.id }}">
-    {{ label }}
+{% macro textarea(field, label, hint="", hideLabel=false, placeholder="") %}
+
+    <div class="govuk-form-group {{ errorClass(field) }}">
+        <label id="{{ field.id }}-label" class="govuk-label {{ 'visually-hidden' if hideLabel }}" for="{{ field.id }}">{{ label | safe }}</label>
+
+        {% if hint %}
+            <span class="govuk-hint">{{ hint | safe }}</span>
+        {% endif %}
+
+        {{ errorsFor(field) }}
+        <textarea class="govuk-textarea" placeholder="{{ placeholder }}" aria-labelledby="{{ field.id }}-label" class="form-control" id="{{ field.id }}" name="{{ field.id }}" rows="5">{{ field.value | default('') }}</textarea>
+    </div>
+
+{% endmacro %}
+
+{% macro textbox(field, label, hint=false, hideLabel=false) %}
+  <div class="govuk-form-group {{ errorClass(field) }}">
+    <label class="govuk-label {{ "visually-hidden" if hideLabel }}" for="{{ field.id }}">{{ label }}</label>
+
     {%- if hint %}
-    <span class="form-hint">
-      {{ hint }}
-    </span>
+      <span class="govuk-hint">
+        {{ hint }}
+      </span>
     {%- endif %}
-  </label>
-  {{ errorsFor(field) }}
-  <input class="form-control"
-         id="{{ field.id }}"
-         name="{{ field.id }}"
-         type="text"
-         {% if field.value %}value="{{ field.value }}"{% endif %}>
-</div>
+
+    {{ errorsFor(field) }}
+    <input class="govuk-input"
+           id="{{ field.id }}"
+           name="{{ field.id }}"
+           type="text"
+           {% if field.value %}value="{{ field.value }}"{% endif %}>
+  </div>
 {% endmacro %}
 
 {% macro hiddenInput(field, value) %}

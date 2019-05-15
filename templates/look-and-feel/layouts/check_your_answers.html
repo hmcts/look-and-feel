@@ -15,7 +15,7 @@
   sendApplication: 'Send your application'
 } %}
 
-{% block page_title %}{{ pageContent.title | default(defaultContent.title) }}{% endblock %}
+{% block pageTitle %}{{ pageContent.title | default(defaultContent.title) }}{% endblock %}
 
 {% block breadcrumbs %}
 {{ phaseBanner(phase, feedbackLink) }}

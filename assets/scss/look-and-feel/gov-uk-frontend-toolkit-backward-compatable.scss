@@ -26,3 +26,10 @@
     overflow: visible;
     position: static;
     width: auto; }
+
+@include govuk-media-query($from: tablet) {
+  .site-header nav {
+    float: right;
+    margin: 0 20px 0 0;
+  }
+}
