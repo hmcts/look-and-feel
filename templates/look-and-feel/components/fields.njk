@@ -150,12 +150,12 @@
   {%- endif %}
 
   <div class="govuk-form-group {{ errorClass(field) }} {{ groupClass }}">
-    <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint" id="{{ field.id }}">
+    <fieldset class="govuk-fieldset" id="{{ field.id }}">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl {% if hideQuestion %}visually-hidden{% endif %}">
-          <h2 class="govuk-heading-m">{{ question }}</h1>
+          <h2 class="govuk-heading-m">{{ question }}</h2>
       </legend>
       {% if hint -%}
-        <span id="changed-name-hint" class="govuk-hint">
+        <span id="{{ field.id }}-hint" class="govuk-hint">
           {{ hint }}
         </span>
       {%- endif %}
@@ -338,7 +338,7 @@
         {% endif %}
 
         {{ errorsFor(field) }}
-        <textarea class="govuk-textarea" placeholder="{{ placeholder }}" aria-labelledby="{{ field.id }}-label" class="form-control" id="{{ field.id }}" name="{{ field.id }}" rows="5">{{ field.value | default('') }}</textarea>
+        <textarea class="govuk-textarea" placeholder="{{ placeholder }}" aria-labelledby="{{ field.id }}-label" id="{{ field.id }}" name="{{ field.id }}" rows="5">{{ field.value | default('') }}</textarea>
     </div>
 
 {% endmacro %}
