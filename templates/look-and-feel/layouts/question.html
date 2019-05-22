@@ -12,9 +12,9 @@
 
 {% block two_thirds %}
 
-{{ errorSummary(fields) }}
-
 {{ header(title, size='l', fieldsValidated=fields.validated, fieldsValid=fields.valid) }}
+
+{{ errorSummary(fields) }}
 
 <form
   enctype="{{ enc_type | default('application/x-www-form-urlencoded') }}"
