@@ -5,7 +5,7 @@
 
       {% for progress, item in items %}
       <li class="progress__item{% if (item.complete == true) %} progress__item--complete{% endif %}{% if (item.current == true) %} progress__item--current{% endif %}">
-        <span class="progress__label">{{item.label}}</span>
+        <i class="progress__icon">
         <span class="visually-hidden">
         {% if (item.complete == true) %}
         This is complete
@@ -13,6 +13,8 @@
         This is not complete
         {% endif %}
         </span>
+        </i>
+        <span class="progress__label">{{item.label}}</span>
       </li>
       {% endfor %}
 
