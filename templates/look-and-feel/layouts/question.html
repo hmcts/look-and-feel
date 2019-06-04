@@ -4,19 +4,17 @@
 {% from "look-and-feel/components/errors.njk" import errorSummary %}
 {% from "look-and-feel/components/i18n.njk" import languageSwitch %}
 
-{% block page_title %}{{ title }}{% endblock %}
-
 {% block breadcrumbs %}
 {{ phaseBanner(phase, feedbackLink) }}
-<a class="link-back" href="#" onclick="history.go(-1); return false;">Back</a>
+<a class="govuk-back-link" href="#" onclick="history.go(-1); return false;">Back</a>
 {{ languageSwitch(i18n.currentLanguage, i18n.availableLanguages) }}
 {% endblock %}
 
 {% block two_thirds %}
 
-{{ errorSummary(fields) }}
+{{ header(title, size='l', fieldsValidated=fields.validated, fieldsValid=fields.valid) }}
 
-{{ header(title, size='large', fieldsValidated=fields.validated, fieldsValid=fields.valid) }}
+{{ errorSummary(fields) }}
 
 <form
   enctype="{{ enc_type | default('application/x-www-form-urlencoded') }}"
@@ -36,10 +34,10 @@
   {% endif %}
 
   {% if not continueText  %}
-     {% set continueText = 'Continue' %}     
+     {% set continueText = 'Continue' %}
   {% endif %}
 
-  <input class="button" type="submit" value="{{continueText}}">
+  <input class="govuk-button" type="submit" value="{{continueText}}">
 </form>
 
 {% block after_form -%}
