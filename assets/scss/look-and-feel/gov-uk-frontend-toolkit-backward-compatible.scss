@@ -27,9 +27,25 @@
     position: static;
     width: auto; }
 
-@include govuk-media-query($from: tablet) {
-  .govuk-header nav {
-    float: right;
-    margin: 0 20px 0 0;
+.govuk-header nav {
+  float: right;
+  margin: 0;
+}
+
+.govuk-header__menu-button {
+  display: none !important;
+}
+
+.govuk-header__navigation {
+  display: block !important;
+}
+
+@include govuk-media-query($until: tablet) {
+  .govuk-header__navigation-item {
+    padding: 2px 0 !important;
   }
+}
+
+.govuk-header__navigation-item {
+  border-bottom: none !important;
 }
