@@ -1,6 +1,6 @@
 {% macro answer(question, answer, url, id) %}
 <tr class="govuk-table__row" id="cya-{{ safeId(id, question) }}">
-  <th class="govuk-table__header cya-question" scope="row">{{ question }}</th>
+  <td class="govuk-table__cell cya-question" scope="row">{{ question }}</td>
   <td class="govuk-table__cell">
     {% if caller %}
       {{ caller() }}
