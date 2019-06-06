@@ -96,17 +96,3 @@
     padding-right: 0;
   }
 }
-
-.govuk-check-your-answers-v2 {
-  @include media(desktop) {
-    // recommended for mostly short questions
-    &.cya-questions-short .cya-question {
-      width: 30%;
-    }
-
-    // recommended for mostly long questions
-    &.cya-questions-long .cya-question {
-      width: 50%;
-    }
-  }
-}
