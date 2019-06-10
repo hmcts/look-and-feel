@@ -1,9 +1,37 @@
 .confirmation-container {
-  background: #dee0e2;
-  padding: 25px;
+  background: govuk-colour("grey-3");
   margin-bottom: 30px;
 
   .govuk-form-group {
     margin: 0;
+    padding: 25px 25px 0px 25px;
+  }
+
+  .govuk-checkboxes__label::before {
+    background: govuk-colour("white");
+  }
+
+  .govuk-list.govuk-list--bullet {
+    padding-left: 100px;
+  }
+
+  details {
+    padding-left: 80px;
+  }
+
+  .form-section {
+    margin-bottom: 25px;
+  }
+
+  .govuk-warning-text {
+    font-weight: normal;
+    background: govuk-colour("grey-3");
+    padding: 4px 25px 25px 25px;
+
+    .govuk-warning-text__icon {
+      left: 26px;
+      top: 30%;
+      margin-top: -17px;
+    }
   }
 }

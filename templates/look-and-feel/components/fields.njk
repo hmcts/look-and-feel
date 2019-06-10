@@ -34,7 +34,7 @@
     {%- endif %}
 
     {{ errorsFor(field) }}
-    <input class="govuk-input"
+    <input class="govuk-input govuk-input--width-20"
            id="{{ field.id }}"
            name="{{ field.id }}"
            type="text"
@@ -151,9 +151,7 @@
 
   <div class="govuk-form-group {{ errorClass(field) }} {{ groupClass }}">
     <fieldset class="govuk-fieldset" id="{{ field.id }}">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl {% if hideQuestion %}visually-hidden{% endif %}">
-          <h2 class="govuk-heading-m">{{ question }}</h2>
-      </legend>
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m {% if hideQuestion %}visually-hidden{% endif %}">{{ question }}</legend>
       {% if hint -%}
         <span id="{{ field.id }}-hint" class="govuk-hint">
           {{ hint }}
