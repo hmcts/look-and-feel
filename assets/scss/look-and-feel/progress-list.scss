@@ -7,17 +7,20 @@ $module: "progress";
 .#{$module} {
   overflow: hidden;
   position: relative;
+  @include govuk-responsive-margin(3, "bottom");
 
   &:before {
     background-color: govuk-colour("green");
     content: "";
     height: 6px;
     position: absolute;
-    top: 19px; left: 0;
+    top: 13px; left: 0;
     width: 100%;
   }
 
   &__list {
+    margin: 0;
+    padding: 0;
     font-size: .1px; // hide whitespace between elements
     position: relative;
     text-align: justify;
