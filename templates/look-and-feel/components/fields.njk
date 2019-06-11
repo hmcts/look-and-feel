@@ -8,10 +8,10 @@
   Renders a simple text box input field.
 #}
 
-{% macro textarea(field, label, hint="", hideLabel=false, placeholder="") %}
+{% macro textarea(field, label, hint="", hideLabel=false, placeholder="", bold=false) %}
 
     <div class="govuk-form-group {{ errorClass(field) }}">
-        <label id="{{ field.id }}-label" class="govuk-label {{ 'visually-hidden' if hideLabel }}" for="{{ field.id }}">{{ label | safe }}</label>
+        <label id="{{ field.id }}-label" class="govuk-label {{ 'visually-hidden' if hideLabel }} {{ 'govuk-!-font-weight-bold' if bold }}" for="{{ field.id }}">{{ label | safe }}</label>
 
         {% if hint %}
             <span class="govuk-hint">{{ hint | safe }}</span>
@@ -325,10 +325,10 @@
 
   Renders a textarea field.
 #}
-{% macro textarea(field, label, hint="", hideLabel=false, placeholder="") %}
+{% macro textarea(field, label, hint="", hideLabel=false, placeholder="", bold=false) %}
 
     <div class="govuk-form-group {{ errorClass(field) }}">
-        <label id="{{ field.id }}-label" class="govuk-label {{ 'visually-hidden' if hideLabel }}" for="{{ field.id }}">{{ label | safe }}</label>
+        <label id="{{ field.id }}-label" class="govuk-label {{ 'visually-hidden' if hideLabel }} {{ 'govuk-!-font-weight-bold' if bold }}" for="{{ field.id }}">{{ label | safe }}</label>
 
         {% if hint %}
             <span class="govuk-hint">{{ hint | safe }}</span>
