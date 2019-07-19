@@ -1,7 +1,7 @@
 {% macro answer(question, answer, url, id) %}
 <tr class="govuk-table__row" id="cya-{{ safeId(id, question) }}">
   <td class="govuk-table__cell govuk-!-width-one-third" scope="row">{{ question }}</td>
-  <td class="govuk-table__cell">
+  <td class="govuk-table__cell govuk-!-width-two-thirds">
     {% if caller %}
       {{ caller() }}
     {% else %}
