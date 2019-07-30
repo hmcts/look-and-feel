@@ -14,7 +14,7 @@
             {% endfor %}
           </ul>
         {% else %}
-          {{ answer }}
+          {{ answer | safe }}
         {% endif%}
       {% endif %}
     </dd>
