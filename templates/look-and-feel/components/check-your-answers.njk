@@ -8,13 +8,13 @@
         {{ caller() }}
       {% else %}
         {% if isArray(answer) %}
-          <ul>
+          <ul class="govuk-list">
             {% for line in answer %}
-              <li>{{ line }}</li>
+              <li>{{ line | safe }}</li>
             {% endfor %}
           </ul>
         {% else %}
-          {{ answer }}
+          {{ answer | safe }}
         {% endif%}
       {% endif %}
     </dd>
