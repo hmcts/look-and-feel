@@ -29,29 +29,31 @@
 
 {{ header(pageContent.title | default(defaultContent.title)) }}
 
-  {% for section in _sections %}
+    <table class="govuk-table">
+      <caption class="govuk-table__caption">
+        <span class="govuk-visually-hidden">This table has a list of your questions and answers. The first column is the question. The second column is your answer and the third column is a link to change your answer of that particular question.</span> 
+      </caption>
+      <tbody class="govuk-table__body">
+        
+        {% for section in _sections %}
 
-    {% if section.atLeast1Completed %}
-      {% if section.title and _sections|length > 1 %}
-        {{ header(section.title, size='m') }}
-      {% endif %}
-
-      <dl class="govuk-summary-list">
-
-        {% for part in section.completedAnswers %}
-          {% if not part.hide %}
-            {% if part.html %}
-              {{ part.html | safe }}
-            {% else %}
-              {{ answer(part.question, part.answer, part.url, part.id) }}
+          {% if section.atLeast1Completed %}
+            {% if section.title and _sections|length > 1 %}
+              {{ header(section.title, size='m') }}
             {% endif %}
+              {% for part in section.completedAnswers %}
+                {% if not part.hide %}
+                  {% if part.html %}
+                    {{ part.html | safe }}
+                  {% else %}
+                    {{ answer(part.question, part.answer, part.url, part.id) }}
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
           {% endif %}
         {% endfor %}
-
-      </dl>
-
-    {% endif %}
-  {% endfor %}
+      </tbody>
+    </table>
 
   {% if incomplete %}
     {% block continue_application %}

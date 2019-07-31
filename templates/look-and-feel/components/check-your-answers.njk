@@ -1,27 +1,25 @@
 {% macro answer(question, answer, url, id) %}
-  <div class="govuk-summary-list__row" id="cya-{{ safeId(id, question) }}">
-    <dt class="govuk-summary-list__value">
-      {{ question }}
-    </dt>
-    <dd class="govuk-summary-list__value">
-      {% if caller %}
-        {{ caller() }}
+<tr class="govuk-table__row" id="cya-{{ safeId(id, question) }}">
+  <td class="govuk-table__cell govuk-!-width-one-third" scope="row">{{ question }}</td>
+  <td class="govuk-table__cell govuk-!-width-two-thirds">
+    {% if caller %}
+      {{ caller() }}
+    {% else %}
+      {% if isArray(answer) %}
+        <ul class="govuk-list">
+          {% for line in answer %}
+            <li>{{ line | safe }}</li>
+          {% endfor %}
+        </ul>
       {% else %}
-        {% if isArray(answer) %}
-          <ul class="govuk-list">
-            {% for line in answer %}
-              <li>{{ line | safe }}</li>
-            {% endfor %}
-          </ul>
-        {% else %}
-          {{ answer | safe }}
-        {% endif%}
-      {% endif %}
-    </dd>
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="{{ url }}">
-        Change<span class="govuk-visually-hidden"> {{ question }}</span>
-      </a>
-    </dd>
-  </div>
+        {{ answer | safe }}
+      {% endif%}
+    {% endif %}
+  </td>
+  <td class="govuk-table__cell">
+    <a class="govuk-link" href="{{ url }}">
+      Change<span class="govuk-visually-hidden"> {{ question }}</span>
+    </a>
+  </td>
+</tr>
 {% endmacro %}
