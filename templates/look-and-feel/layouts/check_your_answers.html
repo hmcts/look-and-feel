@@ -31,15 +31,15 @@
 
     <table class="govuk-table">
       <caption class="govuk-table__caption">
-        <span class="govuk-visually-hidden">This table has a list of your questions and answers. The first column is the question. The second column is your answer and the third column is a link to change your answer of that particular question.</span> 
+        <span class="govuk-visually-hidden">This table has a list of your questions and answers. The first column is the question. The second column is your answer and the third column is a link to change your answer of that particular question.</span>
       </caption>
       <tbody class="govuk-table__body">
-        
+
         {% for section in _sections %}
 
           {% if section.atLeast1Completed %}
             {% if section.title and _sections|length > 1 %}
-              {{ header(section.title, size='m') }}
+              <h2 class="govuk-heading-m">{{ section.title | safe }}</h2>
             {% endif %}
               {% for part in section.completedAnswers %}
                 {% if not part.hide %}
@@ -57,7 +57,7 @@
 
   {% if incomplete %}
     {% block continue_application %}
-      {{ header(pageContent.incompleteHeader | default(defaultContent.incompleteHeader), size='m') }}
+      <h2 class="govuk-heading-m">{{ pageContent.incompleteHeader or default(defaultContent.incompleteHeader) }}</h2>
       <p class="govuk-body">{{ pageContent.incompleteMessage | default(defaultContent.incompleteMessage) }}</p>
       <a href="{{ continueUrl }}" class="govuk-button">{{ pageContent.continue | default(defaultContent.continue) }}</a>
     {% endblock %}
@@ -65,7 +65,7 @@
 
   {% if complete %}
     {% block statement_of_truth_content %}
-      {{ header('Now send your application', size='m') }}
+      <h2 class="govuk-heading-m">Now send your application</h2>
       <p class="govuk-body">{{ pageContent.statementOfTruth | default(defaultContent.statementOfTruth) }}</p>
     {% endblock %}
     <form
