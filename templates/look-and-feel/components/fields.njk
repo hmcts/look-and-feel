@@ -80,6 +80,7 @@
   {% set option_value = option.value or option.label|lower %}
   {% set option_disabled = option.disabled or false %}
   {% set option_description = option.description or false %}
+  {% set option_hint = option.hint or false %}
 
   {% set typeStyle = "govuk-radios" %}
   {% if type == 'checkbox' -%}
@@ -110,6 +111,11 @@
     {% if option.label -%}
       <label for="{{ field.id }}-{{ option_value }}" class="govuk-label {{ typeStyle }}__label">
         {{ option.label }}
+        {% if option_hint %}
+            <span class="govuk-hint">
+              {{ option.hint }}
+            </span>
+        {% endif %}
         {% if option_description %}
             <span class="choice-description">
               {{ option.description }}
