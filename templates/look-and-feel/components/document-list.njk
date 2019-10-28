@@ -12,7 +12,7 @@
       <ul class="govuk-list govuk-body govuk-!-font-size-16">
         {%- for document in documents -%}
           <li>
-            <a class="govuk-link" href="{{ document.uri }}" aria-label="This link will download the file {{ content[document.type] }} {{ document.fileType | upper }}" target="_blank">
+            <a class="govuk-link" href="{{ document.uri }}" aria-label="This link will download the file {{ content[document.type] }} {{ document.fileType | upper }}">
               <span class="govuk-download__icon" aria-hidden="true"><span class="visually-hidden">Download</span></span>{{ content[document.type] }} ({{ document.fileType | upper }})
             </a>
           </li>
