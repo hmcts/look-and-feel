@@ -4,7 +4,6 @@ const browserSupport = require('./webpack/rules/browserSupport');
 const govukFrontend = require('./sources/govukFrontend');
 const lookAndFeel = require('./sources/lookAndFeel');
 const path = require('path');
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 const isDefined = obj => typeof obj !== 'undefined';
 const defaultIfUndefined = (obj, _default) => {

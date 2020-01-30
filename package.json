@@ -1,43 +1,8 @@
 {
   "name": "@hmcts/look-and-feel",
-  "description": "One question per page apps made easy",
-  "version": "4.0.5",
+  "description": "One Question Per Page apps made easy",
+  "version": "4.1.0",
   "main": "./src/main.js",
-  "dependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
-    "check-types": "^7.3.0",
-    "colors": "^1.1.2",
-    "config": "^1.26.1",
-    "copy-webpack-plugin": "^4.0.1",
-    "css-loader": "^3.0.0",
-    "deepmerge": "2.0.1",
-    "diff-so-fancy": "^1.1.1",
-    "exports-loader": "^0.7.0",
-    "express": "^4.15.3",
-    "express-nunjucks": "^2.2.3",
-    "extract-text-webpack-plugin": "^3.0.0",
-    "govuk-frontend": "^2.6.0",
-    "hard-source-webpack-plugin": "^0.13.1",
-    "imports-loader": "github:webpack-contrib/imports-loader#abea1c24f84b1343f9a277e33c8d89c83c013274",
-    "jquery": "^3.2.1",
-    "js-yaml": "^3.9.1",
-    "node-sass": "^4.12.0",
-    "nunjucks": "^3.1.7",
-    "sass-loader": "^6.0.6",
-    "serve-static": "^1.13.2",
-    "style-loader": "^0.20.1",
-    "webpack": "^3.4.1",
-    "webpack-dev-middleware": "^2.0.4"
-  },
-  "devDependencies": {
-    "@hmcts/eslint-config": "^1.0.4",
-    "chai": "^4.1.1",
-    "chai-fs": "^2.0.0",
-    "eslint": "^4.4.1",
-    "mocha": "^5.0.0"
-  },
   "engines": {
     "node": ">=6.0"
   },
@@ -48,5 +13,40 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.7.0",
+    "check-types": "^7.3.0",
+    "colors": "^1.4.0",
+    "config": "^1.26.1",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "deepmerge": "2.0.1",
+    "diff-so-fancy": "^1.2.7",
+    "exports-loader": "^0.7.0",
+    "express": "^4.17.1",
+    "express-nunjucks": "^2.2.3",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "govuk-frontend": "^2.6.0",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "imports-loader": "github:webpack-contrib/imports-loader#abea1c24f84b1343f9a277e33c8d89c83c013274",
+    "jquery": "^3.4.1",
+    "js-yaml": "^3.13.1",
+    "node-sass": "^4.13.1",
+    "nunjucks": "^3.2.0",
+    "sass-loader": "^6.0.6",
+    "serve-static": "^1.14.1",
+    "style-loader": "^0.20.1",
+    "webpack": "^4.41.5",
+    "webpack-dev-middleware": "^2.0.4"
+  },
+  "devDependencies": {
+    "@hmcts/eslint-config": "^1.4.0",
+    "chai": "^4.2.0",
+    "chai-fs": "^2.0.0",
+    "eslint": "^4.4.1",
+    "mocha": "^5.0.0"
   }
 }
