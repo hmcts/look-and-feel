@@ -12,31 +12,32 @@
   incompleteMessage: 'There are still some questions to answer.',
   continue: 'Continue your application',
   statementOfTruth: 'By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.',
-  sendApplication: 'Send your application'
+  sendApplication: 'Send your application',
+  cyaTableCaption: 'This table has a list of your questions and answers. The first column is the question. The second column is your answer and the third column is a link to change your answer of that particular question.',
+  nowSendApplication: 'Now send your application'
 } %}
 
 {% block pageTitle %}{{ pageContent.title | default(defaultContent.title) }}{% endblock %}
 
 {% block breadcrumbs %}
-{{ phaseBanner(phase, feedbackLink) }}
-<a class="govuk-back-link" href="#" onclick="history.go(-1); return false;">Back</a>
-{{ languageSwitch(i18n.currentLanguage, i18n.availableLanguages) }}
+  {{ phaseBanner(phase, feedbackLink) }}
+  <a class="govuk-back-link" href="#" onclick="history.go(-1); return false;">Back</a>
+  {{ languageSwitch(i18n.currentLanguage, i18n.availableLanguages) }}
 {% endblock %}
 
 {% block two_thirds %}
 
-{{ errorSummary(fields) }}
+{{ errorSummary(fields, content.thereWasAProblem) }}
 
 {{ header(pageContent.title | default(defaultContent.title)) }}
 
     <table class="govuk-table">
       <caption class="govuk-table__caption">
-        <span class="govuk-visually-hidden">This table has a list of your questions and answers. The first column is the question. The second column is your answer and the third column is a link to change your answer of that particular question.</span>
+        <span class="govuk-visually-hidden">{{ content.cyaTableCaption | default(defaultContent.cyaTableCaption) }}</span>
       </caption>
       <tbody class="govuk-table__body">
 
         {% for section in _sections %}
-
           {% if section.atLeast1Completed %}
             {% if section.title and _sections|length > 1 %}
               <h2 class="govuk-heading-m">{{ section.title | safe }}</h2>
@@ -65,7 +66,7 @@
 
   {% if complete %}
     {% block statement_of_truth_content %}
-      <h2 class="govuk-heading-m">Now send your application</h2>
+      <h2 class="govuk-heading-m">{{ content.nowSendApplication | default(defaultContent.nowSendApplication) }}</h2>
       <p class="govuk-body">{{ pageContent.statementOfTruth | default(defaultContent.statementOfTruth) }}</p>
     {% endblock %}
     <form
