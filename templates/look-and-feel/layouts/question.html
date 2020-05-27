@@ -12,7 +12,7 @@
 
 {% block two_thirds %}
 
-{{ errorSummary(fields) }}
+{{ errorSummary(fields, content.thereWasAProblem) }}
 
 {{ header(title, size='l', fieldsValidated=fields.validated, fieldsValid=fields.valid) }}
 
