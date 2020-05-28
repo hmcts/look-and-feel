@@ -1,4 +1,4 @@
-{% macro answer(question, answer, url, id) %}
+{% macro answer(question, answer, url, id, content) %}
 <tr class="govuk-table__row" id="cya-{{ safeId(id, question) }}">
   <td class="govuk-table__cell govuk-!-width-one-third" scope="row">{{ question }}</td>
   <td class="govuk-table__cell govuk-!-width-two-thirds">
@@ -18,7 +18,7 @@
   </td>
   <td class="govuk-table__cell">
     <a class="govuk-link" href="{{ url }}">
-      Change<span class="govuk-visually-hidden"> {{ question }}</span>
+      {{ content.change }}<span class="govuk-visually-hidden"> {{ question }}</span>
     </a>
   </td>
 </tr>
