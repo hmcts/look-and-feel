@@ -1,9 +1,9 @@
-{% extends "template.njk" %}
+{% extends "govuk/template.njk" %}
 {% set htmlClasses = '' %}
 {% set bodyClasses = 'app-body-class' %}
 {% set mainClasses = 'app-main-class' %}
 {% set assetPath = '/assets' %}
-{% from "header/macro.njk" import govukHeader %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
 
 {% set defaultContent = {
   title: 'GOV.UK'
