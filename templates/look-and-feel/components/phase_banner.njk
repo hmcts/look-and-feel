@@ -12,7 +12,7 @@
   {% endcall %}
   ```
 #}
-{% from "phase-banner/macro.njk" import govukPhaseBanner %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 
 {% macro phaseBanner(phase='ALPHA', feedbackLink='#') %}
 {% if phase != 'LIVE' %}
