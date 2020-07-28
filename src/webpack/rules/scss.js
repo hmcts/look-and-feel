@@ -1,8 +1,8 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const govukFrontend = require('../../sources/govukFrontend');
 const lookAndFeel = require('../../sources/lookAndFeel');
 
-const extractSass = new ExtractTextPlugin({ filename: '[name].css' });
+const extractSass = new MiniCssExtractPlugin({ filename: '[name].css' });
 
 const sass = assetPath => {
   const sassLoader = {
@@ -19,7 +19,7 @@ const sass = assetPath => {
   };
   const scssRule = {
     test: /\.scss$/,
-    use: extractSass.extract(['css-loader', sassLoader])
+    use: [sassLoader, 'css-loader']
   };
 
   return { rules: [scssRule], plugins: [extractSass] };
