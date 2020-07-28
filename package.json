@@ -1,7 +1,7 @@
 {
   "name": "@hmcts/look-and-feel",
   "description": "One Question Per Page apps made easy",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "main": "./src/main.js",
   "engines": {
     "node": ">=6.0"
@@ -28,12 +28,12 @@
     "exports-loader": "^0.7.0",
     "express": "^4.17.1",
     "express-nunjucks": "^2.2.3",
-    "extract-text-webpack-plugin": "^3.0.2",
     "govuk-frontend": "^3.6.0",
     "hard-source-webpack-plugin": "^0.13.1",
     "imports-loader": "github:webpack-contrib/imports-loader#abea1c24f84b1343f9a277e33c8d89c83c013274",
     "jquery": "^3.4.1",
     "js-yaml": "^3.13.1",
+    "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
     "nunjucks": "^3.2.0",
     "sass-loader": "^6.0.6",
