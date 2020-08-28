@@ -70,6 +70,7 @@
     options.value        - (default = label.lowercase()) The value to be sent on post for this option
     options.disabled     - (default = false) If the option should be initially disabled
     options.target       - (default = '') Id of the panel to expand if selected
+    option.defaultChecked- (default = false) Set if the option is checked by default
     type                 - (default = 'radio') The type of the input, either radio or checkbox
 
   Renders multiple option radio buttons
@@ -81,6 +82,7 @@
   {% set option_disabled = option.disabled or false %}
   {% set option_description = option.description or false %}
   {% set option_hint = option.hint or false %}
+  {% set option_defaultChecked = option.defaultChecked or false %}
 
   {% set typeStyle = "govuk-radios" %}
   {% if type == 'checkbox' -%}
@@ -94,13 +96,13 @@
     <input id="{{ field.id }}-{{ option_value }}"
            type="{{ type }}"
            name="{{ field.id }}"
-           {% if isArray(field.value) and option_value in field.value %}
+           {% if isArray(field.value) and (option_value in field.value or option_defaultChecked === true) %}
            checked="checked"
            {% endif %}
-           {% if isBoolean(field.value) and field.value == parseBool(option_value) %}
+           {% if isBoolean(field.value) and (field.value == parseBool(option_value) or option_defaultChecked === true) %}
            checked="checked"
            {% endif %}
-           {% if field.value == option_value %}
+           {% if field.value == option_value or option_defaultChecked === true %}
            checked="checked"
            {% endif %}
            {% if option_disabled %}
