@@ -22,7 +22,7 @@
     "colors": "^1.4.0",
     "config": "^1.26.1",
     "copy-webpack-plugin": "^5.1.1",
-    "css-loader": "^3.4.2",
+    "css-loader": "^3.6.0",
     "deepmerge": "2.0.1",
     "diff-so-fancy": "^1.2.7",
     "exports-loader": "^0.7.0",
