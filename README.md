@@ -40,3 +40,7 @@ Run Eslint:
 Check for Vulnerabilities:
 
     yarn audit
+
+## Publishing to NPM
+
+To publish this artefact to NPM, just create a release in GitHub. GitHub Actions will publish a version in NPM matching the version the packages.json file.
