@@ -28,7 +28,7 @@
     "exports-loader": "^0.7.0",
     "express": "^4.17.1",
     "express-nunjucks": "^2.2.3",
-    "govuk-frontend": "^3.6.0",
+    "govuk-frontend": "^3.10.2",
     "hard-source-webpack-plugin": "^0.13.1",
     "imports-loader": "github:webpack-contrib/imports-loader#abea1c24f84b1343f9a277e33c8d89c83c013274",
     "jquery": "^3.4.1",
