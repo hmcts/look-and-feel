@@ -1,7 +1,7 @@
 {
   "name": "@hmcts/look-and-feel",
   "description": "One Question Per Page apps made easy",
-  "version": "5.0.6",
+  "version": "5.0.7",
   "main": "./src/main.js",
   "engines": {
     "node": ">=6.0"
@@ -15,14 +15,14 @@
     "access": "public"
   },
   "dependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.7.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^9.1.2",
     "check-types": "^7.3.0",
     "colors": "^1.4.0",
     "config": "^1.26.1",
-    "copy-webpack-plugin": "^5.1.1",
-    "css-loader": "^3.4.2",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.3",
     "deepmerge": "2.0.1",
     "diff-so-fancy": "^1.2.7",
     "exports-loader": "^0.7.0",
@@ -33,20 +33,35 @@
     "imports-loader": "github:webpack-contrib/imports-loader#abea1c24f84b1343f9a277e33c8d89c83c013274",
     "jquery": "^3.4.1",
     "js-yaml": "^3.13.1",
-    "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^4.13.1",
-    "nunjucks": "^3.2.0",
-    "sass-loader": "^6.0.6",
+    "mini-css-extract-plugin": "^2.7.5",
+    "node-sass": "^8.0.0",
+    "nunjucks": "^3.2.3",
+    "sass": "^1.60.0",
+    "sass-loader": "^13.2.1",
     "serve-static": "^1.14.1",
     "style-loader": "^0.23.1",
-    "webpack": "^4.41.5",
-    "webpack-dev-middleware": "^2.0.4"
+    "webpack": "^5.76.3",
+    "webpack-dev-middleware": "^5.3.3"
+  },
+  "resolutions": {
+    "json5": ">=1.0.2",
+    "glob-parent": ">=5.1.2",
+    "loader-utils": "^1.4.2",
+    "decode-uri-component": "^0.2.2",
+    "qs": "^6.5.3",
+    "pathval": "^1.1.1",
+    "emojis-list": "^3.0.0",
+    "path-parse": "^1.0.7",
+    "postcss": "^7.0.36",
+    "hosted-git-info": "^2.8.9",
+    "lodash": "^4.17.21",
+    "ssri": "^6.0.2"
   },
   "devDependencies": {
     "@hmcts/eslint-config": "^1.4.0",
     "chai": "^4.2.0",
     "chai-fs": "^2.0.0",
-    "eslint": "^4.4.1",
-    "mocha": "^5.0.0"
+    "eslint": "^6.8.0",
+    "mocha": "^10.2.0"
   }
 }
