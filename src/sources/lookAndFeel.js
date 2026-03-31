@@ -7,12 +7,18 @@ const oldTemplates = path.resolve(root, './templates/look-and-feel');
 const sass = path.resolve(root, './assets/scss');
 const images = path.resolve(root, './assets/images');
 
-const copyLookAndFeelAssets = new CopyWebpackPlugin(
-  [{ from: images, to: 'images' }]
-);
+const copyLookAndFeelAssets = new CopyWebpackPlugin({
+  patterns: [
+    {
+      from: images,
+      to: 'images',
+      noErrorOnMissing: true
+    }
+  ]
+});
 
 module.exports = {
   paths: { root, templates, sass },
-  plugins: [ copyLookAndFeelAssets ],
+  plugins: [copyLookAndFeelAssets],
   backwardsCompatibility: { templates: oldTemplates }
 };

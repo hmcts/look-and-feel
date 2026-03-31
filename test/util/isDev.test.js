@@ -2,7 +2,6 @@ const { expect } = require('./chai');
 const isDev = require('./../../src/util/isDev');
 
 const withNodeEnv = (value, block) => {
-  /* eslint-disable no-process-env */
   const oldNodeEnv = process.env.NODE_ENV;
   process.env.NODE_ENV = value;
   try {
