@@ -8,7 +8,8 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "test": "NODE_PATH=. NODE_ENV=testing mocha 'test/**/*.test.js'"
+    "test": "NODE_PATH=. NODE_ENV=testing mocha 'test/**/*.test.js'",
+    "audit:check": "chmod +x bin/audit-check.sh && ./bin/audit-check.sh"
   },
   "license": "MIT",
   "publishConfig": {
