@@ -3,6 +3,10 @@
   "description": "One Question Per Page apps made easy",
   "version": "6.0.0",
   "main": "./src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hmcts/look-and-feel.git"
+  },
   "engines": {
     "node": ">=6.0"
   },
