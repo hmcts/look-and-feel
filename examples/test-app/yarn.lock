@@ -1114,8 +1114,8 @@ __metadata:
   linkType: soft
 
 "@hmcts/look-and-feel@file:./../../::locator=%40hmcts%2Flook-and-feel-test-app%40workspace%3A.":
-  version: 6.0.1
-  resolution: "@hmcts/look-and-feel@file:./../../#./../../::hash=3320a1&locator=%40hmcts%2Flook-and-feel-test-app%40workspace%3A."
+  version: 6.1.0
+  resolution: "@hmcts/look-and-feel@file:./../../#./../../::hash=1a9a1a&locator=%40hmcts%2Flook-and-feel-test-app%40workspace%3A."
   dependencies:
     "@babel/core": "npm:^7.29.0"
     "@babel/preset-env": "npm:7.29.2"
@@ -1139,7 +1139,7 @@ __metadata:
     style-loader: "npm:^4.0.0"
     webpack: "npm:5.104.1"
     webpack-dev-middleware: "npm:^8.0.3"
-  checksum: 10c0/180bdcc0ea126efe979c1e7aa97230c50c9cf60c6a8aa8dff29206ebc0299862f7c4539159a0639de0b79f2c5d99404497c4695a487cb40de5d9d978f484ee6b
+  checksum: 10c0/48dc5c16d9cdc0b91073f2036041620d42144acefefb1c70433f6263572839543301b244c283ffbde48c58ad2b5663e3a2df471d3ef07487905e4c23f3625bf1
   languageName: node
   linkType: hard
 
