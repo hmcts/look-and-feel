@@ -1,14 +1,14 @@
 {
   "name": "@hmcts/look-and-feel",
   "description": "One Question Per Page apps made easy",
-  "version": "6.0.1",
+  "version": "6.1.0",
   "main": "./src/main.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/hmcts/look-and-feel.git"
   },
   "engines": {
-    "node": ">=6.0"
+    "node": "20.20.2"
   },
   "scripts": {
     "lint": "eslint .",
@@ -20,9 +20,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@babel/core": "7.29.0",
-    "@babel/preset-env": "7.29.0",
-    "babel-loader": "^7.1.2",
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "7.29.2",
+    "babel-loader": "^10.1.1",
     "check-types": "^7.3.0",
     "colors": "^1.4.0",
     "config": "^1.26.1",
@@ -30,21 +30,18 @@
     "css-loader": "7.1.4",
     "deepmerge": "2.0.1",
     "diff-so-fancy": "^1.2.7",
-    "exports-loader": "^0.7.0",
     "express": "5.2.1",
     "express-nunjucks": "^2.2.3",
     "govuk-frontend": "3.15.0",
-    "hard-source-webpack-plugin": "^0.13.1",
-    "imports-loader": "github:webpack-contrib/imports-loader#abea1c24f84b1343f9a277e33c8d89c83c013274",
     "jquery": "^3.4.1",
     "js-yaml": "4.1.1",
     "mini-css-extract-plugin": "^2.10.0",
     "nunjucks": "3.2.4",
     "sass-loader": "^16.0.7",
     "serve-static": "2.1.0",
-    "style-loader": "^0.23.1",
+    "style-loader": "^4.0.0",
     "webpack": "5.104.1",
-    "webpack-dev-middleware": "7.1.0"
+    "webpack-dev-middleware": "^8.0.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",

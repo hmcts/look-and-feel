@@ -1,4 +1,4 @@
 
-const isDev = () => process.env.NODE_ENV === 'development';
+const isDev = () => process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'aat';
 
 module.exports = isDev;

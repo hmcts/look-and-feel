@@ -7,7 +7,11 @@ const setupDevMiddleware = (app, settings) => {
 
   const defaultSettings = {
     publicPath: '/assets/',
-    logLevel: 'warn'
+    stats: {
+      colors: true,
+      errors: true,
+      warnings: true
+    }
   };
 
   app.use(webpackDev(_webpack, Object.assign(defaultSettings, settings)));
